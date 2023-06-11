@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <!-- Bootstrap file -->
+  <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Poppins Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  
+  <!-- Montserrat font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+            .logo img{
+      height: 55px;
+    }
+    .navbar{
+      box-shadow: 0px -16px 13px 10px black;
+    }
+    
+    @media (max-width:766px){
+        .logo img{
+          height: 45px;
+        }
+      }
+    * {
+      font-family: 'Poppins', sans-serif;
+      /* font-family: 'Arimo', sans-serif; */
+    }
+
+    .left-form {
+      background: #034c7f;
+      color: white;
+      padding: 2rem !important;
+    }
+
+    .right-form {
+      background: #f35053;
+      color: white;
+      padding: 2rem !important;
+    }
+
+    .form-control {
+      background: transparent !important;
+      border: 0 !important;
+      border-bottom: 1px solid #ccc !important;
+    }
+
+    #form-submit {
+      background: #f35053;
+      color: white;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    h2 {
+      /* font-family: 'Arimo', sans-serif !important; */
+      font-weight: bold;
+    }
+
+    /* ----Code for changing color of placeholder------ */
+    ::-webkit-input-placeholder {
+      /* WebKit, Blink, Edge */
+      color: #c6c6c6 !important;
+    }
+
+    :-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      color: #c6c6c6 !important;
+      opacity: 1;
+    }
+
+    ::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      color: #c6c6c6 !important;
+      opacity: 1;
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #c6c6c6 !important;
+    }
+
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: #c6c6c6 !important;
+    }
+
+    ::placeholder {
+      /* Most modern browsers support this now. */
+      color: #c6c6c6 !important;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 0;
+    }
+
+    label {
+      font-size: 1.5rem;
+    }
+    /* ------Code for changing input field colors------ */
+    input:focus {
+      background: transparent !important;
+    }
+    input, textarea{
+      color: white !important;
+    }
+    /* Contact us heading */
+    .contact-us-head{
+      color: white;
+      font-weight: bold;
+      background: #034c7f;
+      margin: 1rem 0;
+    }
+    .section-title{
+      border-left: 10px solid #f35053;
+      padding-left: 5px;
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NavBar Code Starts -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
+      <div class="container-fluid">
+        <div class="logo">
+          <img src="../IMG/FETRONIX.jpg" alt="logo" />
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav px-2 me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.php">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.php">Contact Us</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- NavBar Code Ends -->
+
+  <!-- Contact Us Section -->
+  <section class="Material-contact-section section-padding section-dark" style="margin: 7rem 0 5rem 0 !important;">
+          <div class="container">
+              <div class="row">
+                  <!-- Section Titile -->
+                  <div class="col-md-12 contact-us-head">
+                      <h1 class="section-title my-4">Contact Us</h1>
+                  </div>
+              </div>
+              <div class="row">
+                  <!-- contact form -->
+                  <div class="col-md-6 left-form">
+                      <form class="shake" role="form" method="post" id="contactForm" name="contact-form" data-toggle="validator">
+                          <!-- Name -->
+                          <div class="form-group">
+                              <label class="control-label" for="name">
+                                <i class="bi bi-person-circle"></i>
+                              </label>
+                              <input pattern="[A-Za-z\s]+" placeholder="Enter your name" class="form-control" id="name" type="text" name="name" required data-error="Please enter your name">
+                              <div class="help-block with-errors"></div>
+                            </div>
+                            <!-- email -->
+                            <div class="form-group label-floating">
+                                <label class="control-label" for="email">
+                                    <i class="bi bi-envelope-fill"></i>
+                                </label>
+                                <input class="form-control" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" id="email" type="email" name="email" required placeholder="Please enter your Email">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <!-- Subject -->
+                            <div class="form-group label-floating">
+                                <label class="control-label" for="msg_number">
+                                    <i class="bi bi-telephone-fill"></i>
+                                </label>
+                                <input class="form-control" pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$" id="msg_number" type="number" name="number" required placeholder="Please enter your phone number">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <!-- Message -->
+                            <div class="form-group label-floating">
+                                <label for="message" class="control-label">
+                                    <i class="bi bi-pencil-square"></i>
+                                </label>
+                                <textarea class="form-control" rows="3" id="message" name="message" required placeholder="Write your message"></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <!-- Form Submit -->
+                            <div class="form-submit mt-5">
+                                <button class="btn btn-common" type="submit" id="form-submit"><i class="material-icons mdi mdi-message-outline"></i> Send Message</button>
+                                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Section Titile -->
+                    <div class="col-md-6 mt-3 right-form" data-wow-delay=".2s">
+                      <h2 class="fw-bold mb-4">Drop in our office</h2>
+                      <p><i class="bi bi-house-door-fill"></i> <b>Address:</b> Lane No.2, Gali No.7, Plot No.179, Fetronix,Khadipur Industrail Area, Gurugram, Haryana, 12201</p>
+                      <p>
+                        <i class="bi bi-envelope-fill"></i>
+                         <b>Email:</b> corporate@fetronix.com, sales@fetronix.com
+                      </p>
+                      <p><i class="bi bi-telephone-fill"></i> <b>Phone 1:</b> + 91 9858078767</p>
+                      <p><i class="bi bi-telephone-fill"></i> <b>Phone 2:</b> + 91 8770834195</p>
+
+
+                      <p><i class="bi bi-chat-dots-fill"></i> <b>Social Media: </b></p>
+                      <div class="d-flex justify-content-around align-items-center">
+                      <!-- Facebook -->
+                      <a
+                       class="m-2"
+                       style="font-size: 2rem; color: inherit;"
+                       href="https://www.facebook.com/fetronix"><i class="bi bi-facebook"></i
+                      ></a>
+                      
+                      <!-- Instagram -->
+                      <a
+                      class="m-2"
+                       style="font-size: 2rem; color: inherit;"
+                       href="https://instagram.com/fetronixautomation?igshid=NTc4MTIwNjQ2YQ=="><i class="bi bi-instagram"></i
+                      ></a>
+                      <!-- Linkedin -->
+                      <a
+                      class="m-2"
+                       style="font-size: 2rem; color: inherit;"
+                       href="https://in.linkedin.com/in/fetronix-india-24b8b6274"><i class="bi bi-linkedin"></i
+                      ></a>
+                      
+                      <!-- Instagram -->
+                      <a
+                      class="m-2"
+                       style="font-size: 2rem; color: inherit;"
+                       href="https://www.youtube.com/@fetronix"><i class="bi bi-youtube"></i>
+                      </a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+  <footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Links  -->
+  <section class="pt-2" style="box-shadow: 0px 16px 14px 7px black;">
+    <div class="container text-left text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Site Links
+          </h6>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Home</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">About</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Products</a>
+          </p>
+          <p>
+             <i class="bi bi-caret-right-fill me-1"></i> <a href="#!" class="text-reset">Gallery</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Services</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Contact Us</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Blogs</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Products
+          </h6>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Transmission and assembly conveyors</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Batch ovens and converyor oven</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Fluidized bed incinerator</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Paint booth</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Liquid coating/powder coating plant</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">SPM(Special purpose machines)</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Automation solution</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Chemical/bio fuel plant setup</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Washing line and PT line</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Paint and powder coating booth</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="bi bi-house-door-fill"></i> LANE NO 2, GALI NO 7,PLOT NO 179, FETRONIX,KHADIPUR INDUSTRIAL AREA, GURUGRAM, HARYANA, 122001</p>
+          <p>
+            <i class="bi bi-envelope-fill"></i>
+            corporate@fetronix.com, sales@fetronix.com
+          </p>
+          <p><i class="bi bi-telephone-fill"></i> + 91 9858078767</p>
+          <p><i class="bi bi-telephone-fill"></i> + 91 8770834195</p>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <h6 class="text-uppercase fw-bold mb-4">Connect With Us</h6>
+      <!-- Facebook -->
+      <a
+       class="m-2"
+       style="font-size: 1.3rem; color: inherit;"
+       href="https://www.facebook.com/fetronix"><i class="bi bi-facebook"></i
+      ></a>
+      
+      <!-- Instagram -->
+      <a
+      class="m-2"
+       style="font-size: 1.3rem; color: inherit;"
+       href="https://instagram.com/fetronixautomation?igshid=NTc4MTIwNjQ2YQ=="><i class="bi bi-instagram"></i
+      ></a>
+      <!-- Linkedin -->
+      <a
+      class="m-2"
+       style="font-size: 1.3rem; color: inherit;"
+       href="https://in.linkedin.com/in/fetronix-india-24b8b6274"><i class="bi bi-linkedin"></i
+      ></a>
+      
+      <!-- Instagram -->
+      <a
+      class="m-2"
+       style="font-size: 1.5rem; color: inherit;"
+       href="https://www.youtube.com/@fetronix"><i class="bi bi-youtube"></i>
+      </a>
+
+      </div>
+      <!-- Grid column -->
+      <!-- Grid row -->
+    </div>
+    <!-- Copyright -->
+    <hr class="m-0">
+   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.025);">
+    © 2021 Copyright:
+    <a class="text-reset fw-bold" href="https://fetronix.com/">Fetronix.com</a>
+  </div>
+  </section>
+  <!-- Section: Links  -->
+<!-- Copyright -->
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+
+</html>
