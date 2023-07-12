@@ -1,1303 +1,1365 @@
 <!DOCTYPE html>
-<html lang="en" oncontextmenu="return false">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="We offer online guitar classes at affordable prices. We provide patient and high level instructors with teaching experience.">
-    <meta name="keywords"
-        content="online classes, guitar classes, cheap guitar classes, guitar strings, guitar school, India's guitar school, guitar classes in Hindi, private classes, passion, guitar, private guitar classes, guitar classes near me, music training centre near me, guitar tutor near me, kaksha, guitar lessons near me, guitar classes in dehradun, guitar teacher at home near me, music teacher near me">
-    <meta name="robots" content="index, follow">
-    <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <title>Learn With Guitar Kaksha</title>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-227260320-1">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fetronix India - Automation Ahead</title>
+  <!-- Bootstrap file -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <!-- Poppins Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <style>
+      * {
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+  }
 
-  gtag('config', 'UA-227260320-1');
-</script>
-<!-- Meta Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '620208086573581');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=620208086573581&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<meta name="facebook-domain-verification" content="9wq1lf8ho38m6h6mnycp9uhqognjjb" />
+  h5 {
+    font-weight: bold !important;
+  }
+
+  .logo img {
+    height: 55px;
+  }
+
+  .card img {
+    width: 50%;
+    height: auto;
+  }
+
+  .card {
+    flex-direction: row !important;
+    width: 100%;
+    /* box-shadow: none !important; */
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    border: none !important;
+  }
+
+  .card-title {
+    font-weight: bold;
+  }
+
+  /* Client section CSS code starts */
+  h2 {
+    /* text-align: center; */
+    padding: 1rem;
+    font-weight: bold !important;
+  }
+
+  .company-name h2 {
+    font-size: 2.6rem;
+  }
+
+  /* Fade on scroll code */
+
+  .scrollFade {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .scrollFade--hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .scrollFade--visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .scrollFade--animate {
+    transition: opacity 0.4s ease-in-out;
+  }
+
+  /*------*/
+  /* Client section CSS code ends */
+  @media (max-width:766px) {
+    .carousel {
+      margin-top: 8%;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    .card img {
+      width: 100%;
+    }
+
+    .card {
+      flex-direction: column !important;
+    }
+
+    .company-name h2 {
+      font-size: 1.5rem;
+    }
+  }
+body::-webkit-scrollbar {
+width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+background-color: darkgrey;
+outline: 1px solid slategrey;
+}
+      body {
+      font-family: Poppins, sans-serif;
+    }
+
+
+    .logo img {
+      height: 55px;
+    }
+
+    .navbar {
+      box-shadow: 0px -16px 13px 10px black;
+      background-color: #034c7f !important;
+    }
+
+    .nav-item {
+      padding: 10px;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: bold;
+      display: inline-block;
+      padding: 0 0 2px 0 !important;
+      background-image: linear-gradient(#f35053 0 0);
+      background-position: 0 100%;
+      /*OR bottom left*/
+      background-size: 0% 2px;
+      background-repeat: no-repeat;
+      transition:
+        background-size 0.3s,
+        background-position 0s 0.3s;
+      /*change after the size immediately*/
+    }
+
+    .nav-link:hover {
+      background-position: 100% 100%;
+      /*OR bottom right*/
+      background-size: 100% 2px;
+    }
+
+    .btn-search {
+      border: 2px solid #f35053;
+      border-radius: 5px;
+      color: #f35053 !important;
+    }
+
+    .btn-search:hover {
+      background-color: #f35053 !important;
+      color: #000 !important;
+    }
+
+    @media (max-width:766px) {
+      .logo img {
+        height: 45px;
+      }
+    }
+
+    /* ============ desktop view ============ */
+    .dropdown-item:hover {
+      background-color: #a2c5dd;
+    }
+
+    .dropdown:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .dropdown>.dropdown-toggle:active {
+      /*Without this, clicking will make it sticky*/
+      pointer-events: none;
+    }
+    body {
+      box-sizing: border-box;
+      /* width: 100vw; */
+    }
+
+    #main {
+      margin: 4rem 0;
+    }
+
+    /* Banner CSS Starts */
+    .banner {
+      position: relative;
+      width: 100%;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+    }
+
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1;
+    }
+
+    .banner-text h1 {
+      color: #fff;
+      font-size: 4rem;
+      font-weight: bold;
+    }
+
+
+    /* Banner CSS Ends */
+
+    ul {
+      list-style: none;
+    }
+
+    .item_btn {
+      background-color: transparent;
+      /* border: none; */
+    }
+
+    .fixed-left-column {
+      position: fixed;
+      top: 5rem;
+      overflow-y: auto;
+    }
+
+    .content-wrapper {
+      margin-left: 16.67%;
+      width: 100%;
+      /* Width of the left column */
+    }
+
+    .col-md-8 {
+      width: 100% !important;
+    }
+
+    .row>* {
+      flex-shrink: initial !important;
+    }
+
+    .item_btn {
+      border: none;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 15px 8px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .item_btn:hover {
+      font-weight: bold;
+      background: #034c7f;
+      color: #f35053;
+      transition-duration: 0.5s;
+    }
+
+    .list-group {
+      margin: 1rem 0;
+    }
+
+    .list-group h3 {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Cards Code Starts */
+    /* .card {
+      box-shadow: none;
+      border: none !important;
+    } */
+    .contactus-para {
+      text-decoration: none;
+    }
+
+    .contactus-para:hover {
+      color: #f35053;
+      text-decoration: none;
+    }
+
+    .description-heading {
+      margin: 1rem 0;
+    }
+
+    .heading1 {
+      background: #034c7f;
+      color: #fff;
+      border-left: 11px solid #f35053;
+    }
+
+    .heading2 {
+      background: #f35053;
+      color: #fff;
+      border-left: 11px solid #034c7f;
+    }
+
+    /* .underline-small {
+      color: green;
+      display: inline-block;
+      position: relative;
+
+    }
+
+    .underline-small::after {
+      content: '';
+      height: 2px;
+      width: 20%;
+      background: #f24432;
+      position: absolute;
+      left: calc(50% - 10%);
+      bottom: -5px;
+      /*   another way you can achieve this
+  Check this link: 
+  https://goo.gl/GgRdjz
+  
+  */
+
+    .description2 .card-title {
+      /* color: green; */
+      display: inline-block;
+      position: relative;
+    }
+
+    .description2 .card-title::after {
+      content: '';
+      height: 3px;
+      width: 50%;
+      background: #034c7f;
+      position: absolute;
+      left: calc(50% - 50%);
+      bottom: -5px;
+    }
+
+    .description1 .card-title {
+      /* color: green; */
+      display: inline-block;
+      position: relative;
+    }
+
+    .description1 .card-title::after {
+      content: '';
+      height: 3px;
+      width: 50%;
+      background: #f35053;
+      position: absolute;
+      left: calc(50% - 50%);
+      bottom: -5px;
+    }
+
+    .description-content .card-container {
+      border-bottom: 1px solid gainsboro;
+      padding: 1rem 0;
+    }
+
+    .description-content img {
+      width: 40%;
+    }
+
+    /* Cards Code Ends */
+
+    @media (min-height: 1000px) {
+      .fixed-left-column {
+        display: none;
+      }
+    }
+
+    @media (max-width: 766px) {
+      .description-content img {
+        width: 100%;
+      }
+      #main{
+        margin-top: 3.8rem;
+      }
+      .banner-text h1{
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 410px){
+      .banner-text h1{
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 1400px) {
+      #left-column .fixed-left-column {
+        display: none !important;
+      }
+
+      .content-wrapper {
+        margin: 0 !important;
+      }
+    }
+
+    /* Cards css */
+  </style>
 </head>
 
 <body>
-    <div class="preloader">
-        <h1 class="preloaderText">Music is Nirvana</h1>
+<nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="logo">
+        <img src="../IMG/FETRONIX.jpg" alt="logo" />
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav px-2 me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <!-- <a class="nav-link" href="products.php">Products</a> -->
+            <a class="nav-link  dropdown-toggle" href="products.php" data-bs-toggle="dropdown">Products</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="products.php">SPM</a></li>
+              <li><a class="dropdown-item" href="products.php">Conveyor</a></li>
+              <li><a class="dropdown-item" href="products.php">Curing Oven</a></li>
+              <li><a class="dropdown-item" href="products.php">Painting/Coating Plant</a></li>
+              <li><a class="dropdown-item" href="products.php">Paint Booths</a></li>
+              <li><a class="dropdown-item" href="products.php">Industrial Fabrication</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Blogs</a>
+            </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contactus.php">Contact Us</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-success btn-search" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
     </div>
+  </nav>
+
+  <div id="main">
+    <!-- Banner starts -->
+    <div class="banner">
+      <img src="images/Banner.png" alt="Banner Image">
+      <div class="banner-overlay"></div>
+      <div class="banner-text">
+        <h1>Our Products</h1>
+      </div>
+    </div>
+    <!-- Banner Ends -->
     <div class="container">
-        <div class="navbar">
-            <div class="navLogoContainer">
-               <a href="/index.html"><img src="/assets/logo1.png" alt="Guitar Kaksha Logo" id="navLogoImg"></a> 
-            </div>
-            <div class="navBarTabsContainer">
-                <div class="leftNavTabsContainer">
-                    <a href="#" class="leftNavTabs" id="home">Home</a>
-                    <a href="aboutus.html" class="leftNavTabs" id="aboutUs">About Us</a>
-                    <a href="contact.html" class="leftNavTabs" id="contact">Contact</a>
-                    <a href="chord.html" class="leftNavTabs" id="chordCharts">CHORD CHARTS</a>
-                    <a href="https://xegoz.courses.store/358545" class="leftNavTabs" id="bestseller">Best seller</a>
-                    <a href="https://web.classplusapp.com/login" class="rightNavTabs" id="login">Login</a>
-                    
-                        <div class="dropdown">
-                            <a href="recommendations.html"><button class="dropbtn"">Recommendations</button></a>
-                            <div class="dropdown-content">
-                              <a href="recommendations.html">Guitar</a>
-                              <a href="recommendations.html#guitarStrings">Guitar Strings</a>
-                              <a href="recommendations.html#otherAccessories">Accessories</a>
-                            </div>
-                          </div>
-                     
-                </div>
-                <div class="rightNavTabsContainer">
-                    <a href="#section"><button class="rightNavTabs" id="enrollToday">ENROLL TODAY</button></a>
-                    <a href="#section1"><button class="rightNavTabs" id="enrollToday1">ENROLL TODAY</button></a>
-                    <img src="/assets/hamburger.svg" alt="" class="hamIcon">
-
-
-                </div>
-
-            </div>
+      <div class="row">
+        <div class="col-md-4" id="left-column">
+          <ul class="list-group fixed-left-column" style="display: none;">
+            <h3>Our Products</h3>
+            <li>
+              <input type="button" class="item_btn" value="SPM" onClick="scrollToElementWithMarginTop('item1');" />
+            </li>
+            <li>
+              <input type="button" class="item_btn" value="CONVEYOR SYSTEM" onClick="scrollToElementWithMarginTop('item2');" />
+            </li>
+            <li>
+              <input type="button" class="item_btn" value="INDUSTRIAL OVEN" onClick="scrollToElementWithMarginTop('item3');" />
+            </li>
+            <li>
+              <input type="button" class="item_btn" value="PAINTING/COATING PLANT" onClick="scrollToElementWithMarginTop('item4');" />
+            </li>
+            <li>
+              <input type="button" class="item_btn" value="PAINT BOOTHS" onClick="scrollToElementWithMarginTop('item5');" />
+            </li>
+            <li>
+              <input type="button" class="item_btn" value="INDUSTRIAL FABRICATION" onClick="scrollToElementWithMarginTop('item6');" />
+            </li>
+          </ul>
         </div>
-        <div class="hamMenu">
-            <a href="#" class="leftNavTabs" id="home">Home</a>
-            <a href="aboutus.html" class="leftNavTabs" id="aboutUs">About Us</a>
-            <a href="contact.html" class="leftNavTabs" id="contact">Contact</a>
-            <a href="chord.html" class="leftNavTabs" id="chordCharts">CHORD CHARTS</a>
-            <a href="https://xegoz.courses.store/358545" class="leftNavTabs" id="bestseller">Best seller</a>
-
- 
-            <a href="recommendations.html" class="leftNavTabs" id="recommendations">Recommendations</a>
-        </div>
-        <div class="section1">
-            <img src="/assets/Untitled-1.png" alt="" id="backgroundImg1">
-            <img src="/assets/bgimage1.png" alt="" id="background1">
-            <p class="text1"> <span> <span style="color:rgb(253, 87, 87) ;"> LEARN</span>
-                    <br> FROM THE BEST.</span> <br> <br>TO BE THE BEST.</p>
-            <a href="https://guitarkaksha.com/workshop.html"><button id="demo">GUITAR WORKSHOP</button></a>
-        </div>
-        
-        <div class="section2">
-            <h1 class="headerSection2">Join Us for our One on One or Group classes.</h1>
-            <p class="subHeaderSection2">Learn playing your favourite songs from professional tutors irrespective of how
-                old you are.</p>
-            <div class="carousel">
-                <div class="carouselInner">
-                    <img src="/assets/carousel/1.jpg" alt="Carousel Image" class="carouselImg" id="carouselImg1">
-                    <img src="/assets/carousel/2.jpg" alt="Carousel Image" class="carouselImg" id="carouselImg2">
-                    <img src="/assets/carousel/3.jpg" alt="Carousel Image" class="carouselImg" id="carouselImg3">
-                    <img src="/assets/carousel/4.jpg" alt="Carousel Image" class="carouselImg" id="carouselImg4">
-                    <img src="/assets/carousel/5.jpg" alt="Carousel Image" class="carouselImg" id="carouselImg5">
-                    <img src="/assets/carousel/6.jpg" alt="Carousel Image" class="carouselImg" id="carouselImg6">
-                    <img src="/assets/carousel/7.jpg" alt="Carousel Image" class="carouselImg" id="carouselImg7">
-                    <img src="/assets/carousel/8.jpg" alt="Carousel Image" class="carouselImg" id="carouselImg8">
-                    <img src="/assets/carousel/9.jpg" alt="Carousel Image" class="carouselImg" id="carouselImg9">
+        <div class="col-md-8 content-wrapper">
+          <div class="description description1" id="item1">
+            <h2 class="description-heading heading1">SPM (SPECIFIED / SINGLE PURPOSE MACHINE)</h2>
+            <!-- <div class="row scrollFade"> -->
+            <div class="col my-3 card-container">
+              <div class="card">
+                <img src="../IMG/Special-Purpose-Machines.jpg" class="card-img-top" alt="IMG" />
+                <div class="card-body">
+                  <!-- <h5 class="card-title">
+                    SPM (SPECIFIED / SINGLE PURPOSE MACHINE)
+                  </h5> -->
+                  <p class="card-text" style="text-align: justify;">
+                    It is designed to process single or specific task. A fully
+                    automatic control system to perform the repeatability with
+                    efficiency.
+                  </p>
+                  <!-- <a href="products.php" class="btn btn-primary">Learn More...</a> -->
                 </div>
+              </div>
             </div>
+            <!-- </div> -->
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;" style="display: none;">
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="../IMG/Special-Purpose-Machines.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <!-- <h5 class="card-title">
+                    SPM (SPECIFIED / SINGLE PURPOSE MACHINE)
+                  </h5> -->
+                    <p class="card-text" style="text-align: justify;">
+                      It is designed to process single or specific task. A fully
+                      automatic control system to perform the repeatability with
+                      efficiency.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn More...</a> -->
+                  </div>
+                </div>
+              </div>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="../IMG/Special-Purpose-Machines.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <!-- <h5 class="card-title">
+                    SPM (SPECIFIED / SINGLE PURPOSE MACHINE)
+                  </h5> -->
+                    <p class="card-text" style="text-align: justify;">
+                      It is designed to process single or specific task. A fully
+                      automatic control system to perform the repeatability with
+                      efficiency.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn More...</a> -->
+                  </div>
+                </div>
+              </div>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="../IMG/Special-Purpose-Machines.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <!-- <h5 class="card-title">
+                    SPM (SPECIFIED / SINGLE PURPOSE MACHINE)
+                  </h5> -->
+                    <p class="card-text" style="text-align: justify;">
+                      It is designed to process single or specific task. A fully
+                      automatic control system to perform the repeatability with
+                      efficiency.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn More...</a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description description2" id="item2">
+            <h2 class="description-heading heading2">CONVEYOR SYSTEM</h2>
+            <div class="col my-3 card-container">
+              <div class="card">
+                <img src="../IMG/Conveyor.jpg" class="card-img-top" alt="IMG" />
+                <div class="card-body">
+                  <!-- <h5 class="card-title">CURING OVEN</h5> -->
+                  <b>Partner with Fetronix for Your Conveyor Needs</b> <br>
+                  With Fetronix as your conveyor solutions provider, you can enhance
+                  your material handling processes, improve operational efficiency, and
+                  elevate your productivity. Our commitment to excellence, customized
+                  solutions, and reliable support make us the ideal partner for
+                  businesses across a wide range of industries. <br>
+                  <a href="contactus.php" class="contactus-para">Contact us</a> today to discuss your conveyor requirements, and let us
+                  help you find the perfect solution for your business
+                  </p>
+                  <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;">
+              <h2>1)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/apron conveyor.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Apron Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An apron conveyor, also known as an apron feeder, is a type of mechanical conveyor system
+                      commonly used in industrial settings to transport bulk materials. It consists of a series of
+                      overlapping metal plates, known as aprons, that are connected to a central chain or belt.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>2)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/belt-conveyor-overhead-lights-removebg-preview.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Belt Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A belt conveyor is a mechanical system that utilizes a continuous belt to transport materials
+                      or products from one location to another. It is one of the most widely used conveyor systems
+                      in various industries, including manufacturing, logistics, mining, agriculture, and more.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>3)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/horizontal belt.jpg" class=" card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Horizontal Belt Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A horizontal belt conveyor is a type of belt conveyor system that is designed to transport
+                      materials or products horizontally along a straight path. Horizontal belt conveyors are versatile and can handle a wide range of materials, from small
+                      and lightweight items to large and heavy loads.
+                      One key advantage of a horizontal belt conveyor is its ability to efficiently transport materials
+                      or products over long distances. They can be used in straight sections or combined with curves to navigate around obstacles or
+                      fit within space constraints. Horizontal belt conveyors can also be integrated with other
+                      conveyor systems or equipment to create complete material handling systems.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>4)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/inclined.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Inclined Belt Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An inclined belt conveyor, also known as an incline conveyor or a conveyor with an incline,
+                      is a type of belt conveyor system that is designed to transport materials or products between
+                      different elevations or levels. Unlike a horizontal belt conveyor that moves materials along a
+                      straight path, an inclined belt conveyor is inclined at an angle to facilitate the vertical
+                      movement of goods.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>5)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/Inspection-conveyor-Machine.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Inspection Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An inspection conveyor, also known as an inspection belt or inspection table, is a type of
+                      conveyor system specifically designed for the visual inspection of products or materials
+                      during manufacturing or processing. It provides a controlled and well-lit environment for
+                      operators or automated systems to inspect items for quality control, sorting, or other
+                      purposes.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>6)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/assembly con.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Assembly Line Belt Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An assembly line conveyor is a type of conveyor system that is specifically designed for use
+                      in assembly line processes. It plays a critical role in facilitating the efficient movement of
+                      components or products along the production line, enabling workers or automated systems to
+                      perform assembly tasks in a systematic and organized manner.-in ovens are larger in size and cater to a wider range of
+                      industrial applications.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>7)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/loading unloading conv.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Loading/Unloading Conveyors</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A loading/unloading conveyor, also known as a loading/unloading system or a
+                      loading/unloading dock, is a type of conveyor system specifically designed for the efficient
+                      transfer of goods or materials between a transportation vehicle (such as a truck or a container)
+                      and a warehouse, facility, or another area.
+                      The primary purpose of a loading/unloading conveyor is to facilitate the safe and efficient
+                      loading and unloading of cargo or materials from transportation vehicles.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>8)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/roller con1.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Roller Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A roller conveyor is a type of conveyor system that uses a series of rotating cylindrical rollers
+                      to transport goods or materials from one location to another. Roller conveyors can handle a wide range of materials, including boxes,
+                      cartons, pallets, and even irregularly shaped items. The rotating rollers provide a smooth and
+                      continuous movement, allowing for efficient transportation of goods. Roller conveyors can be designed with accumulation zones
+                      where goods can temporarily stop without disrupting the overall flow of the conveyor
+                      system. Roller conveyors can be combined with curves, merges, diverts, or other
+                      conveyor types to create complex material handling systems tailored to specific
+                      operational requirements.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>9)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/slat chain conv.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Chain Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A chain conveyor is a type of conveyor system that utilizes a continuous chain as the
+                      conveying medium to transport goods or materials from one location to another. Durability: Chain conveyors are robust and can handle heavy loads and withstand
+                      harsh operating conditions. Chain conveyors can be designed to accommodate different layouts,
+                      including straight sections, curves, inclines, and declines, to suit specific space
+                      requirements and production processes. Chain conveyors can handle a wide range of materials, from small
+                      components to large and heavy items. Chain conveyors can be designed with accumulation zones
+                      or indexing systems to control the flow and accumulation of products along the
+                      conveyor line. Chain conveyors can be customized with various features and
+                      accessories, such as side guides, guide rails, or attachments, to meet specific
+                      application needs.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>10)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/screw conv1.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Screw Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A screw conveyor is a type of conveyor system that uses a rotating helical screw blade,
+                      known as a "flight" to move materials or products along a tube or trough. Versatility: Screw conveyors can handle a wide range of materials, including powders,
+                      granular materials, flakes, and sticky substances.The rotating screw provides a gentle and controlled movement of
+                      materials, making screw conveyors suitable for fragile or sensitive products.Screw conveyors have a relatively compact footprint and can be
+                      easily integrated into existing production lines or equipment.Screw conveyors are often a cost-effective solution for material
+                      handling, requiring low maintenance and operating costs.Screw conveyors can be customized with different screw designs,
+                      lengths, and diameters to meet specific application requirements.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>11)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/slat chain conv.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Slat Chain Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A slat chain conveyor, also known as a slat conveyor or
+                      slat band conveyor, is a type of conveyor system that uses flat slats or plates linked together
+                      with chains to transport goods or materials. The use of robust slats and chains ensures the conveyor&#39;s ability to
+                      handle heavy loads and withstand demanding industrial environments.Slat chain conveyors can be designed to follow straight lines, curves, or
+                      inclines, making them adaptable to different floor layouts and production requirements.The flat, solid slats provide a stable surface for
+                      transporting goods or materials, ensuring minimal product damage and smooth conveying. Slat chain conveyors can handle a wide range of products,
+                      including bottles, cans, boxes, components, and more, making them suitable for various
+                      industries and applications. Slats and chains are easily replaceable if damaged or worn, simplifying
+                      maintenance and reducing downtime.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>12)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/wire-mesh-conveyors.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Wire Mesh Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A wire mesh conveyor, also known as a wire belt conveyor or wire mesh belt conveyor, is a
+                      type of conveyor system that utilizes a continuous belt made of interconnected metal wires to
+                      transport goods or materials. The metal wires used in the belt provide excellent strength
+                      and durability, allowing the conveyor to handle heavy loads and withstand harsh operating
+                      conditions. Wire mesh belts are suitable for applications involving high or
+                      low temperatures, as they can withstand heat treatment processes or be used in freezers or
+                      cooling areas. The open structure of the wire mesh belt allows for easy
+                      cleaning, as debris can fall through the belt. It also facilitates visual inspection and
+                      maintenance of the conveyor. The textured surface of the wire mesh belt provides good grip and
+                      prevents product slippage during transportation. Wire mesh conveyors are suitable for various products, including
+                      small components, bulk materials, or items that require cooling, drying, or drainage during
+                      the conveying process.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>13)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/screw conv1.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Magnetic Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A magnetic conveyor, also known as a magnetic belt conveyor or magnetic slide conveyor, is
+                      a type of conveyor system that uses magnets to transport ferrous materials or objects along a
+                      conveyor path. The magnetic conveyor utilizes a continuous belt or slide surface with embedded magnets or
+                      magnetic strips. These magnets create a magnetic field that attracts and holds ferrous
+                      materials securely to the belt or slide surface. As the belt or slide moves, the magnetic force
+                      propels the materials along the conveyor path.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>14)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/double decker 1.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Double Decker Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A double decker conveyor, also known as a two-tier conveyor or dual-level conveyor, is a
+                      type of conveyor system that consists of two separate conveyor levels stacked on top of each
+                      other. It is designed to increase the capacity and efficiency of material handling operations by
+                      utilizing the vertical space and creating multiple conveying levels. Double decker conveyors are commonly used in scenarios where space optimization and
+                      increased throughput are essential. They are often employed in operations involving sorting,
+                      order fulfillment, cross-docking, and multi-level material handling.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>15)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/telescopic con2.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Telescopic Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A telescopic conveyor, also known as a telescoping conveyor or extendable conveyor, is a
+                      type of conveyor system that can be extended or contracted in length to adjust to different
+                      loading and unloading requirements. It is commonly used in applications where flexibility
+                      and adaptability are needed.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>16)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/telescopic con1.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Printer Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A printer conveyor is a type of conveyor system that is specifically designed for transporting
+                      printed materials, such as paper sheets, documents, or other printed media. It is commonly
+                      used in printing and finishing operations, where printed materials need to be moved from one
+                      location to another for further processing or packaging. Printer conveyors can be combined with other conveyor types or integrated into larger
+                      printing and finishing systems to create a complete material handling solution. They are often
+                      used in conjunction with other equipment, such as printers, collators, folders, or binders, to
+                      streamline the printing process.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>17)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/i beam conv.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">I Beam Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An I-beam conveyor, also known as an I-beam overhead conveyor or I-beam monorail
+                      conveyor, is a type of conveyor system that utilizes an I-shaped beam as the track or rail for
+                      carrying and transporting loads. The sturdy I-beam track provides excellent strength and load
+                      bearing capacity, allowing for the transportation of heavy or bulky items. I-beam conveyors can be designed to follow straight lines, curves, or
+                      inclines, enabling flexibility in the layout and configuration of the conveyor system to suit the
+                      available space and operational needs. By suspending the conveyor from the ceiling or overhead
+                      structure, I-beam conveyors utilize the vertical space in the facility, leaving the floor area
+                      unobstructed for other operations or equipment. The simplicity of the I-beam conveyor design makes it relatively easy
+                      to maintain. Trolleys or carriers can be easily replaced, and the track can be inspected and
+                      repaired if needed.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>18)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/overhead con.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Overhead Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An overhead conveyor is a type of conveyor system that is designed to transport goods or
+                      materials above the ground level using an elevated track or rail system. By utilizing the overhead space, an overhead conveyor system allows
+                      for the efficient use of floor space. This is particularly beneficial in facilities where floor
+                      space is limited or needs to be kept clear for other operations. Overhead conveyors provide a continuous flow of goods or materials,
+                      allowing for seamless and efficient transportation along the predetermined path. This can
+                      help streamline production processes and reduce bottlenecks. Overhead conveyors can handle a wide range of products, including various
+                      sizes, shapes, and weights. They are suitable for conveying items such as boxes, bags,
+                      garments, automotive parts, and more. Overhead conveyors can be designed with flexibility in mind, allowing for
+                      customization and adaptability to changing production needs. They can be easily modified or
+                      expanded as the requirements of the facility evolve. Overhead conveyors reduce the need for manual
+                      handling, which can improve ergonomics and reduce the risk of injuries associated with
+                      lifting and carrying heavy items. They also help keep the work area clear of obstructions,
+                      enhancing safety in the facility.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>19)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/conveyors/ezgif.com-webp-to-jpg-removebg-preview.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Bucket Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A bucket conveyor, also known as a bucket elevator or bucket lift, is a type of conveyor
+                      system used to vertically elevate or lower materials in bulk. It consists of a series of buckets
+                      or cups attached to a belt or chain that move along a vertical or inclined path. Bucket conveyors can be equipped with additional features such as discharge gates, sensors,
+                      and safety devices to enhance their functionality and ensure safe operation. It is important to
+                      consider factors such as material characteristics, capacity requirements, bucket design, and
+                      safety precautions when selecting and designing a bucket conveyor system. Regular
+                      maintenance and inspections are necessary to ensure optimal performance and longevity of
+                      the equipment.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description description1" id="item3">
+            <h2 class="description-heading heading1">INDUSTRIAL OVEN</h2>
+            <div class="col my-3 card-container">
+              <div class="card">
+                <img src="../IMG/Industrial-Oven.jpg" class="card-img-top" alt="IMG" />
+                <div class="card-body">
+                  <!-- <h5 class="card-title">CURING OVEN</h5> -->
+                  <p class="card-text" style="text-align: justify;">
+                    <b>Fetronix - Your Trusted Partner in Industrial Oven Manufacturing</b> <br>
+                    At Fetronix, we are committed to providing high-quality industrial ovens that are designed to
+                    meet the diverse needs of modern industries. With our cutting-edge technology, precision
+                    engineering, and dedication to customer satisfaction.. Whether you require an oven for heat treatment, drying,
+                    curing, or any other industrial application, we have the perfect solution for you.<br>
+                    <a href="contactus.php" class="contactus-para">Contact us</a> today to discuss your needs and let our team assist you in finding the perfect solution.
+                  </p>
+                  <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;">
+              <h2>1)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/ovens/batch oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Batch Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix Batch ovens are specialized furnaces utilized for thermal
+                      processing purposes. They find applications in various production and laboratory settings,
+                      serving functions such as curing, drying, sterilizing, aging, and other critical processes.
+
+                      The size of these ovens can be customized based on the specific thermal processing
+                      requirements. Batch ovens are primarily employed for single-batch thermal processing
+                      tasks. Cabinet and bench ovens are smaller in size and suitable for smaller batch
+                      operations, while walk-in/drive-in ovens are larger in size and cater to a wider range of
+                      industrial applications.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>2)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/ovens/conv oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Conveyor Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      OVEN-The Fetronix industrial conveyor oven is a type of oven specifically
+                      designed for industrial applications that involve continuous or batch processing of
+                      products on a conveyor belt system. These ovens are commonly used in various industries
+                      such as manufacturing, food processing, automotive, electronics, and more.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>3)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/ovens/drying oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Drying Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial drying oven is a specialized type of oven used
+                      for removing moisture or drying materials in industrial settings. These ovens are
+                      commonly used in industries such as manufacturing, food processing, pharmaceuticals,
+                      textiles, ceramics, and many others.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>4)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/ovens/curing oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Curing Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial curing oven is a specialized type of oven used
+                      in industrial processes to cure or harden materials through controlled heat and time.
+                      Curing refers to the process of creating a chemical or physical change in a material to
+                      achieve desired properties such as increased strength, durability, or adhesion. Industrial
+                      curing ovens are widely used in industries such as automotive, aerospace, electronics,
+                      composites, coatings, and more. They play a crucial role in curing processes such as
+                      polymerization, vulcanization, drying, baking, and curing of coatings, adhesives, paints,
+                      resins, and other materials.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>5)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/ovens/infrared oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Infrared Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial infrared oven is a type of oven that utilizes
+                      infrared radiation to heat and process materials in industrial applications. Infrared
+                      radiation is a form of electromagnetic radiation that transfers heat directly to the surface
+                      of an object without relying on convection or conduction. Industrial infrared ovens are
+                      commonly used in industries such as automotive, electronics, plastics, textiles, food
+                      processing, and more. They offer several advantages over traditional convection ovens,
+                      including faster heating times, energy efficiency, precise temperature control, and targeted
+                      heating.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>6)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/ovens/tunnel oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Tunnel Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial tunnel oven is a specific type of oven
+                      commonly used in industrial settings for continuous and automated processing of
+                      products. As the name suggests, it resembles a tunnel-like structure with an entry and exit
+                      point for the products to pass through on a conveyor belt system.Industrial tunnel ovens
+                      are designed to provide consistent and controlled heating across the entire length of the
+                      oven. They are commonly used in industries such as food production, baking, automotive,
+                      electronics, and more.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>7)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/ovens/electric oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Industrial Electric Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial electric oven is a type of oven
+                      specifically designed for industrial applications that utilizes electric heating elements to
+                      generate heat for various processes. These ovens are commonly used in industries such as
+                      manufacturing, food processing, pharmaceuticals, ceramics, and more. Industrial electric
+                      ovens offer several advantages over other types of ovens, such as gas or steam ovens.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>8)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/ovens/DirectGas FiredOven.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Direct Gas Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial gas oven is a type of oven commonly used
+                      in industrial applications that relies on gas combustion for heat generation. These ovens
+                      utilize natural gas or propane as a fuel source to create the necessary heat for various
+                      industrial processes such as baking, curing, drying, and more. Industrial gas ovens offer
+                      several advantages in terms of performance and efficiency.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>9)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/ovens/reflow oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Reflow Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix reflow oven is a specialized type of oven used in
+                      electronics manufacturing processes, specifically for the soldering of surface-mounted
+                      components onto printed circuit boards (PCBs). Reflow soldering is a technique that
+                      involves heating solder paste, which contains tiny solder balls, to a precise temperature to
+                      form solder joints between the components and the PCB. Reflow ovens are designed to
+                      provide controlled and consistent heating profiles to achieve optimal soldering results.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <h2>10)</h2>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="images/ovens/continous oven.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Continuous Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix continuous oven is a type of industrial oven that is
+                      designed for continuous and uninterrupted processing of products or materials. Unlike
+                      batch ovens where products are processed in separate batches, continuous ovens allow for
+                      a continuous flow of materials through the oven, enabling efficient and high-volume
+                      production. Continuous ovens are commonly used in various industries such as food
+                      processing, automotive, electronics, textiles, and more. They offer several advantages,
+                      including increased productivity, reduced downtime, and improved process efficiency.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description description2" id="item4">
+            <h2 class="description-heading heading2">PAINTING / COATING PLANT</h2>
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;">This is the description for Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, quia. Item 3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, ipsa. Accusamus, placeat? Officiis quia dolores dignissimos molestias, ut nulla minus, quam saepe reprehenderit, quos dolore ab cumque tenetur similique? Veritatis commodi, at vero fugit neque quasi harum reprehenderit consequuntur sapiente amet nihil aliquam error odit minima, maxime veniam sunt itaque consectetur optio odio quibusdam sequi provident facilis! Est, velit. incidunt doloribus vel, corrupti asperiores possimus minus consequuntur doloremque sed esse quaerat voluptates reprehenderit? Soluta laboriosam quis placeat eaque tempore et dolorum mollitia laborum in. Eaque quibusdam dolore inventore necessitatibus mollitia voluptate, praesentium vitae! Ratione ipsam consectetur tempore alias odit beatae ex quisquam ullam repudiandae deserunt, quaerat non inventore quod dolorum possimus. Provident nisi ducimus repellendus, exercitationem, unde odio optio, tenetur distinctio consectetur est illum vel sapiente eius soluta. Numquam doloribus dolorem temporibus assumenda amet ducimus, deleniti minima repellendus, nostrum cumque error unde, illum ut sapiente asperiores veniam distinctio doloremque laudantium.</div>
+          </div>
+          <div class="description description1" id="item5">
+            <h2 class="description-heading heading1">PAINT BOOTHS</h2>
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;">This is the description for Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, quia. Item 3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, ipsa. Accusamus, placeat? Officiis quia dolores dignissimos molestias, ut nulla minus, quam saepe reprehenderit, quos dolore ab cumque tenetur similique? Veritatis commodi, at vero fugit neque quasi harum reprehenderit consequuntur sapiente amet nihil aliquam error odit minima, maxime veniam sunt itaque consectetur optio odio quibusdam sequi provident facilis! Est, velit. incidunt doloribus vel, corrupti asperiores possimus minus consequuntur doloremque sed esse quaerat voluptates reprehenderit? Soluta laboriosam quis placeat eaque tempore et dolorum mollitia laborum in. Eaque quibusdam dolore inventore necessitatibus mollitia voluptate, praesentium vitae! Ratione ipsam consectetur tempore alias odit beatae ex quisquam ullam repudiandae deserunt, quaerat non inventore quod dolorum possimus. Provident nisi ducimus repellendus, exercitationem, unde odio optio, tenetur distinctio consectetur est illum vel sapiente eius soluta. Numquam doloribus dolorem temporibus assumenda amet ducimus, deleniti minima repellendus, nostrum cumque error unde, illum ut sapiente asperiores veniam distinctio doloremque laudantium.</div>
+          </div>
+          <div class="description description2" id="item6">
+            <h2 class="description-heading heading2">INDUSTRIAL FABRICATION</h2>
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;">This is the description for Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, quia. Item 3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, ipsa. Accusamus, placeat? Officiis quia dolores dignissimos molestias, ut nulla minus, quam saepe reprehenderit, quos dolore ab cumque tenetur similique? Veritatis commodi, at vero fugit neque quasi harum reprehenderit consequuntur sapiente amet nihil aliquam error odit minima, maxime veniam sunt itaque consectetur optio odio quibusdam sequi provident facilis! Est, velit. incidunt doloribus vel, corrupti asperiores possimus minus consequuntur doloremque sed esse quaerat voluptates reprehenderit? Soluta laboriosam quis placeat eaque tempore et dolorum mollitia laborum in. Eaque quibusdam dolore inventore necessitatibus mollitia voluptate, praesentium vitae! Ratione ipsam consectetur tempore alias odit beatae ex quisquam ullam repudiandae deserunt, quaerat non inventore quod dolorum possimus. Provident nisi ducimus repellendus, exercitationem, unde odio optio, tenetur distinctio consectetur est illum vel sapiente eius soluta. Numquam doloribus dolorem temporibus assumenda amet ducimus, deleniti minima repellendus, nostrum cumque error unde, illum ut sapiente asperiores veniam distinctio doloremque laudantium.</div>
+          </div>
+          <!-- Add more descriptions here -->
         </div>
-        <div class="section2a">
-            <iframe id="ytVideo" width="560" height="315" src="https://www.youtube.com/embed/VEPXvWVLGJ8"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            <div class="section2aText">
-                <h1 class="section2aHeader">Learn from our professional coaches</h1><br>
-                <p class="section2aPara">Whether you want to find refuge in music or make your musical dreams come true,
-                    Guitar Kaksha is committed to helping you achieve your goals. That is why we only entrust
-                    exceptional and dedicated music teachers (selected from the top 1% of candidates) to foster your
-                    hidden talents.</p>
-
-                    <a href="https://guitarkaksha.com/workshop.html"><button class="abc" id="demo2">GUITAR WORKSHOP</button></a>
-            </div>
-            
-        </div>
-        <div class="section2ab">
-            <a href="https://guitarkaksha.com/workshop.html"><button id="demo2">GUITAR WORKSHOP</button></a>
-        </div>
-        <div class="section2b">
-            <h1 class="features">We specialize in</h1>
-            <div class="featuresCards">
-                <div class="featuresCard featuresCard1">
-                    <div class="featureCardInner">
-                        <img src="/assets/alarm.png" alt="" class="featureImg">
-                        <h2 class="featureHeader">FLexible class scheduling</h2>
-                        <p class="featureText">Learn at your pace, anytime and anywhere</p>
-                    </div>
-                </div>
-                <div class="featuresCard featuresCard2">
-                    <div class="featureCardInner">
-                        <img src="/assets/OneonOne.png" alt="" class="featureImg">
-                        <h2 class="featureHeader">1:1 classes</h2>
-                        <p class="featureText">Get your music teacher's undivided attention</p>
-                    </div>
-                </div>
-                <div class="featuresCard featuresCard3">
-                    <div class="featureCardInner">
-                        <img src="/assets/settings.png" alt="" class="featureImg">
-                        <h2 class="featureHeader">Curated song choices</h2>
-                        <p class="featureText">You choose the songs you want to learn</p>
-                    </div>
-                </div>
-                <div class="featuresCard featuresCard4">
-                    <div class="featureCardInner">
-                        <img src="/assets/customise.png" alt="" class="featureImg">
-                        <h2 class="featureHeader">Classes tailored to your goals</h2>
-                        <p class="featureText">Your private teacher, your personal goals</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="section" class="section3Desk section3">
-            <h1 class="headerSection3">Our Courses and Curriculum</h1>
-            <h1 class="header6Section3">GROUP COURSES</h1>
-            <!-- <div class="cardsContainer">
-                <div class="card card1 card0">
-                    <div class="cardInner cardInner1">
-                        <p class="cardheader0">BEST SELLER</p>
-                        <h1 class="cardHeader1">LEARN TOGETHER</h1>
-                        <h3 class="cardHeader2">Course Includes:</h3>
-                        <ul class="cardList">
-                            <li class="item1">Beginners batch starts on 15th July 2023</li>
-                                <li class="item2">2 classes in a week (Saturday and Sunday)</li>
-                                <li class="item3"> 8 classes in a month</li>
-                                <li class="item4">Timing – 11:00 am</li>
-                                <li class="item5">Don't worry if you miss a class, recordings provided for every session</li>
-                                <li class="item6">3 months course.</li>
-                                <li class="item7">Experience the thrill of live classes with expert instructors</li>
-                                <li class="item8"> Duration – 60 minutes</li>
-                                <li class="item9"> Certification available upon completion</li>
-                        </ul>
-                        <h1 class="cardHeader3">&#8377;1499 (Full Course)</h1>
-                        <a href="https://xegoz.courses.store/369935"><button class="cardEnroll cardEnroll1">More
-                                Details</button></a>
-                    </div>
-                </div>
-            </div> -->
-            <div class="cardsContainer">
-                <div class="card card1">
-                    <div class="cardInner">
-                        <p class="cardheader0">BEST SELLER</p>
-                        <h1 class="cardHeader1">LEARN TOGETHER</h1>
-                        <h3 class="cardHeader2">Course Includes:</h3>
-                        <ul class="cardList">
-                            <li class="item1">Beginners batch starts on 15th July 2023</li>
-                                <li class="item2">2 classes in a week (Saturday and Sunday)</li>
-                                <li class="item3"> 8 classes in a month</li>
-                                <li class="item4">Timing – 11:00 am</li>
-                                <li class="item5">Don't worry if you miss a class, recordings provided for every session</li>
-                                <li class="item6">3 months course.</li>
-                                <li class="item7">Experience the thrill of live classes with expert instructors</li>
-                                <li class="item8"> Duration – 60 minutes</li>
-                                <li class="item9"> Certification available upon completion</li>
-                        </ul>
-                        <h1 class="cardHeader3">&#8377;1499 (Full Course)</h1>
-                        <a href="https://xegoz.courses.store/369935"><button class="cardEnroll cardEnroll1">More
-                                Details</button></a>
-                    </div>
-                </div>
-                <div class="card card2">
-                    <div class="cardInner">
-                        <p class="cardheader0">BEST SELLER</p>
-                        <h1 class="cardHeader1">LEARN TOGETHER</h1>
-                        <h3 class="cardHeader2">Course Includes:</h3>
-                        <ul class="cardList">
-                            <li class="item1">Beginners batch starts on 15th July 2023</li>
-                                <li class="item2">2 classes in a week (Saturday and Sunday)</li>
-                                <li class="item3"> 8 classes in a month</li>
-                                <li class="item4">Timing – 11:00 am</li>
-                                <li class="item5">Don't worry if you miss a class, recordings provided for every session</li>
-                                <li class="item6">3 months course.</li>
-                                <li class="item7">Experience the thrill of live classes with expert instructors</li>
-                                <li class="item8"> Duration – 60 minutes</li>
-                                <li class="item9"> Certification available upon completion</li>
-                        </ul>
-                        <h1 class="cardHeader3">&#8377;1499 (Full Course)</h1>
-                        <a href="https://xegoz.courses.store/369935"><button class="cardEnroll cardEnroll1">More
-                                Details</button></a>
-                    </div>
-                </div>
-            </div>
-            <h1 class="header2Section3">ONE ON ONE COURSES</h1>
-            <h1 class="header4Section3">BEGINNERS LEVEL</h1>
-            <div class="cardsContainer">
-                <div class="card card1">
-                    <div class="cardInner">
-                        <p class="cardheader0">BASIC</p>
-                        <h1 class="cardHeader1">LEVEL 1</h1>
-                        <h3 class="cardHeader2">Course Includes:</h3>
-                        <ul class="cardList">
-                            <li class="item1">one class in a week</li>
-                            <li class="item1">four classes in a month</li>
-                            <li class="item2">All ages are welcome</li>
-                            <li class="item3">Patient and high-level instructors with teaching experience</li>
-                            <li class="item4">Time Flexibility (take class at your own convenience.)</li>
-                            <li class="item5">Certificate at the end of the course</li>
-                        </ul>
-                        <h1 class="cardHeader3">&#8377;750/MONTH</h1>
-                        <a href="https://rzp.io/l/AqYgQhR"><button class="cardEnroll cardEnroll1">ENROLL
-                                NOW</button></a>
-                    </div>
-                </div>
-                <div class="card card2">
-                    <div class="cardInner">
-                        <p class="cardheader0">BEST SELLER</p>
-                        <h1 class="cardHeader1">LEVEL 2</h1>
-                        <h3 class="cardHeader2">Course Includes:</h3>
-                        <ul class="cardList">
-                            <li class="item1">two classes in a week</li>
-                            <li class="item1">eight classes a month</li>
-                            <li class="item2">All ages are welcome</li>
-                            <li class="item3">Patient and high-level instructors with teaching experience</li>
-                            <li class="item4">Time Flexibility (take class at your own convenience.)</li>
-                            <li class="item5"> Certificate at the end of the course</li>
-                        </ul>
-                        <h1 class="cardHeader3">&#8377;1500/MONTH</h1>
-                        <a href="https://pages.razorpay.com/pl_HgZzaWvMA6YYcl/view"><button
-                                class="cardEnroll cardEnroll1">ENROLL NOW</button></a>
-                    </div>
-                </div>
-                <div class="card card3">
-                    <div class="cardInner">
-                        <p class="cardheader0">STANDARD</p>
-                        <h1 class="cardHeader1">LEVEL 3</h1>
-                        <h3 class="cardHeader2">Course Includes:</h3>
-                        <ul class="cardList">
-                            <li class="item1">three classes in a week</li>
-                            <li class="item1">twelve classes in a month</li>
-                            <li class="item2">All ages are welcome</li>
-                            <li class="item3">Patient and high-level instructors with teaching experience</li>
-                            <li class="item4">Time Flexibility (take class at your own convenience.)</li>
-                            <li class="item5"> Certificate at the end of the course</li>
-                        </ul>
-                        <h1 class="cardHeader3">&#8377;2200/MONTH</h1>
-                        <a href="https://rzp.io/l/sT6yswIK"><button class="cardEnroll cardEnroll1">ENROLL
-                                NOW</button></a>
-                    </div>
-                </div>
-            </div>
-            <h1 class="header5Section3">INTERMEDIATE AND ADVANCED LEVEL</h1>
-            <div class="cardsContainer">
-                <div class="card card1">
-                    <div class="cardInner">
-                        <p class="cardheader0">BASIC</p>
-                        <h1 class="cardHeader1">LEVEL 1</h1>
-                        <h3 class="cardHeader2">Course Includes:</h3>
-                        <ul class="cardList">
-                            <li class="item1">one class in a week</li>
-                            <li class="item1">four class in a month</li>
-                            <li class="item2">All ages are welcome</li>
-                            <li class="item3">Patient and high-level instructors with teaching experience</li>
-                            <li class="item4">Time Flexibility (take class at your own convenience.)</li>
-                            <li class="item5">Certificate at the end of the course</li>
-                        </ul>
-                        <h1 class="cardHeader3">&#8377;950/MONTH</h1>
-                        <a href="https://rzp.io/l/ox8UgZRf"><button class="cardEnroll cardEnroll1">ENROLL
-                                NOW</button></a>
-                    </div>
-                </div>
-                <div class="card card2">
-                    <div class="cardInner">
-                        <p class="cardheader0">BEST SELLER</p>
-                        <h1 class="cardHeader1">LEVEL 2</h1>
-                        <h3 class="cardHeader2">Course Includes:</h3>
-                        <ul class="cardList">
-                            <li class="item1">two classes in a week</li>
-                            <li class="item1">eight classes in a month</li>
-                            <li class="item2">All ages are welcome</li>
-                            <li class="item3">Patient and high-level instructors with teaching experience</li>
-                            <li class="item4">Time Flexibility (take class at your own convenience.)</li>
-                            <li class="item5">Certificate at the end of the course</li>
-                        </ul>
-                        <h1 class="cardHeader3">&#8377;1900/MONTH</h1>
-                        <a href="https://rzp.io/l/Lm4PMWw6Y"><button class="cardEnroll cardEnroll1">ENROLL
-                                NOW</button></a>
-                    </div>
-                </div>
-                <div class="card card3">
-                    <div class="cardInner">
-                        <p class="cardheader0">STANDARD</p>
-                        <h1 class="cardHeader1">LEVEL 3</h1>
-                        <h3 class="cardHeader2">Course Includes:</h3>
-                        <ul class="cardList">
-                            <li class="item1">three classes in a week</li>
-                            <li class="item1">twelve classes in a month</li>
-                            <li class="item2">All ages are welcome</li>
-                            <li class="item3">Patient and high-level instructors with teaching experience</li>
-                            <li class="item4">Time Flexibility (take class at your own convenience.)</li>
-                            <li class="item5">Certificate at the end of the course</li>
-                        </ul>
-                        <h1 class="cardHeader3">&#8377;2800/MONTH</h1>
-                        <a href="https://rzp.io/l/t698nFwK"><button class="cardEnroll cardEnroll1">ENROLL
-                                NOW</button></a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div id="section1" class="section3 section3Mob">
-            <div>
-                <h1 class="headerSection3">Our Courses and Curriculum</h1>
-                <h1 class="header6Section3">GROUP COURSES</h1>
-                <div class="container1">
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="cardInner">
-                                    <p class="cardheader0">BEST SELLER</p>
-                                    <h1 class="cardHeader1">LEARN TOGETHER</h1>
-                                    <h3 class="cardHeader2">Course Includes:</h3>
-                                    <ul class="cardList">
-                                        <li class="item1">Beginners batch starts on 15th July 2023</li>
-                                            <li class="item2">2 classes in a week (Saturday and Sunday)</li>
-                                            <li class="item3"> 8 classes in a month</li>
-                                            <li class="item4">Timing – 11:00 am</li>
-                                            <li class="item5">Don't worry if you miss a class, recordings provided for every session</li>
-                                            <li class="item6">3 months course.</li>
-                                            <li class="item7">Experience the thrill of live classes with expert instructors</li>
-                                            <li class="item8"> Duration – 60 minutes</li>
-                                            <li class="item9"> Certification available upon completion</li>
-                                    </ul>
-                                    <h1 class="cardHeader3">&#8377;1499 (Full Course)</h1>
-                                    <a href="https://xegoz.courses.store/369935"><button class="cardEnroll cardEnroll1">More
-                                            Details</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="cardInner">
-                                    <p class="cardheader0">BEST SELLER</p>
-                                    <h1 class="cardHeader1">LEARN TOGETHER</h1>
-                                    <h3 class="cardHeader2">Course Includes:</h3>
-                                    <ul class="cardList">
-                                        <li class="item1">Beginners batch starts on 15th July 2023</li>
-                                            <li class="item2">2 classes in a week (Saturday and Sunday)</li>
-                                            <li class="item3"> 8 classes in a month</li>
-                                            <li class="item4">Timing – 11:00 am</li>
-                                            <li class="item5">Don't worry if you miss a class, recordings provided for every session</li>
-                                            <li class="item6">3 months course.</li>
-                                            <li class="item7">Experience the thrill of live classes with expert instructors</li>
-                                            <li class="item8"> Duration – 60 minutes</li>
-                                            <li class="item9"> Certification available upon completion</li>
-                                    </ul>
-                                    <h1 class="cardHeader3">&#8377;1499 (Full Course)</h1>
-                                    <a href="https://xegoz.courses.store/369935"><button class="cardEnroll cardEnroll1">More
-                                            Details</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination" style="width:100vw;"></div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h1 class="header2Section3">ONE ON ONE COURSES</h1>
-                <h1 class="header4Section3">BEGINNERS LEVEL</h1>
-                <div class="container1">
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="cardInner">
-                                    <p class="cardheader0">BASIC</p>
-                                    <h1 class="cardHeader1">LEVEL 1</h1>
-                                    <h3 class="cardHeader2">Course Includes:</h3>
-                                    <ul class="cardList">
-                                        <li class="item1">one class in a week</li>
-                                        <li class="item1">four classes in a month</li>
-                                        <li class="item2">All ages are welcome</li>
-                                        <li class="item3">Patient and high-level instructors with teaching
-                                            experience</li>
-                                        <li class="item4">Time Flexibility (take class at your own convenience.)</li>
-                                        <li class="item5"> Certificate at the end of the course</li>
-                                    </ul>
-                                    <h1 class="cardHeader3">&#8377;750/MONTH</h1>
-                                    <a href="https://rzp.io/l/AqYgQhR"><button class="cardEnroll cardEnroll1">ENROLL
-                                            NOW</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="cardInner">
-                                    <p class="cardheader0">BEST SELLER</p>
-                                    <h1 class="cardHeader1">LEVEL 2</h1>
-                                    <h3 class="cardHeader2">Course Includes:</h3>
-                                    <ul class="cardList">
-                                        <li class="item1">two classes in a week</li>
-                                        <li class="item1">eight classes a month</li>
-                                        <li class="item2">All ages are welcome</li>
-                                        <li class="item3">Patient and high-level instructors with teaching
-                                            experience</li>
-                                        <li class="item4">Time Flexibility (take class at your own convenience.)</li>
-                                        <li class="item5"> Certificate at the end of the course</li>
-                                    </ul>
-                                    <h1 class="cardHeader3">&#8377;1500/MONTH</h1>
-                                    <a href="https://pages.razorpay.com/pl_HgZzaWvMA6YYcl/view"><button
-                                            class="cardEnroll cardEnroll1">ENROLL NOW</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="cardInner">
-                                    <p class="cardheader0">STANDARD</p>
-                                    <h1 class="cardHeader1">LEVEL 3</h1>
-                                    <h3 class="cardHeader2">Course Includes:</h3>
-                                    <ul class="cardList">
-                                        <li class="item1">three classes in a week</li>
-                                        <li class="item1">twelve classes in a month</li>
-                                        <li class="item2">All ages are welcome</li>
-                                        <li class="item3">Patient and high-level instructors with teaching
-                                            experience</li>
-                                        <li class="item4">Time Flexibility (take class at your own convenience.)</li>
-                                        <li class="item5"> Certificate at the end of the course</li>
-                                    </ul>
-                                    <h1 class="cardHeader3">&#8377;2200/MONTH</h1>
-                                    <a href="https://rzp.io/l/sT6yswIK"><button class="cardEnroll cardEnroll1">ENROLL
-                                            NOW</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination" style="width:100vw;"></div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h1 class="header5Section3">INTERMEDIATE AND ADVANCED LEVEL</h1>
-                <div class="container1">
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="cardInner">
-                                    <p class="cardheader0">BASIC</p>
-                                    <h1 class="cardHeader1">LEVEL 1</h1>
-                                    <h3 class="cardHeader2">Course Includes:</h3>
-                                    <ul class="cardList">
-                                        <li class="item1">one class in a week</li>
-                                        <li class="item1">four class in  a month</li>
-                                        <li class="item2">All ages are welcome</li>
-                                        <li class="item3">Patient and high-level instructors with teaching
-                                            experience</li>
-                                        <li class="item4">Time Flexibility (take class at your own convenience.)
-                                        </li>
-                                        <li class="item5"> Certificate at the end of the course</li>
-                                    </ul>
-                                    <h1 class="cardHeader3">&#8377;950/MONTH</h1>
-                                    <a href="https://rzp.io/l/ox8UgZRf"><button class="cardEnroll cardEnroll1">ENROLL
-                                            NOW</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="cardInner">
-                                    <p class="cardheader0">BEST SELLER</p>
-                                    <h1 class="cardHeader1">LEVEL 2</h1>
-                                    <h3 class="cardHeader2">Course Includes:</h3>
-                                    <ul class="cardList">
-                                        <li class="item1">two classes in a week</li>
-                                        <li class="item1">eight classes in a month</li>
-                                        <li class="item2">All ages are welcome</li>
-                                        <li class="item3">Patient and high-level instructors with teaching
-                                            experience</li>
-                                        <li class="item4">Time Flexibility (take class at your own convenience.)
-                                        </li>
-                                        <li class="item5"> Certificate at the end of the course</li>
-                                    </ul>
-                                    <h1 class="cardHeader3">&#8377;1900/MONTH</h1>
-                                    <a href="https://rzp.io/l/Lm4PMWw6Y"><button class="cardEnroll cardEnroll1">ENROLL
-                                            NOW</button></a>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="cardInner">
-                                    <p class="cardheader0">STANDARD</p>
-                                    <h1 class="cardHeader1">LEVEL 3</h1>
-                                    <h3 class="cardHeader2">Course Includes:</h3>
-                                    <ul class="cardList">
-                                        <li class="item1">three classes in a week</li>
-                                        <li class="item1">twelve classes in a month</li>
-                                        <li class="item2">All ages are welcome</li>
-                                        <li class="item3">Patient and high-level instructors with teaching
-                                            experience</li>
-                                        <li class="item4">Time Flexibility (take class at your own convenience.)
-                                        </li>
-                                        <li class="item5"> Certificate at the end of the course</li>
-                                    </ul>
-                                    <h1 class="cardHeader3">&#8377;2800/MONTH</h1>
-                                    <a href="https://rzp.io/l/t698nFwK"><button class="cardEnroll cardEnroll1">ENROLL
-                                            NOW</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-pagination" style="width:100vw;"></div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="section3a">
-            <h1 class="students">
-                From Our Students
-            </h1>
-            <div class="videoContainer">
-                <blockquote class="instagram-media video video1" data-instgrm-captioned
-                    data-instgrm-permalink="https://www.instagram.com/tv/CZLygTuJ0FU/?utm_source=ig_embed&amp;utm_campaign=loading"
-                    data-instgrm-version="14"
-                    style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px);">
-                    <div style="padding:16px;"> <a
-                            href="https://www.instagram.com/tv/CZLygTuJ0FU/?utm_source=ig_embed&amp;utm_campaign=loading"
-                            style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
-                            target="_blank">
-                            <div style=" display: flex; flex-direction: row; align-items: center;">
-                                <div
-                                    style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
-                                </div>
-                                <div
-                                    style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
-                                    <div
-                                        style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
-                                    </div>
-                                    <div
-                                        style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="padding: 19% 0;"></div>
-                            <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px"
-                                    height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg"
-                                    xmlns:xlink="https://www.w3.org/1999/xlink">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g transform="translate(-511.000000, -20.000000)" fill="#000000">
-                                            <g>
-                                                <path
-                                                    d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
-                                                </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </svg></div>
-                            <div style="padding-top: 8px;">
-                                <div
-                                    style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
-                                    View this post on Instagram</div>
-                            </div>
-                            <div style="padding: 12.5% 0;"></div>
-                            <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
-                                <div>
-                                    <div
-                                        style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
-                                    </div>
-                                    <div
-                                        style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
-                                    </div>
-                                    <div
-                                        style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
-                                    </div>
-                                </div>
-                                <div style="margin-left: 8px;">
-                                    <div
-                                        style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
-                                    </div>
-                                    <div
-                                        style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
-                                    </div>
-                                </div>
-                                <div style="margin-left: auto;">
-                                    <div
-                                        style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
-                                    </div>
-                                    <div
-                                        style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
-                                    </div>
-                                    <div
-                                        style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
-                                <div
-                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
-                                </div>
-                                <div
-                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
-                                </div>
-                            </div>
-                        </a>
-                        <p
-                            style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
-                            <a href="https://www.instagram.com/tv/CZLygTuJ0FU/?utm_source=ig_embed&amp;utm_campaign=loading"
-                                style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
-                                target="_blank">A post shared by Guitar kaksha (@guitarkaksha)</a>
-                        </p>
-                    </div>
-                </blockquote>
-
-
-                <blockquote class="instagram-media video video2" data-instgrm-captioned
-                    data-instgrm-permalink="https://www.instagram.com/tv/Ca31cPwrobk/?utm_source=ig_embed&amp;utm_campaign=loading"
-                    data-instgrm-version="14"
-                    style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px);">
-                    <div style="padding:16px;"> <a
-                            href="https://www.instagram.com/tv/Ca31cPwrobk/?utm_source=ig_embed&amp;utm_campaign=loading"
-                            style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;"
-                            target="_blank">
-                            <div style=" display: flex; flex-direction: row; align-items: center;">
-                                <div
-                                    style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;">
-                                </div>
-                                <div
-                                    style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
-                                    <div
-                                        style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;">
-                                    </div>
-                                    <div
-                                        style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;">
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="padding: 19% 0;"></div>
-                            <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px"
-                                    height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg"
-                                    xmlns:xlink="https://www.w3.org/1999/xlink">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <g transform="translate(-511.000000, -20.000000)" fill="#000000">
-                                            <g>
-                                                <path
-                                                    d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631">
-                                                </path>
-                                            </g>
-                                        </g>
-                                    </g>
-                                </svg></div>
-                            <div style="padding-top: 8px;">
-                                <div
-                                    style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">
-                                    View this post on Instagram</div>
-                            </div>
-                            <div style="padding: 12.5% 0;"></div>
-                            <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
-                                <div>
-                                    <div
-                                        style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);">
-                                    </div>
-                                    <div
-                                        style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;">
-                                    </div>
-                                    <div
-                                        style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);">
-                                    </div>
-                                </div>
-                                <div style="margin-left: 8px;">
-                                    <div
-                                        style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;">
-                                    </div>
-                                    <div
-                                        style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)">
-                                    </div>
-                                </div>
-                                <div style="margin-left: auto;">
-                                    <div
-                                        style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);">
-                                    </div>
-                                    <div
-                                        style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);">
-                                    </div>
-                                    <div
-                                        style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);">
-                                    </div>
-                                </div>
-                            </div>
-                            <div
-                                style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
-                                <div
-                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;">
-                                </div>
-                                <div
-                                    style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;">
-                                </div>
-                            </div>
-                        </a>
-                        <p
-                            style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
-                            <a href="https://www.instagram.com/tv/Ca31cPwrobk/?utm_source=ig_embed&amp;utm_campaign=loading"
-                                style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;"
-                                target="_blank">A post shared by Guitar kaksha (@guitarkaksha)</a>
-                        </p>
-                    </div>
-                </blockquote>
-                <script async src="//www.instagram.com/embed.js"></script>
-            </div>
-
-
-        </div>
-        <div class="section3b section3bDesk">
-
-            <h1 class="section3bHeader">What our students say about us...</h1>
-            <div class="testContainer">
-                <div class="test1 test">
-                    <div class="testInner">
-                        <img src="/assets/quoteIcon.png" alt="" class="quoteIcon">
-                        <img src="/assets/aniket.jpg" alt="" class="testImg">
-                        <p class="testText">Amazing teacher with a lot of patience while teaching. Would
-                            recommend
-                            people to pick up course from here and stick to it. A lot of learning and skills to
-                            develop,
-                            so start right away.</p>
-                        <h5 class="testName">Aniket Aggarwal</h5>
-                    </div>
-                </div>
-                <div class="test2 test">
-                    <div class="testInner">
-                        <img src="/assets/quoteIcon.png" alt="" class="quoteIcon">
-                        <img src="/assets/vanshika.jpg" alt="" class="testImg">
-                        <p class="testText">I am Vanshika jain.....I. Can't explain how it is great to have this
-                            class
-                            in such a affordable price ...... The teacher is so friendly and u can learn easily
-                            with
-                            enjoyment.....I highly recommend this classes to those students who think online
-                            learning is
-                            difficult.....☺️</p>
-                        <h5 class="testName">Vanshika Jain</h5>
-                    </div>
-                </div>
-                <div class="test3 test">
-                    <div class="testInner">
-                        <img src="/assets/quoteIcon.png" alt="" class="quoteIcon">
-                        <img src="/assets/vandana.jpg" alt="" class="testImg">
-                        <p class="testText">We joined just two months before and my child is able to play songs
-                            .very
-                            happy the way Atul sir takes classes and sends notes immediately .
-                            Time utilization is been done beautifully .
-                            Also providing video after classes is unique .
-                            She is confident and wanna learn more songs .
-                            Thank you to Atul Jaguri sir
-                        </p>
-                        <h5 class="testName">Vandana</h5>
-                    </div>
-                </div>
-                <div class="test4 test">
-                    <div class="testInner">
-                        <img src="/assets/quoteIcon.png" alt="" class="quoteIcon">
-                        <img src="/assets/subha.jpg" alt="" class="testImg">
-                        <p class="testText">One of the best guitar classes online . At this affordable price .
-                            The
-                            tutor
-                            is damn friendly and teaches at the best way possible. I don't think anyone will
-                            find
-                            such
-                            classes online so yes join asap . And yes thankyou for teaching me:). Having a great
-                            experience .</p>
-                        <h5 class="testName">Subha
-                        </h5>
-                    </div>
-                </div>
-                <div class="test5 test">
-                    <div class="testInner testInner5">
-                        <img src="/assets/quoteIcon.png" alt="" class="quoteIcon">
-                        <img src="/assets/vanshikaaggarwal.jpg" alt="" class="testImg">
-                        <p class="testText">So, since it is there in everyone's mind that online guitar classes
-                            are
-                            not
-                            much useful but guitar kaksha breaks this myth by giving amazing online guitar
-                            classes
-                            that
-                            i didn't even expect.. The interaction with the teacher is really good and he made
-                            us
-                            understand everything clearly.. There wouldn't be any doubts for me but whenever I
-                            had
-                            any
-                            of it, he would clear it..And something that was even good was that we got recorded
-                            classes
-                            too..I must say that it was full paisa vasool😅😉.. Overall it was a great
-                            experience
-                            ✨...
-                            Thanks for the classes❤</p>
-                        <h5 class="testName">Vanshika Agrawal</h5>
-                    </div>
-                </div>
-            </div>
-            <a href="https://guitarkaksha.com/workshop.html"><button id="demo3">GUITAR WORKSHOP</button></a>
-        </div>
-        <div class="section3b section3bMob">
-            <h1 class="section3bHeader">What our students say about us...</h1>
-            <div class="container2">
-                <div class="swiper1 mySwiper1">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="testInner">
-                                <img src="/assets/quoteIcon.png" alt="" class="quoteIcon">
-                                <img src="/assets/vanshika.jpg" alt="" class="testImg">
-                                <p class="testText">I am Vanshika jain.....I. Can't explain how it is great to have this
-                                    class
-                                    in such a affordable price ...... The teacher is so friendly and u can learn easily
-                                    with
-                                    enjoyment.....I highly recommend this classes to those students who think online
-                                    learning is
-                                    difficult.....☺️</p>
-                                <h5 class="testName">Vanshika Jain</h5>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testInner">
-                                <img src="/assets/quoteIcon.png" alt="" class="quoteIcon">
-                                <img src="/assets/aniket.jpg" alt="" class="testImg">
-                                <p class="testText">Amazing teacher with a lot of patience while teaching. Would
-                                    recommend
-                                    people to pick up course from here and stick to it. A lot of learning and skills to
-                                    develop,
-                                    so start right away.</p>
-                                <h5 class="testName">Aniket Aggarwal</h5>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="testInner">
-                                <img src="/assets/quoteIcon.png" alt="" class="quoteIcon">
-                                <img src="/assets/vandana.jpg" alt="" class="testImg">
-                                <p class="testText">We joined just two months before and my child is able to play songs
-                                    .very
-                                    happy the way Atul sir takes classes and sends notes immediately .
-                                    Time utilization is been done beautifully .
-                                    Also providing video after classes is unique .
-                                    She is confident and wanna learn more songs .
-                                    Thank you to Atul Jaguri sir
-                                </p>
-                                <h5 class="testName">Vandana</h5>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testInner">
-                                <img src="/assets/quoteIcon.png" alt="" class="quoteIcon">
-                                <img src="/assets/subha.jpg" alt="" class="testImg">
-                                <p class="testText">One of the best guitar classes online . At this affordable price .
-                                    The
-                                    tutor
-                                    is damn friendly and teaches at the best way possible. I don't think anyone will
-                                    find
-                                    such
-                                    classes online so yes join asap . And yes thankyou for teaching me:). Having a great
-                                    experience .</p>
-                                <h5 class="testName">Subha
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testInner testInner5">
-                                <img src="/assets/quoteIcon.png" alt="" class="quoteIcon">
-                                <img src="/assets/vanshikaaggarwal.jpg" alt="" class="testImg">
-                                <p class="testText">So, since it is there in everyone's mind that online guitar classes
-                                    are
-                                    not
-                                    much useful but guitar kaksha breaks this myth by giving amazing online guitar
-                                    classes
-                                    that
-                                    i didn't even expect.. The interaction with the teacher is really good and he made
-                                    us
-                                    understand everything clearly.. There wouldn't be any doubts for me but whenever I
-                                    had
-                                    any
-                                    of it, he would clear it..And something that was even good was that we got recorded
-                                    classes
-                                    too..I must say that it was full paisa vasool😅😉.. Overall it was a great
-                                    experience
-                                    ✨...
-                                    Thanks for the classes❤</p>
-                                <h5 class="testName">Vanshika Agrawal</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination" style="width:100vw;"></div>
-                </div>
-            </div>
-            <a href="https://guitarkaksha.com/workshop.html"><button id="demo3">GUITAR WORKSHOP</button></a>
-        </div>
-
-        <div class="featured">
-            <h1>We have been praised and featured.</h1>
-            <div class="featuredGrid">
-                <div class="featuredCards">
-                    <img src="/assets/dailyhuntlogo.png" alt="" class="brandlogo">
-                    <a href="http://dhunt.in/GVspo" class="brandlinks">Read their take</a>
-                </div>
-                <div class="featuredCards">
-                    <img src="/assets/thestartupstorylogo.jpg" alt="" class="brandlogo">
-                    <a href="https://thestartupstory.in/guitar-kaksha-opens-up-accessible-affordable-guitar-learning-for-all/"
-                        class="brandlinks">Read their take</a>
-                </div>
-            </div>
-        </div>
-        <div class="section3c">
-            <h1 class="certificateHeader">Get Yourself Certified By Us</h1>
-            <img src="/assets/AMAN VERMA.jpg" alt="" class="certificate">
-        </div>
-        <div class="section3d">
-            <h1 class="FAQ">Frequently Asked Questions (FAQs)</h1>
-            <h1 class="question question1">
-                1. What if I do not have a Guitar ?<img src="/assets/drop.svg" alt="" class="drop1 drop">
-            </h1>
-            <h3 class="answer answer1">
-                Our Teacher will help you purchase the Guitar, you can fill the Free Trial form to get in touch
-                with
-                the
-                Teacher Directly and we will be happy to Help.
-            </h3>
-            <h1 class="question question2">
-                2. What will the days and Timings for classes ?<img src="/assets/drop.svg" alt="" class="drop2 drop">
-            </h1>
-            <h3 class="answer answer2">
-                The teachers are available all weekdays from morning 8am to evening 8pm.
-            </h3>
-            <h1 class="question question3">
-                3. What will be covered in this Courses?<img src="/assets/drop.svg" alt="" class="drop3 drop">
-            </h1>
-            <h3 class="answer answer3">
-                Our Courses will cover all important aspect of Playing Guitar.(i.e. Chords, Leads, Plucking,
-                Music
-                Theory , improvisation and much more).
-                The Student will be Able to Sing along and play any song of their choice on both Leads and
-                Chords.
-
-            </h3>
-            <h1 class="question question4">
-                4. What will happen after enrolling the course?<img src="/assets/drop.svg" alt="" class="drop4 drop">
-            </h1>
-            <h3 class="answer answer4">
-                We will ping you on Whatsapp in the next 24 hours and then you can schedule your class with the
-                Teacher.
-            </h3>
-            <h1 class="question question5">
-                5. I am Skeptical about learning online.<img src="/assets/drop.svg" alt="" class="drop5 drop">
-            </h1>
-            <h3 class="answer answer5">
-                Nothing can overshadow the Results that we are able to deliver in the Past Years, Hence we
-                Request
-                you
-                to visit and Check our student video and in addition take a free trial session.
-            </h3>
-
-        </div>
-        <div class="contactButton">
-            <img src="/assets/contact.png" alt="" class="connect">
-            <img src="/assets/whatsapp.png" alt="" class="whatsapp"></a>
-            <a href="tel:+919458907628"><img src="/assets/telephone.png" alt="" class="telephoneIcon"></a>
-        </div>
-
-        <div class="footer">
-            <div class="footerLinksContainer">
-                <a href="terms.html" class="footerLinks">TERMS AND
-                    CONDITIONS</a>
-                <a href="privacy.html" class="footerLinks">PRIVACY POLICY</a>
-                <a href="refund.html" class="footerLinks">REFUND POLICY</a>
-            </div>
-            <div class="bottomContainer">
-                <p class="copyright">Copyright &#169; 2022 Guitar kaksha </p>
-
-                <div class="footerSocialIconsContainer">
-                    <a href="https://www.facebook.com/guitarkaksha123" class="fbIcon footerSocialIcon"><svg
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                            <path
-                                d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z">
-                            </path>
-                        </svg></a>
-
-
-
-
-
-                    <a href="https://instagram.com/guitarkaksha?utm_medium=copy_link"
-                        class="instaIcon footerSocialIcon"><svg xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512">
-                            <path
-                                d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z">
-                            </path>
-                        </svg></a>
-
-
-
-                    <a href="https://youtube.com/channel/UCGdGMyN5DgvAhw-lnJbqyxQ" class="ytIcon footerSocialIcon"><svg
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                            <path
-                                d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">
-                            </path>
-                        </svg>
-                    </a>
-                </div>
-
-            </div>
-            <div class="madeContainer">
-                <p class="made">Made with <span><img src="/assets/heart.gif" alt="" class="heart"></span> in
-                    India.
-                </p>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Ankita Js file -->
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          var mySwiper = new Swiper(".mySwiper1", {
-            // Add your configuration options here
-            // For example:
-            slidesPerView: 1,
-            spaceBetween: 10,
-            pagination: {
-              el: ".swiper-pagination",
-              clickable: true
-            }
-          });
-        });
-      </script>
-      
-    <!-- Ankita Js file -->
-    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-muted" style="background-color: #e0e0e0;">
+  <!-- Section: Links  -->
+  <section class="pt-2" style="box-shadow: 0px 16px 14px 7px black;">
+    <div class="container text-left text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
 
-    <!-- Initialize Swiper -->
-    <!-- <script>
-        var swiper = new Swiper(".mySwiper1", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-        });
-    </script> -->
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Site Links
+          </h6>
+          <p>
+            <!-- <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Home</a> -->
+            <i class="bi bi-chevron-right"></i><a href="#!" class="text-reset">Home</a>
+          </p>
+          <p>
+            <i class="bi bi-chevron-right"></i><a href="#!" class="text-reset">About</a>
+          </p>
+          <p>
+            <i class="bi bi-chevron-right"></i><a href="#!" class="text-reset">Products</a>
+          </p>
+          <p>
+            <i class="bi bi-chevron-right"></i> <a href="#!" class="text-reset">Gallery</a>
+          </p>
+          <p>
+            <i class="bi bi-chevron-right"></i><a href="#!" class="text-reset">Services</a>
+          </p>
+          <p>
+            <i class="bi bi-chevron-right"></i><a href="#!" class="text-reset">Contact Us</a>
+          </p>
+          <p>
+            <i class="bi bi-chevron-right"></i><a href="#!" class="text-reset">Blogs</a>
+          </p>
+        </div>
+        <!-- Grid column -->
 
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "cards",
-            grabCursor: true,
-            pagination: {
-                el: ".swiper-pagination",
-            },
-        });
-    </script>
-    <script>
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Products
+          </h6>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Transmission and assembly conveyors</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Batch ovens and converyor oven</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Fluidized bed incinerator</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Paint booth</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Liquid coating/powder coating plant</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">SPM(Special purpose machines)</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Automation solution</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Chemical/bio fuel plant setup</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Washing line and PT line</a>
+          </p>
+          <p>
+            <i class="bi bi-caret-right-fill me-1"></i><a href="#!" class="text-reset">Paint and powder coating booth</a>
+          </p>
+        </div>
+        <!-- Grid column -->
 
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="bi bi-house-door-fill"></i> LANE NO 2, GALI NO 7,PLOT NO 179, FETRONIX, KADIPUR INDUSTRIAL AREA, GURUGRAM, HARYANA, 122001</p>
+          <p>
+            <i class="bi bi-envelope-fill"></i>
+            corporate@fetronix.com, sales@fetronix.com
+          </p>
+          <p><i class="bi bi-telephone-fill"></i> + 91 9858078767</p>
+          <p><i class="bi bi-telephone-fill"></i> + 91 8770834195</p>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">Connect With Us</h6>
+          <!-- Facebook -->
+          <a class="m-2" style="font-size: 1.3rem; color: inherit;" href="https://www.facebook.com/fetronix"><i class="bi bi-facebook"></i></a>
 
-        const preloader = document.querySelector(".preloader");
-        const body = document.querySelector("body");
-        setTimeout(() => {
-            preloader.style.opacity = "0";
-            body.style.overflowY = "auto";
-        }, 3000);
-        setTimeout(() => {
-            preloader.style.display = "none";
-        }, 4000);
+          <!-- Instagram -->
+          <a class="m-2" style="font-size: 1.3rem; color: inherit;" href="https://instagram.com/fetronixautomation?igshid=NTc4MTIwNjQ2YQ=="><i class="bi bi-instagram"></i></a>
+          <!-- Linkedin -->
+          <a class="m-2" style="font-size: 1.3rem; color: inherit;" href="https://in.linkedin.com/in/fetronix-india-24b8b6274"><i class="bi bi-linkedin"></i></a>
 
+          <!-- Instagram -->
+          <a class="m-2" style="font-size: 1.5rem; color: inherit;" href="https://www.youtube.com/@fetronix"><i class="bi bi-youtube"></i>
+          </a>
 
+        </div>
+        <!-- Grid column -->
+        <!-- Grid row -->
+      </div>
+      <!-- Copyright -->
+      <hr class="m-0">
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.025);">
+      © 2023 Copyright:
+      <a class="text-reset fw-bold" href="https://fetronix.com/">Fetronix.com</a>
+    </div>
+  </section>
+  <!-- Section: Links  -->
+  <!-- Copyright -->
+</footer>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // To show/hide left item columns based on scroll position
+      $(window).scroll(function() {
+        var scrollPosition = $(window).scrollTop();
+        var scrollHeight = $(document).height() - $(window).height();
+        var distanceFromBottom = scrollHeight - scrollPosition;
 
-
-        let x = 0, y = 0;
-        const connect = document.querySelector(".contactButton");
-        const whatsapp = document.querySelector(".whatsapp");
-        const telephone = document.querySelector(".telephoneIcon");
-        const hamMenu = document.querySelector(".hamMenu")
-        const hamIcon = document.querySelector(".hamIcon")
-        if (window.matchMedia("(min-width: 769px)").matches) {
-
-
-
-            connect.addEventListener("click", () => {
-                switch (x) {
-                    case 0:
-                        telephone.style.bottom = "5vh";
-                        whatsapp.style.bottom = "5vh";
-                        telephone.style.right = "8vw";
-                        whatsapp.style.right = "13vw";
-                        x = 1;
-                        break;
-                    case 1:
-                        telephone.style.bottom = "-15vh";
-                        whatsapp.style.bottom = "-15vh";
-                        telephone.style.right = "-12vw";
-                        whatsapp.style.right = "-12vw";
-                        x = 0;
-                        break;
-
-                    default:
-                        break;
-                }
-            })
+        if (scrollPosition >= 260 && distanceFromBottom > 480) { // Adjust the values as needed
+          $('.fixed-left-column').css('display', 'block');
+        } else {
+          $('.fixed-left-column').css('display', 'none');
         }
-        if (window.matchMedia("(max-width: 768px)").matches) {
+      });
 
+      // To show and hide description of items
+      $('.show-btn').click(function() {
+        var description = $(this).parent('.description');
+        description.find('.description-content').show();
+        $(this).hide();
+        description.find('.hide-btn').show();
+      });
 
-            hamIcon.addEventListener("click", () => {
-                switch (y) {
-                    case 0:
-                        hamMenu.style.opacity = "1";
-                        hamMenu.style.pointerEvents = "all";
-                        y = 1;
-                        break;
-
-                    case 1:
-                        hamMenu.style.opacity = "0";
-                        hamMenu.style.pointerEvents = "none";
-                        y = 0;
-                        break;
-
-                    default:
-                        break;
-                }
-            })
-
-
-
-            connect.addEventListener("click", () => {
-                switch (x) {
-                    case 0:
-                        telephone.style.bottom = "3vh";
-                        whatsapp.style.bottom = "3vh";
-                        telephone.style.right = "20vw";
-                        whatsapp.style.right = "33vw";
-                        x = 1;
-                        break;
-                    case 1:
-                        telephone.style.bottom = "-15vh";
-                        whatsapp.style.bottom = "-15vh";
-                        telephone.style.right = "-12vw";
-                        whatsapp.style.right = "-12vw";
-                        x = 0;
-                        break;
-
-                    default:
-                        break;
-                }
-            })
-        }
-        whatsapp.addEventListener("click", () => {
-            if (window.matchMedia("(min-width: 769px)").matches) {
-                location.href = "https://web.whatsapp.com/send?phone=919458907628&text=Hi%20i%20need%20a%20free%20demo%20class."
-            }
-            if (window.matchMedia("(max-width: 768px)").matches) {
-                location.href = "https://wa.me/message/GA6OYJ54LREHN1"
-            }
-        })
-
-
-
-        let dd1 = document.querySelector(".drop1");
-        let dd2 = document.querySelector(".drop2");
-        let dd3 = document.querySelector(".drop3");
-        let dd4 = document.querySelector(".drop4");
-        let dd5 = document.querySelector(".drop5");
-        let ans1 = document.querySelector(".answer1")
-        let ans2 = document.querySelector(".answer2")
-        let ans3 = document.querySelector(".answer3")
-        let ans4 = document.querySelector(".answer4")
-        let ans5 = document.querySelector(".answer5")
-        let a1 = 0, a2 = 0, a3 = 0, a4 = 0, a5 = 0;
-        dd1.addEventListener("click", () => {
-            switch (a1) {
-                case 0:
-                    ans1.style.display = "block";
-                    a1 = 1;
-                    break;
-                case 1:
-                    ans1.style.display = "none";
-                    a1 = 0;
-                    break;
-
-                default:
-                    break;
-            }
-        })
-        dd2.addEventListener("click", () => {
-            switch (a2) {
-                case 0:
-                    ans2.style.display = "block";
-                    a2 = 1;
-                    break;
-                case 1:
-                    ans2.style.display = "none";
-                    a2 = 0;
-                    break;
-
-                default:
-                    break;
-            }
-        })
-        dd4.addEventListener("click", () => {
-            switch (a4) {
-                case 0:
-                    ans4.style.display = "block";
-                    a4 = 1;
-                    break;
-                case 1:
-                    ans4.style.display = "none";
-                    a4 = 0;
-                    break;
-
-                default:
-                    break;
-            }
-        })
-        dd3.addEventListener("click", () => {
-            switch (a3) {
-                case 0:
-                    ans3.style.display = "block";
-                    a3 = 1;
-                    break;
-                case 1:
-                    ans3.style.display = "none";
-                    a3 = 0;
-                    break;
-
-                default:
-                    break;
-            }
-        })
-        dd5.addEventListener("click", () => {
-            switch (a5) {
-                case 0:
-                    ans5.style.display = "block";
-                    a5 = 1;
-                    break;
-                case 1:
-                    ans5.style.display = "none";
-                    a5 = 0;
-                    break;
-
-                default:
-                    break;
-            }
-        })
-    </script>
+      $('.hide-btn').click(function() {
+        var description = $(this).parent('.description');
+        description.find('.description-content').hide();
+        $(this).hide();
+        description.find('.show-btn').show();
+      });
+    });
+    //Adding margin on scrolling
+    function scrollToElementWithMarginTop(elementId) {
+      var element = document.getElementById(elementId);
+      var rect = element.getBoundingClientRect();
+      var offsetTop = window.pageYOffset + rect.top - 60 - parseFloat(getComputedStyle(document.documentElement).fontSize); // Adjust the offset as needed
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  </script>
 </body>
 
 </html>
