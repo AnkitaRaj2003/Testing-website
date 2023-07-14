@@ -2,450 +2,474 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fody Slider</title>
     <link
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
     />
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style-type: none;
+        text-decoration: none;
+      }
+
+      :root {
+        --primary: #ec994b;
+        --white: #ffffff;
+        --bg: #f5f5f5;
+      }
+
+      html {
+        font-size: 62.5%;
+        font-family: "Montserrat", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      @media (min-width: 1440px) {
+        html {
+          zoom: 1.5;
+        }
+      }
+
+      @media (min-width: 2560px) {
+        html {
+          zoom: 1.7;
+        }
+      }
+
+      @media (min-width: 3860px) {
+        html {
+          zoom: 2.5;
+        }
+      }
+
+      ::-webkit-scrollbar {
+        width: 1.3rem;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #797979;
+        transition: all 0.5s ease-in-out;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #222224;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f9f9f9;
+      }
+
       body {
-        margin-top: 20px;
-      }
-      /*
-Blog post entries
-*/
-      .main-banner {
-        width: 60vw;
-      }
-      .entry-card {
-        -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
-        -moz-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
-        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+        font-size: 1.6rem;
+        background: var(--bg);
       }
 
-      .entry-content {
-        background-color: #fff;
-        padding: 36px 36px 36px 36px;
-        border-bottom-left-radius: 6px;
-        border-bottom-right-radius: 6px;
+      .container {
+        max-width: 124rem;
+        padding: 0 1rem;
+        margin: 0 auto;
       }
 
-      .entry-content .entry-title a {
-        color: #333;
-      }
-
-      .entry-content .entry-title a:hover {
-        color: #4782d3;
-      }
-
-      .entry-content .entry-meta span {
-        font-size: 12px;
-      }
-
-      .entry-title {
-        font-size: 0.95rem;
-        font-weight: 500;
-        margin-bottom: 15px;
-      }
-
-      .entry-thumb {
-        display: block;
-        position: relative;
-        overflow: hidden;
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
-      }
-
-      .entry-thumb img {
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
-      }
-
-      .entry-thumb .thumb-hover {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        background: rgba(71, 130, 211, 0.85);
-        display: block;
-        top: 50%;
-        left: 50%;
-        color: #fff;
-        font-size: 40px;
-        line-height: 100px;
-        border-radius: 50%;
-        margin-top: -50px;
-        margin-left: -50px;
+      .text-center {
         text-align: center;
-        transform: scale(0);
-        -webkit-transform: scale(0);
-        opacity: 0;
-        transition: all 0.3s ease-in-out;
-        -webkit-transition: all 0.3s ease-in-out;
       }
 
-      .entry-thumb:hover .thumb-hover {
-        opacity: 1;
-        transform: scale(1);
-        -webkit-transform: scale(1);
+      .section-heading {
+        font-size: 3rem;
+        color: var(--primary);
+        padding: 2rem 0;
       }
 
-      .article-post {
-        border-bottom: 1px solid #eee;
-        padding-bottom: 70px;
+      #tranding {
+        padding: 4rem 0;
       }
 
-      .article-post .post-thumb {
-        display: block;
+      @media (max-width: 1440px) {
+        #tranding {
+          padding: 7rem 0;
+        }
+      }
+
+      #tranding .tranding-slider {
+        height: 44rem;
+        padding: 2rem 0;
         position: relative;
-        overflow: hidden;
       }
 
-      .article-post .post-thumb .post-overlay {
+      @media (max-width: 500px) {
+        #tranding .tranding-slider {
+          height: 45rem;
+        }
+      }
+
+      .tranding-slide {
+        width: 37rem;
+        height: 42rem;
+        position: relative;
+      }
+
+      @media (max-width: 500px) {
+        .tranding-slide {
+          width: 28rem !important;
+          height: 36rem !important;
+        }
+        .tranding-slide .tranding-slide-img img {
+          width: 28rem !important;
+          height: 36rem !important;
+        }
+        .tranding-slide-content .tranding-slide-content-bottom{
+            bottom: 2rem !important;
+        }
+      }
+
+      .tranding-slide .tranding-slide-img img {
+        width: 33rem;
+        height: 34rem;
+        border-radius: 2rem;
+        object-fit: cover;
+      }
+
+      .tranding-slide .tranding-slide-content {
         position: absolute;
         left: 0;
         top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        transition: all 0.3s;
-        -webkit-transition: all 0.3s;
-        opacity: 0;
+        right: 0;
+        bottom: 0;
       }
 
-      .article-post .post-thumb .post-overlay span {
-        width: 100%;
-        display: block;
-        vertical-align: middle;
-        text-align: center;
-        transform: translateY(70%);
-        -webkit-transform: translateY(70%);
-        transition: all 0.3s;
-        -webkit-transition: all 0.3s;
-        height: 100%;
-        color: #fff;
+      /* .tranding-slide-content .food-price {
+        position: absolute;
+        top: 2rem;
+        right: 7rem;
+        color: var(--white);
+      } */
+
+      .tranding-slide-content .tranding-slide-content-bottom {
+        position: absolute;
+        bottom: 9rem;
+        left: 1rem;
+        color: var(--white);
       }
 
-      .article-post .post-thumb:hover .post-overlay {
-        opacity: 1;
+      /* .food-rating {
+        padding-top: 1rem;
+        display: flex;
+        gap: 1rem;
       }
 
-      .article-post .post-thumb:hover .post-overlay span {
-        transform: translateY(50%);
-        -webkit-transform: translateY(50%);
-      }
+      .rating ion-icon {
+        color: var(--primary);
+      } */
 
-      .post-content .post-title {
-        font-weight: 500;
-      }
-
-      .post-meta {
-        padding-top: 15px;
-        margin-bottom: 20px;
-      }
-
-      .post-meta li:not(:last-child) {
-        margin-right: 10px;
-      }
-
-      .post-meta li a {
-        color: #999;
-        font-size: 13px;
-      }
-
-      .post-meta li a:hover {
-        color: #4782d3;
-      }
-
-      .post-meta li i {
-        margin-right: 5px;
-      }
-
-      .post-meta li:after {
-        margin-top: -5px;
-        content: "/";
-        margin-left: 10px;
-      }
-
-      .post-meta li:last-child:after {
+      .swiper-slide-shadow-left,
+      .swiper-slide-shadow-right {
         display: none;
       }
 
-      .post-masonry .masonry-title {
-        font-weight: 500;
-      }
-
-      .share-buttons li {
-        vertical-align: middle;
-      }
-
-      .share-buttons li a {
-        margin-right: 0px;
-      }
-
-      .post-content .fa {
-        color: #ddd;
-      }
-
-      .post-content a h2 {
-        font-size: 1.5rem;
-        color: #333;
-        margin-bottom: 0px;
-      }
-
-      .article-post .owl-carousel {
-        margin-bottom: 20px !important;
-      }
-
-      .post-masonry h4 {
-        text-transform: capitalize;
-        font-size: 1rem;
-        font-weight: 700;
-      }
-      .mb40 {
-        margin-bottom: 40px !important;
-      }
-      .mb30 {
-        margin-bottom: 30px !important;
-      }
-      .media {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 11px;
-      }
-      .media img{
-        width: 100%;
-      }
-      .media-body h5 a {
-        color: #555;
-      }
-      .categories li a:before {
-        content: "\f0da";
-        font-family: "FontAwesome";
-        margin-right: 5px;
-      }
-      /*
-Template sidebar
-*/
-
-      .sidebar-title {
-        margin-bottom: 1rem;
-        font-size: 1.1rem;
-      }
-
-      .categories li {
-        vertical-align: middle;
-      }
-
-      .categories li > ul {
-        padding-left: 15px;
-      }
-
-      .categories li > ul > li > a {
-        font-weight: 300;
-      }
-
-      .categories li a {
-        color: #999;
+      .tranding-slider-control {
         position: relative;
-        display: block;
-        padding: 5px 10px;
-        border-bottom: 1px solid #eee;
+        bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
-      .categories li a:before {
-        content: "\f0da";
-        font-family: "FontAwesome";
-        margin-right: 5px;
+      .tranding-slider-control .swiper-button-next {
+        left: 58% !important;
+        transform: translateX(-58%) !important;
       }
 
-      .categories li a:hover {
-        color: #444;
-        background-color: #f5f5f5;
-      }
-
-      .categories > li.active > a {
-        font-weight: 600;
-        color: #444;
-      }
-
-      .media-body h5 {
-        font-size: 15px;
-        letter-spacing: 0px;
-        line-height: 20px;
-        font-weight: 400;
-      }
-
-      .media-body h5 a {
-        color: #555;
-      }
-
-      .media-body h5 a:hover {
-        color: #4782d3;
-      }
-
-      @media (max-width: 768px) {
-        .main-banner {
-          width: 100vw;
+      @media (max-width: 990px) {
+        .tranding-slider-control .swiper-button-next {
+          left: 70% !important;
+          transform: translateX(-70%) !important;
         }
       }
-      @media (min-width: 767px) and (max-width: 992px){
-        .media{
-          grid-template-columns: 1fr !important;
+
+      @media (max-width: 450px) {
+        .tranding-slider-control .swiper-button-next {
+          left: 80% !important;
+          transform: translateX(-80%) !important;
         }
+      }
+
+      @media (max-width: 990px) {
+        .tranding-slider-control .swiper-button-prev {
+          left: 30% !important;
+          transform: translateX(-30%) !important;
+        }
+      }
+
+      @media (max-width: 450px) {
+        .tranding-slider-control .swiper-button-prev {
+          left: 20% !important;
+          transform: translateX(-20%) !important;
+        }
+      }
+
+      .tranding-slider-control .slider-arrow {
+        background: var(--white);
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        left: 42%;
+        transform: translateX(-42%);
+        filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+      }
+
+      .tranding-slider-control .slider-arrow ion-icon {
+        font-size: 2rem;
+        color: #222224;
+      }
+
+      .tranding-slider-control .slider-arrow::after {
+        content: "";
+      }
+
+      .tranding-slider-control .swiper-pagination {
+        position: relative;
+        width: 15rem;
+        bottom: 1rem;
+      }
+
+      .tranding-slider-control .swiper-pagination .swiper-pagination-bullet {
+        filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+      }
+
+      .tranding-slider-control
+        .swiper-pagination
+        .swiper-pagination-bullet-active {
+        background: var(--primary);
       }
     </style>
-    <title>Document</title>
   </head>
+
   <body>
-    <div class="container pb50">
-      <div class="row">
-        <div class="col-md-9">
-          <article>
-            <img
-              src="https://guitarkaksha.com/assets/landing1.webp"
-              alt=""
-              class="img-fluid mb30 main-banner"
-            />
-            <div class="post-content">
-              <h3>Online Guitar Classes | Guitar Kaksha</h3>
-              <ul class="post-meta list-inline">
-                <!-- <li class="list-inline-item">
-                  <i class="fa fa-user-circle-o"></i> <a href="#">John Doe</a>
-                </li> -->
-                <li class="list-inline-item">
-                  <i class="fa fa-calendar-o"></i> <a href="#">29 June 2017</a>
-                </li>
-                <!-- <li class="list-inline-item">
-                  <i class="fa fa-tags"></i> <a href="#">Bootstrap4</a>
-                </li> -->
-              </ul>
-              <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-                fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-                fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                penatibus et magnis dis parturient montes, nascetur ridiculus
-                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
-                quis, sem. Nulla consequat massa quis enim. Donec pede justo,
-                fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-              </p>
-              <!-- <hr class="mb40" /> -->
+    <section id="tranding">
+      <!-- <div class="container">
+        <h3 class="text-center section-subheading">- popular Delivery -</h3>
+        <h1 class="text-center section-heading">Tranding food</h1>
+      </div> -->
+      <div class="container">
+        <div class="swiper tranding-slider">
+          <div class="swiper-wrapper">
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="https://guitarkaksha.com/assets/landing1.webp" alt="Tranding" />
+              </div>
+              <div class="tranding-slide-content">
+                <!-- <h1 class="food-price">$20</h1> -->
+                <div class="tranding-slide-content-bottom">
+                  <h2 class="food-name">Best Guitars of 2023 CollectionBest Guitars of 2023 Collection</h2>
+                  <!-- <h3 class="food-rating"> -->
+                    <!-- <span>4.5</span>+
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div> -->
+                  </h3>
+                </div>
+              </div>
             </div>
-          </article>
-          <!-- post article-->
-        </div>
-        <div class="col-md-3 mb40">
-          <!--/col-->
-          <div class="mb40">
-            <ul class="list-inline share-buttons">
-              <li class="list-inline-item">Share Post:</li>
-              <li class="list-inline-item">
-                <a
-                  href="#"
-                  class="social-icon-sm si-dark si-colored-facebook si-gray-round"
-                >
-                  <i class="fa fa-facebook"></i>
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a
-                  href="#"
-                  class="social-icon-sm si-dark si-colored-twitter si-gray-round"
-                >
-                  <i class="fa fa-twitter"></i>
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a
-                  href="#"
-                  class="social-icon-sm si-dark si-colored-linkedin si-gray-round"
-                >
-                  <i class="fa fa-linkedin"></i>
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="https://guitarkaksha.com/assets/landing1.webp" alt="Tranding" />
+              </div>
+              <div class="tranding-slide-content">
+                <!-- <h1 class="food-price">$20</h1> -->
+                <div class="tranding-slide-content-bottom">
+                  <h2 class="food-name">Meat Ball</h2>
+                  <!-- <h3 class="food-rating"> -->
+                    <!-- <span>4.5</span>
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div> -->
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="https://guitarkaksha.com/assets/landing1.webp" alt="Tranding" />
+              </div>
+              <div class="tranding-slide-content">
+                <!-- <h1 class="food-price">$40</h1> -->
+                <div class="tranding-slide-content-bottom">
+                  <h2 class="food-name">Burger</h2>
+                  <!-- <h3 class="food-rating"> -->
+                    <!-- <span>4.5</span>
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div> -->
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="https://guitarkaksha.com/assets/landing1.webp" alt="Tranding" />
+              </div>
+              <div class="tranding-slide-content">
+                <!-- <h1 class="food-price">$15</h1> -->
+                <div class="tranding-slide-content-bottom">
+                  <h2 class="food-name">Frish Curry</h2>
+                  <!-- <h3 class="food-rating"> -->
+                    <!-- <span>4.5</span>
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div> -->
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="https://guitarkaksha.com/assets/landing1.webp" alt="Tranding" />
+              </div>
+              <div class="tranding-slide-content">
+                <!-- <h1 class="food-price">$15</h1> -->
+                <div class="tranding-slide-content-bottom">
+                  <h2 class="food-name">Pane Cake</h2>
+                  <!-- <h3 class="food-rating"> -->
+                    <!-- <span>4.5</span>
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div> -->
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="https://guitarkaksha.com/assets/landing1.webp" alt="Tranding" />
+              </div>
+              <div class="tranding-slide-content">
+                <!-- <h1 class="food-price">$20</h1> -->
+                <div class="tranding-slide-content-bottom">
+                  <h2 class="food-name">Vanilla cake</h2>
+                  <!-- <h3 class="food-rating"> -->
+                    <!-- <span>4.5</span>
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div> -->
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="https://guitarkaksha.com/assets/landing1.webp" alt="Tranding" />
+              </div>
+              <div class="tranding-slide-content">
+                <!-- <h1 class="food-price">$8</h1> -->
+                <div class="tranding-slide-content-bottom">
+                  <h2 class="food-name">Straw Cake</h2>
+                  <!-- <h3 class="food-rating"> -->
+                    <!-- <span>4.5</span>
+                    <div class="rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div> -->
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <!-- Slide-end -->
           </div>
-          <!--/col-->
-          <div>
-            <h4 class="sidebar-title">Latest Blogs</h4>
-            <ul class="list-unstyled">
-              <li class="media">
-                <img
-                  class="d-flex mr-3 img-fluid"
-                  width="64"
-                  src="https://guitarkaksha.com/assets/landing1.webp"
-                  alt="Generic placeholder image"
-                />
-                <div class="media-body">
-                  <h5 class="mt-0 mb-1">
-                    <a href="#">Lorem ipsum dolor sit amet</a>
-                  </h5>
-                  April 05, 2017
-                </div>
-              </li>
-              <li class="media my-4">
-                <img
-                  class="d-flex mr-3 img-fluid"
-                  width="64"
-                  src="https://guitarkaksha.com/assets/landing1.webp"
-                  alt="Generic placeholder image"
-                />
-                <div class="media-body">
-                  <h5 class="mt-0 mb-1">
-                    <a href="#">Lorem ipsum dolor sit amet</a>
-                  </h5>
-                  Jan 05, 2017
-                </div>
-              </li>
-              <li class="media">
-                <img
-                  class="d-flex mr-3 img-fluid"
-                  width="64"
-                  src="https://guitarkaksha.com/assets/landing1.webp"
-                  alt="Generic placeholder image"
-                />
-                <div class="media-body">
-                  <h5 class="mt-0 mb-1">
-                    <a href="#">Lorem ipsum dolor sit amet</a>
-                  </h5>
-                  March 15, 2017
-                </div>
-              </li>
-            </ul>
+
+          <div class="tranding-slider-control">
+            <div class="swiper-button-prev slider-arrow">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+            </div>
+            <div class="swiper-button-next slider-arrow">
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </div>
+            <div class="swiper-pagination"></div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Bootstrap -->
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
     ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+      var TrandingSlider = new Swiper(".tranding-slider", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        loop: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2.5,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
   </body>
 </html>
