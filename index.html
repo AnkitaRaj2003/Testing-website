@@ -1,569 +1,2296 @@
+<?php
+include 'temp/db_connect.php';
+// Get the current URL
+$currentUrl = $_SERVER['REQUEST_URI'];
+
+// Split the URL by '/'
+$urlSegments = explode('/', $currentUrl);
+
+// Get the last segment of the URL, which contains the ID
+$idSegment = end($urlSegments);
+
+// Extract the ID from the segment
+$id = explode('-', $idSegment);
+$id = end($id);
+
+// Use the ID in your code
+// echo $id;
+$sql = "SELECT * FROM `blog` WHERE `b_id`=$id";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+if (!$result) {
+  echo 'Error in the query';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <!DOCTYPE html>
-    <!-- Coding By CodingNepal - codingnepalweb.com -->
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Responsive Card Slider</title>
 
-        <!-- Bootstrap Icon -->
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-        />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="<?php echo $row['b_des'] ?>">
+  <meta name="keywords" content="<?php echo $row['b_key'] ?>">
 
-        <!-- Swiper CSS -->
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-        />
+  <!-- Bootstrap Icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
-        <!-- CSS -->
-        <style>
-          /* Google Fonts - Poppins */
-          @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-          }
-          body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #efefef;
-          }
-          .slide-container {
-            max-width: 1120px;
-            width: 100%;
-            padding: 40px 0;
-          }
-          .slide-content {
-            margin: 0 40px;
-            overflow: hidden;
-            border-radius: 25px;
-          }
-          .card {
-            height: 30rem;
-            border-radius: 25px;
-            background-color: #fff;
-          }
-          .image-content,
-          .card-content {
-            min-height: 13rem;
-            display: flex;
-            flex-direction: column;
-            /* align-items: center; */
-            padding: 0px 14px;
-            justify-content: space-evenly;
-          }
-          .image-content {
-            display: flex;
-            position: relative;
-            /* row-gap: 5px; */
-            /* padding: 25px 0; */
-            align-items: center;
-          }
-          .overlay {
-            display: none;
-            /* position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            background-color: #4070f4;
-            border-radius: 25px 25px 0 25px; */
-          }
-          /* .overlay::before,
-          .overlay::after {
-            content: "";
-            position: absolute;
-            right: 0;
-            bottom: -40px;
-            height: 40px;
-            width: 40px;
-            background-color: #4070f4;
-          } */
-          /* .overlay::after {
-            border-radius: 0 25px 0 0;
-            background-color: #fff;
-          } */
-          .card-image {
-            position: relative;
-            height: 11rem;
-            width: 19rem;
-            /* border-radius: 50%; */
-            background: #fff;
-            padding: 3px;
-          }
-          .card-image .card-img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            /* border-radius: 50%; */
-            /* border: 4px solid #4070f4; */
-          }
-          .name {
-            font-size: 18px;
-            font-weight: 500;
-            color: #333;
-          }
-          .description {
-            font-size: 14px;
-            color: #707070;
-            text-align: justify;
-          }
-          .calendar-text {
-            /* margin: 5px 0; */
-            font-size: 13px;
-          }
-          .view-more-btn-div {
-            text-align: center;
-          }
-          .button {
-            border: none;
-            font-size: 16px;
-            color: #fff;
-            padding: 8px 16px;
-            background-color: #000;
-            border-radius: 6px;
-            margin: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-          }
-          .button:hover {
-            background: #585858;
-          }
+  <link rel="stylesheet" href="index.css">
+  <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <title><?php echo $row['b_title'] ?></title>
+  <style>
+    html {
+      scroll-behavior: smooth !important;
+      font-size: 10px;
+      /* Master Font size */
+      box-sizing: border-box;
+      font-family: 'Barlow Condensed', sans-serif;
+      /* Master Font style */
+    }
 
-          .swiper-navBtn {
-            color: #6e93f7;
-            transition: color 0.3s ease;
-          }
-          .swiper-navBtn:hover {
-            color: #4070f4;
-          }
-          .swiper-navBtn::before,
-          .swiper-navBtn::after {
-            font-size: 35px;
-          }
-          .swiper-button-next {
-            /* background: #bdbdbd; */
-            color: black;
-            /* padding: 18px; */
-            /* border-radius: 50%; */
-            right: 0;
-          }
-          .swiper-button-prev {
-            /* background: #bdbdbd; */
-            color: black;
-            /* padding: 18px; */
-            /* border-radius: 50%; */
-            left: 0;
-          }
-          .swiper-pagination-bullet {
-            background-color: #585858;
-            opacity: 1;
-          }
-          .swiper-pagination-bullet-active {
-            background-color: grey;
-          }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    div,
+    p,
+    ul,
+    li,
+    img,
+    body,
+    html,
+    button,
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-          @media screen and (max-width: 768px) {
-            .slide-content {
-              margin: 0 10px;
-            }
-            .swiper-navBtn {
-              /* display: none; */
-            }
-            .swiper-navBtn::before,
-            .swiper-navBtn::after {
-              font-weight: bold;
-              font-size: 20px;
-            }
-          }
-          @media (min-width: 590px) and (max-width: 1061px) {
-            .card-image {
-              width: 17rem;
-            }
-          }
-          @media (min-width: 520px) and (max-width: 590px) {
-            .card-image {
-              width: 15rem;
-            }
-          }
-          @media (max-width: 520px){
-            .slide-content{
-              margin: 0 30px;
-            }
-          }
-        </style>
-      </head>
-      <body>
-        <div class="slide-container swiper">
-          <div class="slide-content">
-            <div class="card-wrapper swiper-wrapper">
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
+    /* @media only screen and (min-width:769px){ */
+    body {
+      width: 100vw;
+      height: 100vh;
+      background-color: rgb(133, 133, 133);
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
 
-                  <div class="card-image">
-                    <img
-                      src="https://guitarkaksha.com/assets/landing1.webp"
-                      alt=""
-                      class="card-img"
-                    />
-                  </div>
-                </div>
+    .preloader {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      z-index: 12;
+      background: linear-gradient(120deg, rgb(255, 209, 217), white);
+      display: grid;
+      place-items: center;
+      transition: all 1s ease;
+      opacity: 1;
+    }
 
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                      class="bi bi-calendar-check-fill"
-                      style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
+    .preloaderText {
+      color: rgb(85, 142, 122);
+      font-size: 2vw;
+      letter-spacing: 1px;
+      text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.533);
+      transition: all 1s ease;
+      animation: preloader 3s linear infinite alternate;
+    }
 
-                  <div class="card-image">
-                    <img
-                      src="https://guitarkaksha.com/assets/landing1.webp"
-                      alt=""
-                      class="card-img"
-                    />
-                  </div>
-                </div>
+    @keyframes preloader {
+      33% {
+        opacity: 0;
+      }
 
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                      class="bi bi-calendar-check-fill"
-                      style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
+      66% {
+        opacity: 1;
+      }
 
-                  <div class="card-image">
-                    <img
-                      src="https://guitarkaksha.com/assets/landing1.webp"
-                      alt=""
-                      class="card-img"
-                    />
-                  </div>
-                </div>
+      100% {
+        opacity: 1;
+      }
+    }
 
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                      class="bi bi-calendar-check-fill"
-                      style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
+    .container {
+      font-size: 1.6rem;
+      width: 100%;
+      height: fit-content;
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+    }
 
-                  <div class="card-image">
-                    <img
-                      src="https://guitarkaksha.com/assets/landing1.webp"
-                      alt=""
-                      class="card-img"
-                    />
-                  </div>
-                </div>
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.888);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: -25px 25px 40px rgba(0, 0, 0, 0.675);
+    }
 
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                      class="bi bi-calendar-check-fill"
-                      style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
+    .navLogoContainer {
+      padding: 2vh 0 2vh 4vw;
+    }
 
-                  <div class="card-image">
-                    <img
-                      src="https://guitarkaksha.com/assets/landing1.webp"
-                      alt=""
-                      class="card-img"
-                    />
-                  </div>
-                </div>
+    #navLogoImg {
+      width: 15vw;
+      cursor: pointer;
+    }
 
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                      class="bi bi-calendar-check-fill"
-                      style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
+    .navBarTabsContainer {
+      /* width: 75vw; */
+      margin-inline: 4vw;
+      display: flex;
+      justify-content: center;
+      gap: 5vw;
+      margin-top: 2vh;
+    }
 
-                  <div class="card-image">
-                    <img
-                      src="https://guitarkaksha.com/assets/landing1.webp"
-                      alt=""
-                      class="card-img"
-                    />
-                  </div>
-                </div>
+    .leftNavTabsContainer>a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.5vw;
+      transition: all 1s;
+      color: rgb(253, 151, 151);
+      margin-top: -2vh;
+    }
 
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                      class="bi bi-calendar-check-fill"
-                      style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
+    .leftNavTabsContainer>a:hover {
+      color: red;
+    }
 
-                  <div class="card-image">
-                    <img
-                      src="https://guitarkaksha.com/assets/landing1.webp"
-                      alt=""
-                      class="card-img"
-                    />
-                  </div>
-                </div>
+    .leftNavTabsContainer {
+      display: flex;
+      align-items: center;
+      gap: 3vw;
 
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                      class="bi bi-calendar-check-fill"
-                      style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
+    }
 
-                  <div class="card-image">
-                    <img
-                      src="https://guitarkaksha.com/assets/landing1.webp"
-                      alt=""
-                      class="card-img"
-                    />
-                  </div>
-                </div>
+    #enrollToday,
+    #enrollToday1 {
+      padding: 2vh 4vh;
+      box-sizing: content-box;
+      position: relative;
+      border-radius: 4rem;
+      letter-spacing: 1px;
+      font-size: 1.5vw;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      transition: all 1s ease;
+      animation: color 2s linear infinite alternate;
+      cursor: pointer;
+      border: none;
+    }
 
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                      class="bi bi-calendar-check-fill"
-                      style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div>
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
+    #enrollToday1 {
+      display: none;
+    }
 
-                  <div class="card-image">
-                    <img
-                      src="https://guitarkaksha.com/assets/landing1.webp"
-                      alt=""
-                      class="card-img"
-                    />
-                  </div>
-                </div>
+    @keyframes color {
+      0% {
+        background-color: rgb(153, 131, 234);
+      }
 
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                      class="bi bi-calendar-check-fill"
-                      style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div>
-            </div>
-          </div>
+      50% {
+        background-color: yellow;
+      }
 
-          <div class="swiper-button-next swiper-navBtn"></div>
-          <div class="swiper-button-prev swiper-navBtn"></div>
-          <div class="swiper-pagination"></div>
+      100% {
+        background-color: red;
+      }
+    }
+
+    .rightNavTabsContainer {
+      margin-top: -2vh;
+    }
+
+    .hamMenu,
+    .hamIcon {
+      display: none;
+    }
+
+    .section1 {
+      width: 100vw;
+      position: relative;
+    }
+
+    #backgroundImg1 {
+      width: 100%;
+    }
+
+    #background1 {
+      width: 30vw;
+      z-index: 3;
+      position: absolute;
+      top: 20%;
+      left: 0%;
+    }
+
+    #demo {
+      z-index: 4;
+      position: absolute;
+      top: 70%;
+      left: 35%;
+      padding: 2vh 4vh;
+      box-sizing: content-box;
+      border-radius: 4rem;
+      letter-spacing: 1px;
+      font-size: 1.5vw;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+      transition: all 0.5s ease;
+    }
+
+    #demo:hover {
+      background-color: rgb(255, 101, 101);
+      transform: scale(1.2);
+    }
+
+    .text1 {
+      z-index: 3;
+      position: absolute;
+      top: 20%;
+      left: 35%;
+      color: rgb(253, 87, 87);
+      font-size: 4vw;
+      line-height: 3.5vw;
+
+    }
+
+    .text1>span {
+      font-size: 4vw;
+      color: white;
+
+    }
+
+    .section2 {
+      padding-block: 8vh;
+      width: 100vw;
+      height: fit-content;
+      display: flex;
+
+
+      flex-direction: column;
+      text-align: center;
+      background-color: white;
+    }
+
+    .headerSection2 {
+      margin-top: 4vh;
+      font-size: 3vw;
+    }
+
+    .subHeaderSection2 {
+      margin-top: 1vh;
+      font-size: 1.4vw;
+      letter-spacing: 2px;
+      margin-inline: 30vw;
+      text-align: center;
+      margin-bottom: 4vh;
+
+    }
+
+    .carousel {
+      min-width: 100vw;
+      height: fit-content;
+      overflow-x: hidden;
+
+
+    }
+
+    .carouselImg {
+      width: 30vw;
+      transition: all 0.3s ease;
+      border-radius: 3rem;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.67);
+    }
+
+    .carouselImg:hover {
+      transform: scale(1.1);
+    }
+
+    .carouselInner {
+      width: 100%;
+      padding-inline: 3vh;
+      height: 40vh;
+      align-items: center;
+      display: flex;
+      animation: carousel 20s linear infinite alternate;
+      gap: 3vw;
+      margin-bottom: 5vh;
+      margin-top: 5vh;
+    }
+
+    .carouselInner:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes carousel {
+      0% {
+        transform: translateX(0px);
+      }
+
+      100% {
+        transform: translateX(-200vw);
+      }
+
+    }
+
+    .section2a {
+
+      height: fit-content;
+      padding-block: 10vh;
+      background-color: beige;
+      display: grid;
+      row-gap: 10vh;
+      grid-template-columns: 1fr 1fr;
+      justify-content: center;
+      align-items: center;
+      padding-inline: 5vw;
+    }
+
+    #ytVideo {
+      width: 40vw;
+      height: 22.5vw;
+      border-radius: 3rem;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.612);
+    }
+
+    .section2aHeader {
+      font-size: 3vw;
+    }
+
+    .section2aPara {
+      font-size: 1.5vw;
+      margin-bottom: 4vh;
+    }
+
+    .section2aText {
+      padding-inline: 8vw;
+
+    }
+
+    #demo2 {
+      cursor: pointer;
+      padding: 2vh 4vh;
+      box-sizing: content-box;
+      border-radius: 4rem;
+      letter-spacing: 1px;
+      font-size: 1.5vw;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      background-color: transparent;
+      border: 1px solid rgb(0, 0, 0);
+      color: rgb(0, 0, 0);
+      transition: all 0.5s ease;
+      justify-self: center;
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+
+    #demo2:hover {
+      background-color: rgb(255, 101, 101);
+      transform: scale(1.2);
+    }
+
+    #demo3 {
+      cursor: pointer;
+      padding: 2vh 4vh;
+      box-sizing: content-box;
+      border-radius: 4rem;
+      letter-spacing: 1px;
+      font-size: 1.5vw;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      background-color: transparent;
+      border: 1px solid rgb(0, 0, 0);
+      color: rgb(0, 0, 0);
+      transition: all 0.5s ease;
+      margin-top: 10vh;
+
+    }
+
+    #demo3:hover {
+      background-color: rgb(255, 101, 101);
+      transform: scale(1.2);
+    }
+
+    .section2b {
+      height: fit-content;
+      padding-block: 10vh;
+      background-color: white;
+      text-align: center;
+    }
+
+    .features {
+      margin-bottom: 4vh;
+      font-size: 3vw;
+    }
+
+    .featuresCards {
+      display: flex;
+      gap: 2vw;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .featuresCard {
+      width: 13vw;
+      height: fit-content;
+      margin-bottom: 8vh;
+
+    }
+
+    .featureCardInner {
+      width: 13vw;
+      border-radius: 3rem;
+      height: 40vh;
+      background-color: rgb(51, 51, 51);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.6s ease;
+
+    }
+
+    .featureCardInner:hover {
+      transform: scale(1.2);
+      background-color: rgb(37, 21, 96);
+    }
+
+    .featureImg {
+      width: 4vw;
+      margin-top: 1vh;
+      margin-bottom: 1vh;
+    }
+
+    .featureHeader {
+      color: yellow;
+      font-size: 1.1vw;
+      padding-inline: 0.8vw;
+      margin-bottom: 1vh;
+    }
+
+    .featureText {
+      color: white;
+      font-size: 1vw;
+      padding-inline: 0.2vw;
+    }
+
+    .section3 {
+      background: linear-gradient(90deg, rgba(255, 189, 248, 0.886), rgba(255, 254, 189, 0.841));
+      width: 100%;
+      height: fit-content;
+      text-align: center;
+    }
+
+    .headerSection3 {
+      padding-top: 20vh;
+      font-size: 5vw;
+    }
+
+    .header2Section3 {
+      margin-top: 10vh;
+      font-size: 4vw;
+      color: rgb(108, 96, 96);
+      margin-bottom: 10vh;
+    }
+
+    .header4Section3 {
+      margin-bottom: 10vh;
+      color: brown;
+      text-shadow: 5px 5px 10px white;
+      font-size: 3.5vw;
+    }
+
+    .header5Section3 {
+      margin-bottom: 10vh;
+      color: brown;
+      text-shadow: 5px 5px 10px white;
+      font-size: 3.5vw;
+    }
+
+    .header6Section3 {
+      margin-top: 10vh;
+      font-size: 4vw;
+      color: rgb(108, 96, 96);
+      margin-bottom: 10vh;
+    }
+
+    .cardsContainer {
+      width: 100vw;
+      display: flex;
+      justify-content: space-evenly;
+      padding-bottom: 10vh;
+    }
+
+    .card {
+      position: relative;
+      z-index: 5;
+    }
+
+    .cardInner {
+      width: 22vw;
+      height: fit-content;
+      background: linear-gradient(120deg, rgba(255, 255, 230, 0.889), rgba(255, 211, 244, 0.878));
+      border-radius: 4rem;
+      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.634);
+      padding: 1vh 3vw;
+      transition: all 0.4s ease;
+    }
+
+    .cardheader0 {
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      font-size: 1.3vw;
+      padding: 1vh 1vw;
+      background-color: pink;
+      max-width: 15vh;
+      border-radius: 4rem;
+    }
+
+    .cardHeader1 {
+      font-size: 3vw;
+      margin-bottom: 3vh;
+    }
+
+    .cardHeader2 {
+      font-size: 1.5vw;
+      color: rgb(63, 55, 91);
+      margin-bottom: 5vh;
+    }
+
+    .cardList {
+      text-align: left;
+      font-size: 1.5vw;
+      margin-bottom: 3vh;
+    }
+
+    .cardHeader3 {
+      font-size: 2.5vw;
+      color: rgb(29, 13, 73);
+      margin-bottom: 2vh;
+      transition: all 0.4s ease;
+    }
+
+    .cardEnroll {
+      background-color: white;
+      padding: 1vh 3vw;
+      font-size: 1.5vw;
+      border: 1px solid black;
+      border-radius: 4rem;
+      color: rgb(142, 0, 0);
+      font-weight: 700;
+      margin-bottom: 5vh;
+      cursor: pointer;
+      transition: all 0.5s ease;
+
+    }
+
+    .cardInner:hover {
+      transform: scale(1.1);
+      background: linear-gradient(300deg, rgba(255, 255, 230, 0.858), rgba(255, 211, 244, 0.879));
+    }
+
+    .cardInner:hover .cardHeader3 {
+      color: rgb(255, 255, 255);
+      text-shadow: 0px 5px 10px black;
+    }
+
+    .cardInner:hover .cardheader0 {
+      box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.701);
+    }
+
+    .cardInner1 {
+      width: 50vw;
+    }
+
+    .cardEnroll:hover {
+      color: white;
+      background-color: black;
+    }
+
+    .section3a {
+      width: 100vw;
+      height: fit-content;
+      background: linear-gradient(200deg, rgba(255, 228, 196, 0.87), rgba(252, 199, 255, 0.892));
+    }
+
+    .videoContainer {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding-bottom: 5vh;
+
+    }
+
+    .video {
+      height: 100vh;
+
+    }
+
+    .students {
+      font-size: 3vw;
+      text-align: center;
+      padding-block: 4vh;
+
+    }
+
+    .section3b {
+      width: 100vw;
+      height: fit-content;
+      padding-block: 10vh;
+      background: url(/assets/quote.png), linear-gradient(120deg, rgba(255, 255, 230, 0.889), rgba(255, 211, 244, 0.878));
+      background-repeat: no-repeat;
+      background-position: center;
+      text-align: center;
+
+
+    }
+
+    .section3bHeader {
+      color: rgb(255, 255, 188);
+      font-size: 4vw;
+      text-shadow: 0px 10px 20px black;
+      margin-bottom: 10vh;
+    }
+
+    .testContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5vh;
+      row-gap: 15vh;
+      place-items: center;
+
+      transition: all 0.5s ease;
+
+    }
+
+    .test:hover {
+      transform: scale(1.1);
+    }
+
+    .test {
+      max-width: 28vw;
+      min-height: 30vh;
+      transition: all 0.5s ease;
+    }
+
+    .testInner {
+      max-width: 30vw;
+      min-height: 60vh;
+      background-color: rgb(253, 253, 228);
+      border-radius: 50% 0rem 50% 0rem;
+      display: grid;
+      gap: 3vh;
+      font-size: 1.2vw;
+      font-weight: 500;
+      padding-inline: 3vw;
+
+    }
+
+    .testImg {
+      width: 8vw;
+      justify-self: flex-end;
+      border-radius: 50%;
+    }
+
+    .testName {
+      padding-bottom: 5vh;
+      font-size: 1.5vw;
+    }
+
+    .section3c {
+      max-width: 100vw;
+      height: fit-content;
+      padding-block: 10vh;
+      padding-inline: 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5vw;
+      align-items: center;
+      background: linear-gradient(120deg, rgba(255, 220, 176, 0.74), rgba(255, 187, 244, 0.821));
+    }
+
+    .section3c:hover {
+      background: linear-gradient(300deg, rgba(255, 209, 153, 0.885), rgba(255, 136, 235, 0.829));
+    }
+
+    .certificate {
+      width: 40vw;
+      border-radius: 3rem;
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.766);
+      transition: all 1s ease;
+      animation: cert 2s linear infinite alternate;
+    }
+
+    @keyframes cert {
+      100% {
+        transform: scale(1.1);
+      }
+    }
+
+    .certificateHeader {
+      font-size: 5vw;
+    }
+
+    .section3d {
+      width: 100vw;
+      height: fit-content;
+      background: linear-gradient(120deg, bisque, pink);
+      padding-block: 10vh;
+
+    }
+
+    .FAQ {
+      padding-top: 5vh;
+      font-size: 3vw;
+      padding-inline: 5vw;
+      color: rgb(8, 8, 101);
+      text-align: center;
+      margin-bottom: 5vh;
+
+    }
+
+    .question {
+      color: rgb(8, 8, 101);
+      font-size: 3vw;
+      padding-inline: 5vw;
+      margin-bottom: 2vh;
+    }
+
+    .answer {
+      display: none;
+      font-size: 2vw;
+      font-weight: 500;
+      padding-inline: 7vw;
+      margin-bottom: 8vh;
+    }
+
+    .contactButton {
+      position: fixed;
+      cursor: pointer;
+    }
+
+    .whatsapp,
+    .telephoneIcon {
+      width: 3vw;
+    }
+
+    .telephoneIcon {
+      position: fixed;
+      z-index: -2;
+      bottom: -15vh;
+      right: -12vw;
+      transition: all 1s ease;
+    }
+
+    .whatsapp {
+      position: fixed;
+      z-index: -2;
+      bottom: -15vh;
+      right: -12vw;
+      transition: all 1s ease;
+    }
+
+    .connect {
+
+      position: fixed;
+      background-color: rgb(190, 216, 255);
+      border-radius: 50%;
+      width: 3vw;
+      padding: 1vw;
+      bottom: 2vh;
+      right: 2vh;
+    }
+
+    .footer {
+      background-color: white;
+      height: fit-content;
+      padding-block: 10vh;
+    }
+
+    .footerLinksContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3vh;
+      font-size: 2vw;
+      font-weight: 600;
+
+    }
+
+    .footerLinks {
+      text-decoration: none;
+      color: black;
+    }
+
+    .bottomContainer {
+      display: flex;
+      margin-top: 8vh;
+      padding-bottom: 4vh;
+      margin-inline: 5vw;
+      justify-content: space-between;
+      border-bottom: 2px solid rgb(224, 224, 224);
+
+
+    }
+
+    .copyright {
+      font-size: 1vw;
+    }
+
+    .footerSocialIconsContainer {
+      display: flex;
+      align-items: center;
+      gap: 1vw;
+    }
+
+    .footerSocialIcon {
+      width: 1.5vw;
+    }
+
+    .madeContainer {
+      display: flex;
+      justify-content: flex-end;
+      margin-inline: 5vw;
+      margin-bottom: 5vh;
+    }
+
+    .made {
+      font-size: 1.3vw;
+      margin-top: 2vh;
+
+    }
+
+    .heart {
+      width: 1.2vw;
+    }
+
+    .section3Mob {
+      display: none;
+    }
+
+    .section3bMob {
+      display: none;
+    }
+
+    .drop {
+      width: 2vw;
+      padding-left: 2vw;
+    }
+
+    .section2ab {
+      display: none;
+    }
+
+    .dropbtn {
+      background-color: rgb(253, 151, 151);
+      color: black;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      border-radius: 1vw;
+      width: 160px;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-top: -2vh;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      font-size: 1vw;
+      background-color: rgb(253, 151, 151);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 0 0 1vw 1vw;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      border-radius: 1vw 1vw 0 0;
+    }
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+    .featured {
+      width: 100vw;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding-block: 10vh;
+      background: linear-gradient(90deg, rgb(255, 255, 174), pink);
+    }
+
+    .featured>h1 {
+      margin-bottom: 5vh;
+      color: black;
+      font-size: 4vw;
+    }
+
+    .featuredGrid {
+      display: flex;
+      justify-content: center;
+      gap: 5vw;
+    }
+
+    .featuredCards {
+      background-color: transparent;
+      padding: 5vh 4vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2vh;
+      border-radius: 2vw;
+      backdrop-filter: blur(40px);
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.444);
+
+    }
+
+    .brandlinks {
+      color: rgb(0, 0, 0);
+      background-color: transparent;
+      box-shadow: 0px 0px 10px black;
+      width: fit-content;
+      padding: 1vw 2vw;
+      border-radius: 1vw;
+      text-decoration: none;
+      transition: all 0.5s ease;
+      background-color: #f1d1cb;
+    }
+
+    .brandlogo {
+      width: 28vw;
+      height: 20vh;
+      border-radius: 1vw;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .featuredGrid {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .brandlogo {
+        width: 60vw;
+        height: 15vh;
+      }
+
+      .featured>h1 {
+        font-size: 6vw;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    @media only screen and (max-width:1000px) {
+      html {
+        overflow-x: hidden;
+      }
+
+      .section3Mob {
+        display: block;
+        font-family: 'Barlow Condensed', sans-serif;
+      }
+
+      .section3bMob {
+        display: block;
+        font-family: 'Barlow Condensed', sans-serif;
+      }
+
+      .section3bDesk {
+        display: none;
+      }
+
+      .section3Desk {
+        display: none;
+      }
+
+      .abc {
+        display: none;
+      }
+
+      #enrollToday {
+        display: none;
+      }
+
+      #enrollToday1 {
+        display: inline-block;
+      }
+
+      #enrollToday,
+      #enrollToday1 {
+
+        padding: 1vh 2vw;
+        position: relative;
+        top: -0.5vh;
+        width: 30vw;
+        font-size: 2.5vw;
+      }
+
+      .preloaderText {
+        font-size: 6vw;
+      }
+
+      .navbar {
+        width: 100vw;
+
+        height: 15vh;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      #navLogoImg {
+        width: 30vw;
+
+      }
+
+      .navBarTabsContainer {
+        display: flex;
+        margin-inline: 2vw;
+        justify-content: space-evenly;
+        width: auto;
+      }
+
+      .leftNavTabsContainer {
+        display: none;
+      }
+
+      .videoContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-bottom: 5vh;
+        overflow-x: hidden;
+
+      }
+
+      .video {
+        height: 80vh;
+        width: 300px;
+
+      }
+
+      .section1 {
+        height: 60vh;
+        overflow: hidden;
+      }
+
+      #background1 {
+        margin-top: 10vh;
+        width: 50vw;
+      }
+
+      #backgroundImg1 {
+
+        width: 130vw;
+        height: 60vh;
+        margin-left: -20vw;
+      }
+
+      .text1 {
+
+        z-index: 3;
+        position: absolute;
+        top: 25vh;
+        left: 55vw;
+        color: rgb(253, 87, 87);
+        font-size: 8vw;
+        line-height: 5vw;
+
+
+      }
+
+      .text1>span {
+        font-size: 6vw;
+        color: white;
+        padding-bottom: 2vh;
+
+      }
+
+      #demo {
+        font-size: 4vw;
+        top: 50vh;
+        left: 30%;
+      }
+
+      .headerSection2 {
+        font-size: 6vw;
+        margin-bottom: 5vh;
+      }
+
+      .subHeaderSection2 {
+        font-size: 5vw;
+        letter-spacing: normal;
+        margin-inline: 20vw;
+      }
+
+      .carouselInner {
+        height: 30vh;
+        padding-bottom: 10vh;
+
+      }
+
+      .carousel {
+        height: 30vh;
+        padding-bottom: 10vh;
+        overflow: hidden;
+      }
+
+      .carouselImg {
+        width: 50vw;
+      }
+
+      #ytVideo {
+        width: 90vw;
+        height: 35vh;
+      }
+
+      .section2a {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-inline: 3vw;
+        padding-top: 5vh;
+
+      }
+
+
+      .section2aText {
+        padding-inline: 0vw;
+
+      }
+
+      .section2aHeader {
+        font-size: 6.5vw;
+        margin-bottom: 3vh;
+      }
+
+      .section2aPara {
+        font-size: 5vw;
+      }
+
+      #demo2 {
+        position: relative;
+
+        /* left: 20vw; */
+        width: 30vw;
+        font-size: 4vw;
+      }
+
+      .features {
+        font-size: 8vw;
+      }
+
+      .featuresCards {
+        flex-direction: column;
+      }
+
+      .featuresCard {
+
+        width: 30vw;
+      }
+
+      .featureCardInner {
+        padding-block: 5vh;
+        padding-inline: 2vw;
+        width: 30vw;
+        height: fit-content;
+      }
+
+      .featureImg {
+        width: 10vw;
+      }
+
+      .featureHeader {
+        font-size: 5vw;
+      }
+
+      .featureText {
+        font-size: 4vw;
+      }
+
+      .headerSection3 {
+        font-size: 8vw;
+      }
+
+      .header6Section3 {
+        font-size: 8vw;
+      }
+
+      .cardheader0 {
+        font-size: 5vw;
+      }
+
+      .cardInner {
+        width: 40vw;
+      }
+
+      .cardInner1 {
+        margin-left: -8vw;
+        width: 80vw;
+      }
+
+      .cardHeader1 {
+        font-size: 5vw;
+      }
+
+      .cardHeader2 {
+        font-size: 4vw;
+      }
+
+      .cardList {
+        font-size: 4vw;
+        padding-inline: 4vw;
+      }
+
+      .cardHeader3 {
+        font-size: 5vw;
+      }
+
+      .cardEnroll {
+        width: 30vw;
+        font-size: 3vw;
+      }
+
+      .header2Section3 {
+        font-size: 10vw;
+      }
+
+      .header4Section3 {
+        font-size: 8vw;
+        margin-bottom: 4vh;
+      }
+
+      .card {
+        max-width: 36vw;
+      }
+
+      .cardsContainer {
+        width: 95vw;
+        /* flex-wrap: wrap; */
+        /* display: flex; */
+        justify-content: center;
+        gap: 14vw;
+
+      }
+
+      .card1 {
+        margin-left: -5vw;
+      }
+
+      .cardInner {
+        height: max-content;
+      }
+
+      .card0 {
+        margin-left: -20vw;
+      }
+
+      .test {
+        min-width: 40vw;
+      }
+
+      .testInner {
+        min-width: 50vw;
+      }
+
+      .test5,
+      .testInner5 {
+        min-width: 50vw;
+        padding-inline: 5vw;
+      }
+
+      .testImg {
+        width: 20vw;
+      }
+
+      .testText {
+        font-size: 3vw;
+      }
+
+      #demo3 {
+
+
+        width: 30vw;
+        font-size: 4vw;
+      }
+
+      .section3bHeader {
+        font-size: 6vw;
+      }
+
+      .certificateHeader {
+        font-size: 8vw;
+      }
+
+      .certificate {
+        width: 80vw;
+      }
+
+      .testName {
+        font-size: 3vw;
+      }
+
+      .students {
+        font-size: 8vw;
+      }
+
+      .header5Section3 {
+        font-size: 7vw;
+        margin-bottom: 4vh;
+      }
+
+      .FAQ {
+        font-size: 8vw;
+      }
+
+      .question {
+        font-size: 7vw;
+      }
+
+      .answer {
+        font-size: 4vw;
+      }
+
+      .drop {
+        width: 4vw;
+        padding-left: 2vw;
+      }
+
+      .footerLinks {
+        font-size: 4vw;
+      }
+
+      .copyright {
+        font-size: 3vw;
+      }
+
+      .footerSocialIcon {
+        width: 5vw;
+      }
+
+      .made {
+        font-size: 4vw;
+      }
+
+      .heart {
+        width: 4vw;
+        padding-top: 4vh;
+      }
+
+      .connect {
+        width: 10vw;
+      }
+
+      .whatsapp {
+        width: 10vw;
+      }
+
+      .telephoneIcon {
+        width: 10vw;
+      }
+
+      .hamMenu,
+      .hamIcon {
+        display: inline-block;
+      }
+
+      .hamIcon {
+        width: 7vw;
+        margin-left: 1vw;
+        position: relative;
+        top: 1vh;
+        left: 2vw;
+      }
+
+      .hamMenu {
+        width: 100vw;
+        height: 90vh;
+        position: fixed;
+        top: 15vh;
+        left: 0vw;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.84);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 5vw;
+        gap: 7vh;
+        pointer-events: none;
+        opacity: 0;
+        transition: all 0.3s linear;
+      }
+
+      .hamMenu>a {
+        text-decoration: none;
+        color: white;
+
+      }
+
+      .hamMenu>a:hover {
+        color: rgb(255, 161, 161);
+      }
+
+      .container1 {
+        /* background: #fff; */
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+
+
+
+      .swiper {
+        width: 60vw;
+
+      }
+
+      .swiper-slide {
+        margin-bottom: 10vh;
+        width: 70vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4rem;
+        font-size: 22px;
+        font-weight: bold;
+        /* color: #fff; */
+      }
+
+      .swiper-slide:nth-child(1n) {
+        /* background-color: rgb(206, 17, 17); */
+      }
+
+      .swiper-slide:nth-child(2n) {
+        /* background-color: rgb(0, 140, 255); */
+      }
+
+      .swiper-slide:nth-child(3n) {
+        /* background-color: rgb(10, 184, 111); */
+      }
+
+
+      .cardInner {
+
+        width: 70vw;
+        height: fit-content;
+        background: linear-gradient(120deg, rgb(255, 255, 230), rgb(255, 211, 244));
+        border-radius: 4rem;
+        box-shadow: -3px -20px 40px rgba(0, 0, 0, 0);
+        padding: 1vh 3vw;
+        transition: all 0.4s ease;
+        font-family: 'Barlow Condensed', sans-serif;
+      }
+
+      .cardheader0 {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        font-size: 2vw;
+        padding: 1vh 1vw;
+        background-color: pink;
+        max-width: 15vh;
+        border-radius: 4rem;
+      }
+
+      .cardHeader1 {
+        font-size: 5vw;
+        margin-bottom: 3vh;
+      }
+
+      .cardHeader2 {
+        font-size: 4vw;
+        color: rgb(63, 55, 91);
+        margin-bottom: 5vh;
+      }
+
+      .cardList {
+        text-align: left;
+        font-size: 3vw;
+        margin-bottom: 3vh;
+        font-weight: 500;
+      }
+
+      .cardHeader3 {
+        font-size: 5vw;
+        color: rgb(29, 13, 73);
+        margin-bottom: 2vh;
+        transition: all 0.4s ease;
+      }
+
+      .cardEnroll {
+        background-color: white;
+        padding: 1vh 3vw;
+        font-size: 3vw;
+        border: 1px solid black;
+        border-radius: 4rem;
+        color: rgb(142, 0, 0);
+        font-weight: 700;
+        margin-bottom: 5vh;
+        cursor: pointer;
+        transition: all 0.5s ease;
+
+      }
+
+      .cardInner:hover {
+        transform: none;
+        background: linear-gradient(300deg, rgb(255, 255, 230), rgb(255, 211, 244));
+      }
+
+      .cardInner:hover .cardHeader3 {
+        color: rgb(255, 255, 255);
+        text-shadow: 0px 5px 10px black;
+      }
+
+      .cardInner:hover .cardheader0 {
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.701);
+      }
+
+
+
+      .cardEnroll:hover {
+        color: white;
+        background-color: black;
+      }
+
+
+
+
+      .container2 {
+        position: relative;
+        height: 100%;
+      }
+
+
+
+      .swiper {
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+      }
+
+      .swiper-slide img {
+        display: block;
+        /* width: 100%; */
+      }
+
+      .section3b {
+        overflow-x: hidden;
+        width: 100vw;
+        height: fit-content;
+        padding-block: 10vh;
+        background: url(/assets/quote.png), linear-gradient(120deg, rgba(255, 255, 230, 0.889), rgba(255, 211, 244, 0.878));
+        background-repeat: no-repeat;
+        background-position: center;
+        text-align: center;
+      }
+
+      .section3bHeader {
+        color: rgb(34, 18, 10);
+        font-size: 8vw;
+        text-shadow: 0px 10px 20px black;
+        margin-bottom: 10vh;
+      }
+
+      .testContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5vh;
+        row-gap: 15vh;
+        place-items: center;
+
+        transition: all 0.5s ease;
+
+      }
+
+      .test:hover {
+        transform: scale(1.1);
+      }
+
+      .test {
+        max-width: 40vw;
+        min-height: 30vh;
+        transition: all 0.5s ease;
+      }
+
+      .quoteIcon {
+        width: 10vw;
+      }
+
+      .testInner {
+        width: 50vw;
+        /* min-height:60vh; */
+        background-color: rgb(253, 253, 228);
+        border-radius: 50% 0rem 50% 0rem;
+        display: grid;
+        gap: 3vh;
+        font-size: 1.2vw;
+        font-weight: 500;
+        padding-inline: 3vw;
+
+      }
+
+      .testImg {
+        width: 17vw
+      }
+
+      .testName {
+        padding-bottom: 5vh;
+        font-size: 3vw;
+      }
+
+      .carouselInner {
+        height: 30vh;
+        padding-bottom: 0vh;
+
+
+      }
+
+      .carousel {
+        padding-bottom: 3vh;
+      }
+
+      .featuresCard {
+        width: 70vw;
+        height: fit-content;
+        margin-bottom: 5vh;
+
+      }
+
+      .featureCardInner {
+        width: 70vw;
+        border-radius: 3rem;
+        height: 15vh;
+        background-color: rgb(51, 51, 51);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        transition: all 0.6s ease;
+
+      }
+
+      .section2ab {
+
+        background-color: beige;
+        padding-bottom: 3vw;
+        display: flex;
+        justify-content: center;
+
+      }
+
+      .footerSocialIconsContainer {
+        display: flex;
+        align-items: center;
+        gap: 3vw;
+      }
+
+      .footerSocialIcon {
+        width: 6vw;
+      }
+
+      .footer {
+        padding-block: unset !important;
+        padding-top: 115px !important;
+        padding-bottom: 90px !important;
+      }
+
+
+    }
+
+    body {
+      /* margin-top: 20px; */
+    }
+
+    /*
+Blog post entries
+*/
+    .main-banner {
+      width: 60vw;
+    }
+
+    .entry-card {
+      -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+      -moz-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .entry-content {
+      background-color: #fff;
+      padding: 36px 36px 36px 36px;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    .entry-content .entry-title a {
+      color: #333;
+    }
+
+    .entry-content .entry-title a:hover {
+      color: #4782d3;
+    }
+
+    .entry-content .entry-meta span {
+      font-size: 12px;
+    }
+
+    .entry-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .entry-thumb {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
+    .entry-thumb img {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
+    .entry-thumb .thumb-hover {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(71, 130, 211, 0.85);
+      display: block;
+      top: 50%;
+      left: 50%;
+      color: #fff;
+      font-size: 40px;
+      line-height: 100px;
+      border-radius: 50%;
+      margin-top: -50px;
+      margin-left: -50px;
+      text-align: center;
+      transform: scale(0);
+      -webkit-transform: scale(0);
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      -webkit-transition: all 0.3s ease-in-out;
+    }
+
+    .entry-thumb:hover .thumb-hover {
+      opacity: 1;
+      transform: scale(1);
+      -webkit-transform: scale(1);
+    }
+
+    .post-content p {
+      font-size: 1.6rem !important;
+    }
+
+    .post-content ul li {
+      font-size: 1.6rem !important;
+    }
+
+    .post-content h3 {
+      margin: 1rem 0;
+      font-size: 3rem !important;
+    }
+
+    .article-post {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 70px;
+    }
+
+    .article-post .post-thumb {
+      display: block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-post .post-thumb .post-overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+      opacity: 0;
+    }
+
+    .article-post .post-thumb .post-overlay span {
+      width: 100%;
+      display: block;
+      vertical-align: middle;
+      text-align: center;
+      transform: translateY(70%);
+      -webkit-transform: translateY(70%);
+      transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+      height: 100%;
+      color: #fff;
+    }
+
+    .article-post .post-thumb:hover .post-overlay {
+      opacity: 1;
+    }
+
+    .article-post .post-thumb:hover .post-overlay span {
+      transform: translateY(50%);
+      -webkit-transform: translateY(50%);
+    }
+
+    .post-content .post-title {
+      font-weight: 500;
+    }
+
+    .post-meta {
+      padding-top: 15px;
+      margin-bottom: 20px;
+    }
+
+    .post-meta li:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    .post-meta li a {
+      color: #999;
+      font-size: 13px;
+    }
+
+    .post-meta li a:hover {
+      color: #4782d3;
+    }
+
+    .post-meta li i {
+      margin-right: 5px;
+    }
+
+    .post-meta li:after {
+      margin-top: -5px;
+      content: "/";
+      margin-left: 10px;
+    }
+
+    .post-meta li:last-child:after {
+      display: none;
+    }
+
+    .post-masonry .masonry-title {
+      font-weight: 500;
+    }
+
+    .share-buttons li {
+      vertical-align: middle;
+    }
+
+    .share-buttons li a {
+      margin-right: 0px;
+    }
+
+    .post-content .fa {
+      color: #ddd;
+    }
+
+    .post-content a h2 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 0px;
+    }
+
+    .article-post .owl-carousel {
+      margin-bottom: 20px !important;
+    }
+
+    .post-masonry h4 {
+      text-transform: capitalize;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .mb40 {
+      margin-bottom: 40px !important;
+    }
+
+    .mb30 {
+      margin-bottom: 30px !important;
+    }
+
+    .media {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 11px;
+    }
+
+    .media img {
+      width: 100%;
+    }
+
+    .media-body h5 a {
+      color: #555;
+    }
+
+    .categories li a:before {
+      content: "\f0da";
+      font-family: "FontAwesome";
+      margin-right: 5px;
+    }
+
+    /*
+Template sidebar
+*/
+
+    .sidebar-title {
+      margin-bottom: 1rem;
+      font-size: 3rem;
+    }
+
+    .categories li {
+      vertical-align: middle;
+    }
+
+    .categories li>ul {
+      padding-left: 15px;
+    }
+
+    .categories li>ul>li>a {
+      font-weight: 300;
+    }
+
+    .categories li a {
+      color: #999;
+      position: relative;
+      display: block;
+      padding: 5px 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .categories li a:before {
+      content: "\f0da";
+      font-family: "FontAwesome";
+      margin-right: 5px;
+    }
+
+    .categories li a:hover {
+      color: #444;
+      background-color: #f5f5f5;
+    }
+
+    .categories>li.active>a {
+      font-weight: 600;
+      color: #444;
+    }
+
+    .media-body h5 {
+      font-size: 15px;
+      letter-spacing: 0px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .media-body h5 a {
+      color: #555;
+    }
+
+    .media-body h5 a:hover {
+      color: #4782d3;
+    }
+
+    @media (max-width: 768px) {
+      .main-banner {
+        width: 100vw;
+      }
+    }
+
+    @media (min-width: 767px) and (max-width: 992px) {
+      .media {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* footer and navbar code */
+    .blog-form {
+      margin-top: 5rem;
+      margin-bottom: 5rem;
+    }
+
+    .footer {
+      border-top: 3px solid black;
+    }
+
+    .leftNavTabsContainer>a {
+      font-size: 1.2vw;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body style="overflow-y: auto;background-color:transparent;">
+  <!-- Nav starts -->
+  <div class="navbar">
+    <div class="navLogoContainer">
+      <a href="/index.html"><img src="https://guitarkaksha.com/assets/logo1.png" alt="Guitar Kaksha Logo" id="navLogoImg"></a>
+    </div>
+    <div class="navBarTabsContainer">
+      <div class="leftNavTabsContainer">
+        <a href="#" class="leftNavTabs" id="home">Home</a>
+        <a href="aboutus.html" class="leftNavTabs" id="aboutUs">About Us</a>
+        <a href="contact.html" class="leftNavTabs" id="contact">Contact</a>
+        <a href="chord.html" class="leftNavTabs" id="chordCharts">CHORD CHARTS</a>
+        <!-- <a href="https://xegoz.courses.store/358545" class="leftNavTabs" id="bestseller">Best seller</a> -->
+        <a href="https://web.classplusapp.com/login" class="rightNavTabs" id="login">Login</a>
+
+        <div class="dropdown">
+          <a href="recommendations.html"><button class="dropbtn"">Recommendations</button></a>
+                            <div class=" dropdown-content">
+              <a href="recommendations.html">Guitar</a>
+              <a href="recommendations.html#guitarStrings">Guitar Strings</a>
+              <a href="recommendations.html#otherAccessories">Accessories</a>
         </div>
-      </body>
+      </div>
 
-      <!-- Swiper JS -->
-      <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    </div>
+    <div class="rightNavTabsContainer">
+      <a href="#section"><button class="rightNavTabs" id="enrollToday">ENROLL TODAY</button></a>
+      <a href="#section1"><button class="rightNavTabs" id="enrollToday1">ENROLL TODAY</button></a>
+      <img src="/assets/hamburger.svg" alt="" class="hamIcon">
 
-      <!-- JavaScript -->
-      <script>
-        var swiper = new Swiper(".slide-content", {
-          slidesPerView: 3,
-          spaceBetween: 25,
-          loop: true,
-          centerSlide: "true",
-          fade: "true",
-          grabCursor: "true",
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            dynamicBullets: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
 
-          breakpoints: {
-            0: {
-              slidesPerView: 1,
-            },
-            520: {
-              slidesPerView: 2,
-            },
-            950: {
-              slidesPerView: 3,
-            },
-          },
-        });
-      </script>
-    </html>
-  </body>
+    </div>
+
+  </div>
+  </div>
+  <!-- Nav ends -->
+  <div class="container pb50">
+    <div class="row">
+      <div class="col-md-9">
+        <article>
+          <!-- <img src="https://guitarkaksha.com/assets/landing1.webp" alt="" class="img-fluid mb30 main-banner" /> -->
+          <img src="../uploads/<?php echo $row["b_img"]; ?>" class="card-img" alt="<?php echo $row['b_img']; ?>">
+          <div class="post-content">
+            <!-- <h3>Best Guitars of 2023 | Guitar Kaksha</h3> -->
+            <h3><?php echo $row['b_title'] ?></h3>
+            <ul class="post-meta list-inline">
+              <!-- <li class="list-inline-item">
+                  <i class="fa fa-user-circle-o"></i> <a href="#">John Doe</a>
+                </li> -->
+              <li class="list-inline-item">
+                <!-- <i class="fa fa-calendar-o"></i> <a href="#">29 June 2017</a> -->
+                <i class="bi bi-calendar-check-fill" style="margin-right: 5px"></i><?php echo $row['b_created_at'] ?>
+              </li>
+              <!-- <li class="list-inline-item">
+                  <i class="fa fa-tags"></i> <a href="#">Bootstrap4</a>
+                </li> -->
+            </ul>
+            <p><?php echo $row['b_des'] ?></p>
+            <!-- <hr class="mb40" /> -->
+          </div>
+        </article>
+        <!-- post article-->
+      </div>
+      <div class="col-md-3 mb40">
+        <!--/col-->
+        <div class="mb40">
+          <ul class="list-inline share-buttons">
+            <li class="list-inline-item">Share Post:</li>
+            <li class="list-inline-item">
+              <a href="#" class="social-icon-sm si-dark si-colored-facebook si-gray-round">
+                <i class="fa fa-facebook"></i>
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" class="social-icon-sm si-dark si-colored-twitter si-gray-round">
+                <i class="fa fa-twitter"></i>
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" class="social-icon-sm si-dark si-colored-linkedin si-gray-round">
+                <i class="fa fa-linkedin"></i>
+                <i class="fa fa-linkedin"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!--/col-->
+        <div>
+          <h4 class="sidebar-title">Latest Blogs</h4>
+          <ul class="list-unstyled">
+            <?php
+            $sql = "SELECT * FROM `blog` ORDER BY `b_created_at` DESC,`b_id` DESC LIMIT 3";
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+              $title = $row['b_title'];
+              $id = $row['b_id'];
+
+              // Prepare the URL segments
+              $url = $title . '-' . $id;
+
+              // Replace characters with hyphens
+              $url = str_replace([' '], '-', $url);
+              $url = str_replace(['?', '|'], '', $url);
+
+              // Remove unwanted characters
+              $url = preg_replace('/[^a-zA-Z0-9-]/', '', $url);
+
+              // Convert to lowercase
+              $url = strtolower($url);
+
+              // Remove consecutive hyphens
+              $url = preg_replace('/-+/', '-', $url);
+
+              // Insert a slash after "individual-blog"
+              // $url = preg_replace('/(individual-blog)(.+)/', '$1/$2', $url);
+              echo '
+              <li class="media my-4">
+                <img class="d-flex mr-3 img-fluid" width="64" src="../uploads/' . $row["b_img"] . '" alt="' . $row["b_img"] . '" />
+                <div class="media-body">
+                  <h5 class="mt-0 mb-1">
+                    <a href="' . $url . '">' . $row["b_title"] . '</a>
+                  </h5><i class="bi bi-calendar-check-fill" style="margin-right: 5px"></i>
+                  ' . $row['b_created_at'] . '
+                </div>
+              </li>';
+            }
+            ?>
+            <!-- <li class="media my-4">
+              <img class="d-flex mr-3 img-fluid" width="64" src="https://guitarkaksha.com/assets/landing1.webp" alt="Generic placeholder image" />
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">
+                  <a href="#">Lorem ipsum dolor sit amet</a>
+                </h5>
+                Jan 05, 2017
+              </div>
+            </li>
+            <li class="media">
+              <img class="d-flex mr-3 img-fluid" width="64" src="https://guitarkaksha.com/assets/landing1.webp" alt="Generic placeholder image" />
+              <div class="media-body">
+                <h5 class="mt-0 mb-1">
+                  <a href="#">Lorem ipsum dolor sit amet</a>
+                </h5>
+                March 15, 2017
+              </div>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footerLinksContainer">
+      <a href="terms.html" class="footerLinks">TERMS AND
+        CONDITIONS</a>
+      <a href="privacy.html" class="footerLinks">PRIVACY POLICY</a>
+      <a href="refund.html" class="footerLinks">REFUND POLICY</a>
+    </div>
+    <div class="bottomContainer">
+      <p class="copyright">Copyright &#169; 2022 Guitar kaksha </p>
+
+      <div class="footerSocialIconsContainer">
+        <a href="https://www.facebook.com/guitarkaksha123" class="fbIcon footerSocialIcon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z">
+            </path>
+          </svg></a>
+
+
+
+
+
+        <a href="https://instagram.com/guitarkaksha?utm_medium=copy_link" class="instaIcon footerSocialIcon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z">
+            </path>
+          </svg></a>
+
+
+
+        <a href="https://youtube.com/channel/UCGdGMyN5DgvAhw-lnJbqyxQ" class="ytIcon footerSocialIcon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">
+            </path>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+    <div class="madeContainer">
+      <p class="made">Made with <span><img src="/assets/heart.gif" alt="" class="heart"></span> in
+        India.
+      </p>
+    </div>
+  </div>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
 </html>
