@@ -1,26 +1,4 @@
-<?php
-$showerror = false;
-$showalert = false;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  include "temp/db_connect.php";
-  $username = $_POST['username'];
-  $password = $_POST['password'];
 
-  $sql = "SELECT * FROM `admin` WHERE `username`='$username'";
-  $result = mysqli_query($conn, $sql);
-  $num = mysqli_num_rows($result);
-  if ($num > 0) {
-    $rows = mysqli_fetch_assoc($result);
-    if (password_verify($password, $rows['password'])) {
-      session_start();
-      $_SESSION['username'] = $username;
-      $_SESSION['loggedin'] = true;
-      header("location: blog_form.php");
-      exit;
-    } else $showerror = true;
-  } else $showerror = true;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
