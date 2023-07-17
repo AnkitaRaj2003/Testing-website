@@ -1,252 +1,188 @@
 <?php
-session_start();
-if (isset($_SESSION['loggedin'])) {
-  if ($_SESSION['loggedin'] == true) {
-    session_unset();
-    session_destroy();
-  }
+$showerror = false;
+$showalert = false;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  include "temp/db_connect.php";
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  $sql = "SELECT * FROM `admin` WHERE `username`='$username'";
+  $result = mysqli_query($conn, $sql);
+  $num = mysqli_num_rows($result);
+  if ($num > 0) {
+    $rows = mysqli_fetch_assoc($result);
+    if (password_verify($password, $rows['password'])) {
+      session_start();
+      $_SESSION['username'] = $username;
+      $_SESSION['loggedin'] = true;
+      header("location: blog_form.php");
+      exit;
+    } else $showerror = true;
+  } else $showerror = true;
 }
 ?>
-
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive Card Slider</title>
-
-  <!-- Bootstrap Icon -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
-  <!-- CSS -->
-  <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <!------ Include the above in your HEAD tag ---------->
+  <!-- <link rel="stylesheet" href="index.css"> -->
   <style>
-    /* Google Fonts - Poppins */
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
-    .main-class {
-      min-height: 100vh;
-      background-color: #efefef;
-    }
-
-    .inner-class {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .slide-container {
-      max-width: 1120px;
-      width: 100%;
-      padding: 40px 0;
-    }
-
-    .slide-content {
-      margin: 0 40px;
-      overflow: hidden;
-      border-radius: 25px;
+      font-family: sans-serif;
+      background: linear-gradient(to right, #b92b27, #1565c0)
     }
 
     .card {
-      height: 30rem;
-      border-radius: 25px;
-      background-color: #fff;
-    }
-
-    .image-content,
-    .card-content {
-      min-height: 13rem;
-      display: flex;
-      flex-direction: column;
-      /* align-items: center; */
-      padding: 0px 14px;
-      justify-content: space-evenly;
-    }
-
-    .image-content {
-      display: flex;
-      position: relative;
-      /* row-gap: 5px; */
-      /* padding: 25px 0; */
-      align-items: center;
-    }
-
-    .overlay {
-      display: none;
-      /* position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            background-color: #4070f4;
-            border-radius: 25px 25px 0 25px; */
-    }
-
-    /* .overlay::before,
-          .overlay::after {
-            content: "";
-            position: absolute;
-            right: 0;
-            bottom: -40px;
-            height: 40px;
-            width: 40px;
-            background-color: #4070f4;
-          } */
-    /* .overlay::after {
-            border-radius: 0 25px 0 0;
-            background-color: #fff;
-          } */
-    .card-image {
-      position: relative;
-      height: 11rem;
-      width: 19rem;
-      /* border-radius: 50%; */
-      background: #fff;
-      padding: 3px;
-    }
-
-    .card-image .card-img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      /* border-radius: 50%; */
-      /* border: 4px solid #4070f4; */
-    }
-
-    .name {
-      font-size: 18px;
-      font-weight: 500;
-      color: #333;
-    }
-
-    .description {
-      font-size: 14px;
-      color: #707070;
-      text-align: justify;
-    }
-
-    .calendar-text {
-      /* margin: 5px 0; */
-      font-size: 13px;
-    }
-
-    .view-more-btn-div {
-      text-align: center;
-    }
-
-    .button {
+      margin-bottom: 20px;
       border: none;
-      font-size: 16px;
+    }
+
+    .box {
+      width: 500px;
+      padding: 40px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: #191919;
+      ;
+      text-align: center;
+      transition: 0.25s;
+      margin-top: 100px
+    }
+
+    .box input[type="text"],
+    .box input[type="password"] {
+      border: 0;
+      background: none;
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      border: 2px solid #3498db;
+      padding: 10px 10px;
+      width: 250px;
+      outline: none;
+      color: white;
+      border-radius: 24px;
+      transition: 0.25s
+    }
+
+    .box h1 {
+      color: white;
+      text-transform: uppercase;
+      font-weight: 500
+    }
+
+    .box input[type="text"]:focus,
+    .box input[type="password"]:focus {
+      width: 300px;
+      border-color: #2ecc71
+    }
+
+    .box input[type="submit"] {
+      border: 0;
+      background: none;
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      border: 2px solid #2ecc71;
+      padding: 14px 40px;
+      outline: none;
+      color: white;
+      border-radius: 24px;
+      transition: 0.25s;
+      cursor: pointer
+    }
+
+    .box input[type="submit"]:hover {
+      background: #2ecc71
+    }
+
+    .forgot {
+      text-decoration: underline
+    }
+
+    ul.social-network {
+      list-style: none;
+      display: inline;
+      margin-left: 0 !important;
+      padding: 0
+    }
+
+    ul.social-network li {
+      display: inline;
+      margin: 0 5px
+    }
+
+    .social-network a.icoFacebook:hover {
+      background-color: #3B5998
+    }
+
+    .social-network a.icoTwitter:hover {
+      background-color: #33ccff
+    }
+
+    .social-network a.icoGoogle:hover {
+      background-color: #BD3518
+    }
+
+    .social-network a.icoFacebook:hover i,
+    .social-network a.icoTwitter:hover i,
+    .social-network a.icoGoogle:hover i {
+      color: #fff
+    }
+
+    a.socialIcon:hover,
+    .socialHoverClass {
+      color: #44BCDD
+    }
+
+    .social-circle li a {
+      display: inline-block;
+      position: relative;
+      margin: 0 auto 0 auto;
+      border-radius: 50%;
+      text-align: center;
+      width: 50px;
+      height: 50px;
+      font-size: 20px
+    }
+
+    .social-circle li i {
+      margin: 0;
+      line-height: 50px;
+      text-align: center
+    }
+
+    .social-circle li a:hover i,
+    .triggeredHover {
+      transform: rotate(360deg);
+      transition: all 0.2s
+    }
+
+    .social-circle i {
       color: #fff;
-      padding: 8px 16px;
-      background-color: #000;
-      border-radius: 6px;
-      margin: 14px;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.8s;
+      transition: all 0.8s
     }
 
-    .button:hover {
-      background: #585858;
+    /* form h1 {
+      font-size: 3rem;
+      padding: 1rem;
     }
 
-    .swiper-navBtn {
-      color: #6e93f7;
-      transition: color 0.3s ease;
-    }
+    form {
+      font-size: 1.5rem;
+    } */
 
-    .swiper-navBtn:hover {
-      color: #4070f4;
-    }
-
-    .swiper-navBtn::before,
-    .swiper-navBtn::after {
-      font-size: 35px;
-    }
-
-    .swiper-button-next {
-      /* background: #bdbdbd; */
-      color: black;
-      /* padding: 18px; */
-      /* border-radius: 50%; */
-      right: 0;
-    }
-
-    .swiper-button-prev {
-      /* background: #bdbdbd; */
-      color: black;
-      /* padding: 18px; */
-      /* border-radius: 50%; */
-      left: 0;
-    }
-
-    .swiper-pagination-bullet {
-      background-color: #585858;
-      opacity: 1;
-    }
-
-    .swiper-pagination-bullet-active {
-      background-color: grey;
-    }
-
-    @media screen and (max-width: 768px) {
-      .slide-content {
-        margin: 0 10px;
-      }
-
-      .swiper-navBtn {
-        /* display: none; */
-      }
-
-      .swiper-navBtn::before,
-      .swiper-navBtn::after {
-        font-weight: bold;
-        font-size: 20px;
-      }
-    }
-
-    @media (min-width: 590px) and (max-width: 1061px) {
-      .card-image {
-        width: 17rem;
-      }
-    }
-
-    @media (min-width: 520px) and (max-width: 590px) {
-      .card-image {
-        width: 15rem;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .slide-content {
-        margin: 0 30px;
-      }
-    }
-
-    /* navbar code */
-    html {
+        /* navbar code */
+        html {
       scroll-behavior: smooth !important;
       box-sizing: border-box;
     }
@@ -261,10 +197,10 @@ if (isset($_SESSION['loggedin'])) {
       overflow-y: auto;
     }
 
-    .container {
+    /* .container {
       width: 100%;
       height: fit-content;
-    }
+    } */
 
     .navbar {
       position: sticky;
@@ -721,10 +657,11 @@ if (isset($_SESSION['loggedin'])) {
       }
     }
   </style>
+  <title>Login Form</title>
 </head>
 
-<body>
-  <!-- nav starts -->
+<body style="overflow-y: auto;background-color:transparent;">
+  <!-- Nav starts -->
   <div class="navbar">
     <div class="navLogoContainer">
       <a href="/index.html"><img src="https://guitarkaksha.com/assets/logo1.png" alt="Guitar Kaksha Logo" id="navLogoImg"></a>
@@ -746,6 +683,7 @@ if (isset($_SESSION['loggedin'])) {
               <a href="recommendations.html#otherAccessories">Accessories</a>
         </div>
       </div>
+
     </div>
     <div class="rightNavTabsContainer">
       <a href="#section"><button class="rightNavTabs" id="enrollToday">ENROLL TODAY</button></a>
@@ -756,8 +694,8 @@ if (isset($_SESSION['loggedin'])) {
     </div>
 
   </div>
-</div>
-<div class="hamMenu">
+  </div>
+  <div class="hamMenu">
   <a href="#" class="leftNavTabs" id="home">Home</a>
   <a href="aboutus.html" class="leftNavTabs" id="aboutUs">About Us</a>
   <a href="contact.html" class="leftNavTabs" id="contact">Contact</a>
@@ -767,453 +705,26 @@ if (isset($_SESSION['loggedin'])) {
 
   <a href="recommendations.html" class="leftNavTabs" id="recommendations">Recommendations</a>
 </div>
-  <!-- Nav ends -->
-  <div class="main-class">
-    <h1 style="text-align: center;padding-top:2rem;">Our Blogs</h1>
-    <div class="inner-class">
-      <div class="slide-container swiper" data-swiper-loop="true">
-        <div class="slide-content">
-          <div class="card-wrapper swiper-wrapper">
-            <!-- Start -->
-
-            <!-- End -->
-            <?php
-            include 'temp/db_connect.php';
-            $rows = mysqli_query($conn, "SELECT * FROM blog ORDER BY b_created_at DESC,b_id DESC");
-            ?>
-            <!-- 1 CARD -->
-            <?php foreach ($rows as $row) : ?>
-              <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
-                  <div class="card-image">
-                    <img src="uploads/<?php echo $row["b_img"]; ?>" class="card-img" title="<?php echo $row['b_img']; ?>">
-                    <!-- <img src="https://guitarkaksha.com/assets/landing1.webp" alt="" class="card-img" /> -->
-                  </div>
-                </div>
-                <div class="card-content">
-                  <h2 class="name">
-                    <?php echo $row['b_title'] ?>
-                  </h2>
-                  <p class="calendar-text">
-                    <i class="bi bi-calendar-check-fill" style="margin-right: 5px"></i><?php echo $row['b_created_at'] ?>
-                  </p>
-                  <p class="description">
-                    <?php echo substr($row['b_des'], 0, 150) . "......" ?>
-                  </p>
-                </div>
-                <!-- Creating URL -->
-                <?php
-                $title = $row['b_title'];
-                $id = $row['b_id'];
-
-                // Prepare the URL segments
-                $url = 'individual-blog/' . $title . '-' . $id;
-
-                // Replace characters with hyphens
-                $url = str_replace([' '], '-', $url);
-                $url = str_replace(['?', '|'], '', $url);
-
-                // Remove unwanted characters
-                $url = preg_replace('/[^a-zA-Z0-9-]/', '', $url);
-
-                // Convert to lowercase
-                $url = strtolower($url);
-
-                // Remove consecutive hyphens
-                $url = preg_replace('/-+/', '-', $url);
-
-                // Insert a slash after "individual-blog"
-                $url = preg_replace('/(individual-blog)(.+)/', '$1/$2', $url);
-                ?>
-                <div class="view-more-btn-div">
-                  <button class="button"><a style="text-decoration: none; color:white;" href="<?php echo $url ?>">View More</a></button>
-                </div>
-              </div>
-            <?php endforeach; ?>
-            <!-- 2 CARD -->
-            <!-- <div class="card swiper-slide">
-            <div class="image-content">
-              <span class="overlay"></span>
-              
-              <div class="card-image">
-                <img
-                src="https://guitarkaksha.com/assets/landing1.webp"
-                alt=""
-                class="card-img"
-                />
-              </div>
-            </div>
-            
-            <div class="card-content">
-              <h2 class="name">
-                How to make maggies in 2 Minutes | Guitar Kaksha
-              </h2>
-              <p class="calendar-text">
-                <i
-                class="bi bi-calendar-check-fill"
-                style="margin-right: 5px"
-                ></i
-                >12-07-2023
-              </p>
-              <p class="description">
-                The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div> -->
-
-            <!-- 3 CARD -->
-            <!-- <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
-                  
-                  <div class="card-image">
-                    <img
-                    src="https://guitarkaksha.com/assets/landing1.webp"
-                    alt=""
-                    class="card-img"
-                    />
-                  </div>
-                </div>
-                
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                    class="bi bi-calendar-check-fill"
-                    style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div> -->
-
-            <!-- 4 CARD -->
-            <!-- <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
-                  
-                  <div class="card-image">
-                    <img
-                    src="https://guitarkaksha.com/assets/landing1.webp"
-                    alt=""
-                    class="card-img"
-                    />
-                  </div>
-                </div>
-                
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                    class="bi bi-calendar-check-fill"
-                    style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div> -->
-
-            <!-- 5 CARD -->
-            <!-- <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
-                  
-                  <div class="card-image">
-                    <img
-                    src="https://guitarkaksha.com/assets/landing1.webp"
-                    alt=""
-                    class="card-img"
-                    />
-                  </div>
-                </div>
-                
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                    class="bi bi-calendar-check-fill"
-                    style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div> -->
-
-            <!-- 6 CARD -->
-            <!-- <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
-                  
-                  <div class="card-image">
-                    <img
-                    src="https://guitarkaksha.com/assets/landing1.webp"
-                    alt=""
-                    class="card-img"
-                    />
-                  </div>
-                </div>
-                
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                    class="bi bi-calendar-check-fill"
-                    style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div> -->
-
-            <!-- 7 CARD -->
-            <!-- <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
-                  
-                  <div class="card-image">
-                    <img
-                    src="https://guitarkaksha.com/assets/landing1.webp"
-                    alt=""
-                    class="card-img"
-                    />
-                  </div>
-                </div>
-                
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                    class="bi bi-calendar-check-fill"
-                    style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div> -->
-
-            <!-- 8 CARD -->
-            <!-- <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
-                  
-                  <div class="card-image">
-                    <img
-                    src="https://guitarkaksha.com/assets/landing1.webp"
-                    alt=""
-                    class="card-img"
-                    />
-                  </div>
-                </div>
-
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                    class="bi bi-calendar-check-fill"
-                    style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div> -->
-
-            <!-- 9 CARD -->
-            <!-- <div class="card swiper-slide">
-                <div class="image-content">
-                  <span class="overlay"></span>
-                  
-                  <div class="card-image">
-                    <img
-                    src="https://guitarkaksha.com/assets/landing1.webp"
-                    alt=""
-                    class="card-img"
-                    />
-                  </div>
-                </div>
-                
-                <div class="card-content">
-                  <h2 class="name">
-                    How to make maggies in 2 Minutes | Guitar Kaksha
-                  </h2>
-                  <p class="calendar-text">
-                    <i
-                    class="bi bi-calendar-check-fill"
-                    style="margin-right: 5px"
-                    ></i
-                    >12-07-2023
-                  </p>
-                  <p class="description">
-                    The lorem text the section that contains header with having
-                    open functionality. Lorem dolor sit amet consectetur
-                    adipisicing elit.
-                  </p>
-                </div>
-                <div class="view-more-btn-div">
-                  <button class="button">View More</button>
-                </div>
-              </div> -->
-          </div>
-        </div>
-
-        <div class="swiper-button-next swiper-navBtn"></div>
-        <div class="swiper-button-prev swiper-navBtn"></div>
-        <div class="swiper-pagination"></div>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <form method="post" class="box">
+          <h1>Login</h1>
+          <p class="text-muted"> Please enter your login and password!</p>
+          <input type="text" name="username" placeholder="Username">
+          <input type="password" name="password" placeholder="Password">
+          <input type="submit" name="submit" value="Submit">
+          <p style="color:white;">*Only Admin can Login</p>
+        </form>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Footer -->
-  <!-- Footer -->
-  <div class="footer">
-    <div class="footerLinksContainer">
-      <a href="terms.html" class="footerLinks">TERMS AND
-        CONDITIONS</a>
-      <a href="privacy.html" class="footerLinks">PRIVACY POLICY</a>
-      <a href="refund.html" class="footerLinks">REFUND POLICY</a>
-      <a href="../login.php" class="footerLinks">ADD NEW BLOG</a>
-    </div>
-    <div class="bottomContainer">
-      <p class="copyright">Copyright &#169; 2022 Guitar kaksha </p>
-
-      <div class="footerSocialIconsContainer">
-        <a href="https://www.facebook.com/guitarkaksha123" class="fbIcon footerSocialIcon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z">
-            </path>
-          </svg></a>
-        <a href="https://instagram.com/guitarkaksha?utm_medium=copy_link" class="instaIcon footerSocialIcon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-            <path d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z">
-            </path>
-          </svg></a>
-
-
-
-        <a href="https://youtube.com/channel/UCGdGMyN5DgvAhw-lnJbqyxQ" class="ytIcon footerSocialIcon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-            <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">
-            </path>
-          </svg>
-        </a>
-      </div>
-
-    </div>
-    <div class="madeContainer">
-      <p class="made">Made with <span><img src="/assets/heart.gif" alt="" class="heart"></span> in
-        India.
-      </p>
-    </div>
-  </div>
-</body>
-
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
-
-<script>
-  var swiper = new Swiper(".slide-content", {
-    slidesPerView: 3,
-    spaceBetween: 25,
-    loop: true,
-    centerSlide: "true",
-    fade: "true",
-    grabCursor: "true",
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-        loopedSlides: 1,
-      },
-      520: {
-        slidesPerView: 2,
-        loopedSlides: 2,
-      },
-      950: {
-        slidesPerView: 3,
-        loopedSlides: 3,
-      },
-    },
-  });
-
-  swiper.on("slideChange", function() {
-    var activeIndex = swiper.realIndex + 1;
-    var totalSlides = swiper.slides.length - 2; // Subtracting two cloned slides
-    var ariaLabel = activeIndex + "/" + totalSlides;
-    swiper.wrapperEl.setAttribute("aria-label", ariaLabel);
-  });
-</script>
-<script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
   let x = 0,
     y = 0;
   const hamMenu = document.querySelector(".hamMenu")
@@ -1241,7 +752,25 @@ if (isset($_SESSION['loggedin'])) {
     })
   }
 </script>
-
 </body>
 
 </html>
+
+
+
+<!-- $exists = false;
+$passnotmatch = false;
+$showerror = false;
+$showalert = false;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include "temp/db_connect.php";
+    if ($conn) {
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO `admin`(`username`,`password`) VALUES('$username','$hash')";
+        $result = mysqli_query($conn, $sql);
+        if ($result) $showalert = true;
+        else $showerror = true;
+    }
+} -->
