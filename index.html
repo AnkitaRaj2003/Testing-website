@@ -1,763 +1,1017 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  <!------ Include the above in your HEAD tag ---------->
-  <!-- <link rel="stylesheet" href="index.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style.css">
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background: linear-gradient(to right, #b92b27, #1565c0)
+      box-sizing: border-box;
+      /* width: 100vw; */
     }
 
-    .card {
-      margin-bottom: 20px;
-      border: none;
+    #main {
+      margin: 4rem 0;
     }
 
-    .box {
-      width: 500px;
-      padding: 40px;
+    /* Banner CSS Starts */
+    .banner {
+      position: relative;
+      width: 100%;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+    }
+
+    .banner-text {
       position: absolute;
       top: 50%;
       left: 50%;
-      background: #191919;
-      ;
+      transform: translate(-50%, -50%);
       text-align: center;
-      transition: 0.25s;
-      margin-top: 100px
-    }
-        @media screen and (max-width:1000px){
-      .card{
-        background: transparent;
-      }
-      .box{
-        width:auto;
-        position: initial;
-      }
+      z-index: 1;
     }
 
-    .box input[type="text"],
-    .box input[type="password"] {
-      border: 0;
-      background: none;
-      display: block;
-      margin: 20px auto;
-      text-align: center;
-      border: 2px solid #3498db;
-      padding: 10px 10px;
-      width: 250px;
-      outline: none;
-      color: white;
-      border-radius: 24px;
-      transition: 0.25s
-    }
-
-    .box h1 {
-      color: white;
-      text-transform: uppercase;
-      font-weight: 500
-    }
-
-    .box input[type="text"]:focus,
-    .box input[type="password"]:focus {
-      width: 300px;
-      border-color: #2ecc71
-    }
-
-    .box input[type="submit"] {
-      border: 0;
-      background: none;
-      display: block;
-      margin: 20px auto;
-      text-align: center;
-      border: 2px solid #2ecc71;
-      padding: 14px 40px;
-      outline: none;
-      color: white;
-      border-radius: 24px;
-      transition: 0.25s;
-      cursor: pointer
-    }
-
-    .box input[type="submit"]:hover {
-      background: #2ecc71
-    }
-
-    .forgot {
-      text-decoration: underline
-    }
-
-    ul.social-network {
-      list-style: none;
-      display: inline;
-      margin-left: 0 !important;
-      padding: 0
-    }
-
-    ul.social-network li {
-      display: inline;
-      margin: 0 5px
-    }
-
-    .social-network a.icoFacebook:hover {
-      background-color: #3B5998
-    }
-
-    .social-network a.icoTwitter:hover {
-      background-color: #33ccff
-    }
-
-    .social-network a.icoGoogle:hover {
-      background-color: #BD3518
-    }
-
-    .social-network a.icoFacebook:hover i,
-    .social-network a.icoTwitter:hover i,
-    .social-network a.icoGoogle:hover i {
-      color: #fff
-    }
-
-    a.socialIcon:hover,
-    .socialHoverClass {
-      color: #44BCDD
-    }
-
-    .social-circle li a {
-      display: inline-block;
-      position: relative;
-      margin: 0 auto 0 auto;
-      border-radius: 50%;
-      text-align: center;
-      width: 50px;
-      height: 50px;
-      font-size: 20px
-    }
-
-    .social-circle li i {
-      margin: 0;
-      line-height: 50px;
-      text-align: center
-    }
-
-    .social-circle li a:hover i,
-    .triggeredHover {
-      transform: rotate(360deg);
-      transition: all 0.2s
-    }
-
-    .social-circle i {
+    .banner-text h1 {
       color: #fff;
-      transition: all 0.8s;
-      transition: all 0.8s
+      font-size: 4rem;
+      font-weight: bold;
     }
 
-    /* form h1 {
-      font-size: 3rem;
-      padding: 1rem;
+
+    /* Banner CSS Ends */
+
+    ul {
+      list-style: none;
     }
 
-    form {
-      font-size: 1.5rem;
-    } */
-
-        /* navbar code */
-        html {
-      scroll-behavior: smooth !important;
-      box-sizing: border-box;
+    .item_btn {
+      background-color: transparent;
+      /* border: none; */
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    /* @media only screen and (min-width:769px){ */
-    body {
+    .fixed-left-column {
+      position: fixed;
+      top: 5rem;
       overflow-y: auto;
     }
 
-    /* .container {
+    .content-wrapper {
+      margin-left: 16.67%;
       width: 100%;
-      height: fit-content;
+      /* Width of the left column */
+    }
+
+    .col-md-8 {
+      width: 100% !important;
+    }
+
+    .row>* {
+      flex-shrink: initial !important;
+    }
+
+    .item_btn {
+      border: none;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 15px 8px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .item_btn:hover {
+      font-weight: bold;
+      background: #034c7f;
+      color: #f35053;
+      transition-duration: 0.5s;
+    }
+
+    .list-group {
+      margin: 1rem 0;
+    }
+
+    .list-group h3 {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Cards Code Starts */
+    /* .card {
+      box-shadow: none;
+      border: none !important;
     } */
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background-color: rgba(0, 0, 0, 0.888);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: -25px 25px 40px rgba(0, 0, 0, 0.675);
-    }
-
-    .navLogoContainer {
-      padding: 2vh 0 2vh 4vw;
-    }
-
-    #navLogoImg {
-      width: 15vw;
-      cursor: pointer;
-    }
-
-    .navBarTabsContainer {
-      width: 75vw;
-      margin-inline: 4vw;
-      display: flex;
-      justify-content: center;
-      gap: 5vw;
-      margin-top: 2vh;
-    }
-
-    .leftNavTabsContainer>a {
+    .contactus-para {
       text-decoration: none;
-      color: white;
-      font-size: 1.5vw;
-      transition: all 1s;
-      color: rgb(253, 151, 151);
-      margin-top: -2vh;
     }
 
-    .leftNavTabsContainer>a:hover {
-      color: red;
-    }
-
-    .leftNavTabsContainer {
-      display: flex;
-      align-items: center;
-      gap: 3vw;
-
-    }
-
-    #enrollToday,
-    #enrollToday1 {
-      padding: 2vh 4vh;
-      box-sizing: content-box;
-      position: relative;
-      border-radius: 4rem;
-      letter-spacing: 1px;
-      font-size: 1.5vw;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 600;
-      transition: all 1s ease;
-      animation: color 2s linear infinite alternate;
-      cursor: pointer;
-      border: none;
-    }
-
-    #enrollToday1 {
-      display: none;
-    }
-
-    @keyframes color {
-      0% {
-        background-color: rgb(153, 131, 234);
-      }
-
-      50% {
-        background-color: yellow;
-      }
-
-      100% {
-        background-color: red;
-      }
-    }
-
-    .rightNavTabsContainer {
-      margin-top: -2vh;
-    }
-
-    @keyframes cert {
-      100% {
-        transform: scale(1.1);
-      }
-    }
-
-    .question {
-      color: rgb(8, 8, 101);
-      font-size: 3vw;
-      padding-inline: 5vw;
-      margin-bottom: 2vh;
-    }
-
-    .answer {
-      display: none;
-      font-size: 2vw;
-      font-weight: 500;
-      padding-inline: 7vw;
-      margin-bottom: 8vh;
-    }
-
-    .contactButton {
-      position: fixed;
-      cursor: pointer;
-    }
-
-    .whatsapp,
-    .telephoneIcon {
-      width: 3vw;
-    }
-
-    .telephoneIcon {
-      position: fixed;
-      z-index: -2;
-      bottom: -15vh;
-      right: -12vw;
-      transition: all 1s ease;
-    }
-
-    .whatsapp {
-      position: fixed;
-      z-index: -2;
-      bottom: -15vh;
-      right: -12vw;
-      transition: all 1s ease;
-    }
-
-    .connect {
-
-      position: fixed;
-      background-color: rgb(190, 216, 255);
-      border-radius: 50%;
-      width: 3vw;
-      padding: 1vw;
-      bottom: 2vh;
-      right: 2vh;
-    }
-
-    .footer {
-      background-color: white;
-      height: fit-content;
-      padding-block: 10vh;
-    }
-
-    .footerLinksContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3vh;
-      font-size: 2vw;
-      font-weight: 600;
-
-    }
-
-    .footerLinks {
+    .contactus-para:hover {
+      color: #f35053;
       text-decoration: none;
-      color: black;
     }
 
-    .bottomContainer {
-      display: flex;
-      margin-top: 8vh;
-      padding-bottom: 4vh;
-      margin-inline: 5vw;
-      justify-content: space-between;
-      border-bottom: 2px solid rgb(224, 224, 224);
-
-
+    .description-heading {
+      margin: 1rem 0;
     }
 
-    .copyright {
-      font-size: 1vw;
+    .heading1 {
+      background: #034c7f;
+      color: #fff;
+      border-left: 11px solid #f35053;
     }
 
-    .footerSocialIconsContainer {
-      display: flex;
-      align-items: center;
-      gap: 1vw;
+    .heading2 {
+      background: #f35053;
+      color: #fff;
+      border-left: 11px solid #034c7f;
     }
 
-    .footerSocialIcon {
-      width: 1.5vw;
-    }
-
-    .madeContainer {
-      display: flex;
-      justify-content: flex-end;
-      margin-inline: 5vw;
-      margin-bottom: 5vh;
-    }
-
-    .made {
-      font-size: 1.3vw;
-      margin-top: 2vh;
-
-    }
-
-    .heart {
-      width: 1.2vw;
-    }
-
-    .dropbtn {
-      background-color: rgb(253, 151, 151);
-      color: black;
-      padding: 16px;
-      font-size: 14px;
-      border: none;
-      border-radius: 1vw;
-      width: 160px;
-    }
-
-    /* The container <div> - needed to position the dropdown content */
-    .dropdown {
-      position: relative;
+    /* .underline-small {
+      color: green;
       display: inline-block;
-      margin-top: -2vh;
+      position: relative;
+
     }
 
-    /* Dropdown Content (Hidden by Default) */
-    .dropdown-content {
-      display: none;
+    .underline-small::after {
+      content: '';
+      height: 2px;
+      width: 20%;
+      background: #f24432;
       position: absolute;
-      font-size: 1vw;
-      background-color: rgb(253, 151, 151);
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-      border-radius: 0 0 1vw 1vw;
+      left: calc(50% - 10%);
+      bottom: -5px;
+      /*   another way you can achieve this
+  Check this link: 
+  https://goo.gl/GgRdjz
+  
+  */
+
+    .description2 .card-title {
+      /* color: green; */
+      display: inline-block;
+      position: relative;
     }
 
-    /* Links inside the dropdown */
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
+    .description2 .card-title::after {
+      content: '';
+      height: 3px;
+      width: 50%;
+      background: #034c7f;
+      position: absolute;
+      left: calc(50% - 50%);
+      bottom: -5px;
     }
 
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {
-      background-color: #ddd;
+    .description1 .card-title {
+      /* color: green; */
+      display: inline-block;
+      position: relative;
     }
 
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {
-      display: block;
+    .description1 .card-title::after {
+      content: '';
+      height: 3px;
+      width: 50%;
+      background: #f35053;
+      position: absolute;
+      left: calc(50% - 50%);
+      bottom: -5px;
     }
 
-    .dropdown:hover .dropbtn {
-      border-radius: 1vw 1vw 0 0;
+    .description-content .card-container {
+      border-bottom: 1px solid gainsboro;
+      padding: 1rem 0;
     }
 
-    .brandlinks {
-      color: rgb(0, 0, 0);
-      background-color: transparent;
-      box-shadow: 0px 0px 10px black;
-      width: fit-content;
-      padding: 1vw 2vw;
-      border-radius: 1vw;
-      text-decoration: none;
-      transition: all 0.5s ease;
-      background-color: #f1d1cb;
+    .description-content img {
+      width: 40%;
     }
 
-    .brandlogo {
-      width: 28vw;
-      height: 20vh;
-      border-radius: 1vw;
-    }
+    /* Cards Code Ends */
 
-    @media only screen and (max-width: 600px) {
-      .drop {
-        width: 4vw;
-        padding-left: 2vw;
-      }
-
-      .footerLinks {
-        font-size: 4vw;
-      }
-
-      .copyright {
-        font-size: 3vw;
-      }
-
-      .footerSocialIcon {
-        width: 5vw;
-      }
-
-      .made {
-        font-size: 4vw;
-      }
-
-      .heart {
-        width: 4vw;
-        padding-top: 4vh;
-      }
-
-      .connect {
-        width: 10vw;
-      }
-
-      .whatsapp {
-        width: 10vw;
-      }
-
-      .footerSocialIconsContainer {
-        display: flex;
-        align-items: center;
-        gap: 3vw;
-      }
-
-      .footerSocialIcon {
-        width: 6vw;
-      }
-
-      .footer {
-        padding-block: unset !important;
-        padding-top: 115px !important;
-        padding-bottom: 90px !important;
-      }
-    }
-
-    /* navbar code */
-    .footer {
-      border-top: 3px solid black;
-    }
-
-    .navLogoContainer {
-      padding: 2vh 0 2vh 2vh;
-    }
-
-    .leftNavTabsContainer>a {
-      font-size: 1.3vw;
-    }
-
-    .leftNavTabsContainer {
-      gap: 2vw;
-    }
-
-    .navBarTabsContainer {
-      width: auto;
-    }
-
-    #enrollToday,
-    #enrollToday1 {
-      padding: 1vh 2vh;
-    }
-
-    .dropbtn {
-      padding: 13px;
-    }
-
-    .hamMenu,
-    .hamIcon {
-      display: none;
-    }
-
-
-    @media only screen and (max-width:1000px) {
-      .hamMenu,
-      .hamIcon {
-        display: inline-block;
-      }
-      .hamMenu>a {
-        text-decoration: none;
-        color: white;
-      }
-
-      .hamMenu>a:hover {
-        color: rgb(255, 161, 161);
-      }
-      .hamIcon {
-        width: 7vw;
-        margin-left: 1vw;
-        position: relative;
-        top: 1vh;
-        left: 2vw;
-      }
-      .hamMenu {
-        width: 100vw;
-        height: 90vh;
-        position: fixed;
-        top: 15vh;
-        left: 0vw;
-        z-index: 10;
-        background-color: rgba(0, 0, 0, 0.84);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 5vw;
-        gap: 7vh;
-        pointer-events: none;
-        opacity: 0;
-        transition: all 0.3s linear;
-      }
-
-
-      html {
-        overflow-x: hidden;
-      }
-
-      .abc {
-        display: none;
-      }
-
-      #enrollToday {
-        display: none;
-      }
-
-      #enrollToday1 {
-        display: inline-block;
-      }
-
-      #enrollToday,
-      #enrollToday1 {
-
-        padding: 1vh 2vw;
-        position: relative;
-        top: -0.5vh;
-        width: 30vw;
-        font-size: 2.5vw;
-      }
-
-      .navbar {
-        width: 100vw;
-        height: 15vh;
-        align-items: center;
-        justify-content: space-around;
-      }
-
-      #navLogoImg {
-        width: 30vw;
-
-      }
-
-      .navBarTabsContainer {
-        display: flex;
-        margin-inline: 2vw;
-        justify-content: space-evenly;
-        width: auto;
-      }
-
-      .leftNavTabsContainer {
+    @media (min-height: 1000px) {
+      .fixed-left-column {
         display: none;
       }
     }
+
+    @media (max-width: 766px) {
+      .description-content img {
+        width: 100%;
+      }
+      #main{
+        margin-top: 3.8rem;
+      }
+      .banner-text h1{
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 410px){
+      .banner-text h1{
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 1400px) {
+      #left-column .fixed-left-column {
+        display: none !important;
+      }
+
+      .content-wrapper {
+        margin: 0 !important;
+      }
+    }
+
+    /* Cards css */
   </style>
-  <title>Login Form</title>
 </head>
 
-<body style="overflow-y: auto;background-color:transparent;">
-  <!-- Nav starts -->
-  <div class="navbar">
-    <div class="navLogoContainer">
-      <a href="/index.html"><img src="https://guitarkaksha.com/assets/logo1.png" alt="Guitar Kaksha Logo" id="navLogoImg"></a>
-    </div>
-    <div class="navBarTabsContainer">
-      <div class="leftNavTabsContainer">
-        <a href="#" class="leftNavTabs" id="home">Home</a>
-        <a href="aboutus.html" class="leftNavTabs" id="aboutUs">About Us</a>
-        <a href="contact.html" class="leftNavTabs" id="contact">Contact</a>
-        <a href="chord.html" class="leftNavTabs" id="chordCharts">CHORD CHARTS</a>
-        <!-- <a href="https://xegoz.courses.store/358545" class="leftNavTabs" id="bestseller">Best seller</a> -->
-        <a href="https://web.classplusapp.com/login" class="rightNavTabs" id="login">Login</a>
+<body>
+  <?php include 'navbar.php' ?>
 
-        <div class="dropdown">
-          <a href="recommendations.html"><button class="dropbtn"">Recommendations</button></a>
-                            <div class=" dropdown-content">
-              <a href="recommendations.html">Guitar</a>
-              <a href="recommendations.html#guitarStrings">Guitar Strings</a>
-              <a href="recommendations.html#otherAccessories">Accessories</a>
+  <div id="main">
+    <!-- Banner starts -->
+    <div class="banner">
+      <img src="./Images/Banner2.png" alt="Banner Image">
+      <div class="banner-overlay"></div>
+      <div class="banner-text">
+        <h1>Our Products</h1>
+      </div>
+    </div>
+    <!-- Banner Ends -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" id="left-column">
+          <ul class="list-group fixed-left-column" style="display: none;">
+            <h3>Our Products</h3>
+            <li>
+              <input type="button" class="item_btn" value="SPM" onClick="scrollToElementWithMarginTop('item1');" />
+            </li>
+            <li>
+              <input type="button" class="item_btn" value="CONVEYOR SYSTEM" onClick="scrollToElementWithMarginTop('item2');" />
+            </li>
+            <li>
+              <input type="button" class="item_btn" value="INDUSTRIAL OVEN" onClick="scrollToElementWithMarginTop('item3');" />
+            </li>
+            <li>
+              <input type="button" class="item_btn" value="PAINTING/COATING PLANT" onClick="scrollToElementWithMarginTop('item4');" />
+            </li>
+            <li>
+              <input type="button" class="item_btn" value="PAINT BOOTHS" onClick="scrollToElementWithMarginTop('item5');" />
+            </li>
+            <li>
+              <input type="button" class="item_btn" value="INDUSTRIAL FABRICATION" onClick="scrollToElementWithMarginTop('item6');" />
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-8 content-wrapper">
+          <div class="description description1" id="item1">
+            <h2 class="description-heading heading1">SPM (SPECIFIED / SINGLE PURPOSE MACHINE)</h2>
+            <!-- <div class="row scrollFade"> -->
+            <div class="col my-3 card-container">
+              <div class="card">
+                <img src="../IMG/Special-Purpose-Machines.jpg" class="card-img-top" alt="IMG" />
+                <div class="card-body">
+                  <!-- <h5 class="card-title">
+                    SPM (SPECIFIED / SINGLE PURPOSE MACHINE)
+                  </h5> -->
+                  <p class="card-text" style="text-align: justify;">
+                    It is designed to process single or specific task. A fully
+                    automatic control system to perform the repeatability with
+                    efficiency.
+                  </p>
+                  <!-- <a href="products.php" class="btn btn-primary">Learn More...</a> -->
+                </div>
+              </div>
+            </div>
+            <!-- </div> -->
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;" style="display: none;">
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="../IMG/Special-Purpose-Machines.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <!-- <h5 class="card-title">
+                    SPM (SPECIFIED / SINGLE PURPOSE MACHINE)
+                  </h5> -->
+                    <p class="card-text" style="text-align: justify;">
+                      It is designed to process single or specific task. A fully
+                      automatic control system to perform the repeatability with
+                      efficiency.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn More...</a> -->
+                  </div>
+                </div>
+              </div>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="../IMG/Special-Purpose-Machines.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <!-- <h5 class="card-title">
+                    SPM (SPECIFIED / SINGLE PURPOSE MACHINE)
+                  </h5> -->
+                    <p class="card-text" style="text-align: justify;">
+                      It is designed to process single or specific task. A fully
+                      automatic control system to perform the repeatability with
+                      efficiency.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn More...</a> -->
+                  </div>
+                </div>
+              </div>
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="../IMG/Special-Purpose-Machines.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <!-- <h5 class="card-title">
+                    SPM (SPECIFIED / SINGLE PURPOSE MACHINE)
+                  </h5> -->
+                    <p class="card-text" style="text-align: justify;">
+                      It is designed to process single or specific task. A fully
+                      automatic control system to perform the repeatability with
+                      efficiency.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn More...</a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description description2" id="item2">
+            <h2 class="description-heading heading2">CONVEYOR SYSTEM</h2>
+            <div class="col my-3 card-container">
+              <div class="card">
+                <img src="../IMG/Conveyor.jpg" class="card-img-top" alt="IMG" />
+                <div class="card-body">
+                  <!-- <h5 class="card-title">CURING OVEN</h5> -->
+                  <b>Partner with Fetronix for Your Conveyor Needs</b> <br>
+                  With Fetronix as your conveyor solutions provider, you can enhance
+                  your material handling processes, improve operational efficiency, and
+                  elevate your productivity. Our commitment to excellence, customized
+                  solutions, and reliable support make us the ideal partner for
+                  businesses across a wide range of industries. <br>
+                  <a href="contactus.php" class="contactus-para">Contact us</a> today to discuss your conveyor requirements, and let us
+                  help you find the perfect solution for your business
+                  </p>
+                  <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;">
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/apron conveyor.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Apron Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An apron conveyor, also known as an apron feeder, is a type of mechanical conveyor system
+                      commonly used in industrial settings to transport bulk materials. It consists of a series of
+                      overlapping metal plates, known as aprons, that are connected to a central chain or belt.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/belt-conveyor-overhead-lights-removebg-preview.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Belt Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A belt conveyor is a mechanical system that utilizes a continuous belt to transport materials
+                      or products from one location to another. It is one of the most widely used conveyor systems
+                      in various industries, including manufacturing, logistics, mining, agriculture, and more.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/horizontal belt.jpg" class=" card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Horizontal Belt Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A horizontal belt conveyor is a type of belt conveyor system that is designed to transport
+                      materials or products horizontally along a straight path. Horizontal belt conveyors are versatile and can handle a wide range of materials, from small
+                      and lightweight items to large and heavy loads.
+                      One key advantage of a horizontal belt conveyor is its ability to efficiently transport materials
+                      or products over long distances. They can be used in straight sections or combined with curves to navigate around obstacles or
+                      fit within space constraints. Horizontal belt conveyors can also be integrated with other
+                      conveyor systems or equipment to create complete material handling systems.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/inclined.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Inclined Belt Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An inclined belt conveyor, also known as an incline conveyor or a conveyor with an incline,
+                      is a type of belt conveyor system that is designed to transport materials or products between
+                      different elevations or levels. Unlike a horizontal belt conveyor that moves materials along a
+                      straight path, an inclined belt conveyor is inclined at an angle to facilitate the vertical
+                      movement of goods.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/Inspection-conveyor-Machine.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Inspection Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An inspection conveyor, also known as an inspection belt or inspection table, is a type of
+                      conveyor system specifically designed for the visual inspection of products or materials
+                      during manufacturing or processing. It provides a controlled and well-lit environment for
+                      operators or automated systems to inspect items for quality control, sorting, or other
+                      purposes.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/assembly con.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Assembly Line Belt Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An assembly line conveyor is a type of conveyor system that is specifically designed for use
+                      in assembly line processes. It plays a critical role in facilitating the efficient movement of
+                      components or products along the production line, enabling workers or automated systems to
+                      perform assembly tasks in a systematic and organized manner.-in ovens are larger in size and cater to a wider range of
+                      industrial applications.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/loading unloading conv.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Loading/Unloading Conveyors</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A loading/unloading conveyor, also known as a loading/unloading system or a
+                      loading/unloading dock, is a type of conveyor system specifically designed for the efficient
+                      transfer of goods or materials between a transportation vehicle (such as a truck or a container)
+                      and a warehouse, facility, or another area.
+                      The primary purpose of a loading/unloading conveyor is to facilitate the safe and efficient
+                      loading and unloading of cargo or materials from transportation vehicles.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/roller con1.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Roller Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A roller conveyor is a type of conveyor system that uses a series of rotating cylindrical rollers
+                      to transport goods or materials from one location to another. Roller conveyors can handle a wide range of materials, including boxes,
+                      cartons, pallets, and even irregularly shaped items. The rotating rollers provide a smooth and
+                      continuous movement, allowing for efficient transportation of goods. Roller conveyors can be designed with accumulation zones
+                      where goods can temporarily stop without disrupting the overall flow of the conveyor
+                      system. Roller conveyors can be combined with curves, merges, diverts, or other
+                      conveyor types to create complex material handling systems tailored to specific
+                      operational requirements.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/slat chain conv.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Chain Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A chain conveyor is a type of conveyor system that utilizes a continuous chain as the
+                      conveying medium to transport goods or materials from one location to another. Durability: Chain conveyors are robust and can handle heavy loads and withstand
+                      harsh operating conditions. Chain conveyors can be designed to accommodate different layouts,
+                      including straight sections, curves, inclines, and declines, to suit specific space
+                      requirements and production processes. Chain conveyors can handle a wide range of materials, from small
+                      components to large and heavy items. Chain conveyors can be designed with accumulation zones
+                      or indexing systems to control the flow and accumulation of products along the
+                      conveyor line. Chain conveyors can be customized with various features and
+                      accessories, such as side guides, guide rails, or attachments, to meet specific
+                      application needs.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/screw conv1.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Screw Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A screw conveyor is a type of conveyor system that uses a rotating helical screw blade,
+                      known as a "flight" to move materials or products along a tube or trough. Versatility: Screw conveyors can handle a wide range of materials, including powders,
+                      granular materials, flakes, and sticky substances.The rotating screw provides a gentle and controlled movement of
+                      materials, making screw conveyors suitable for fragile or sensitive products.Screw conveyors have a relatively compact footprint and can be
+                      easily integrated into existing production lines or equipment.Screw conveyors are often a cost-effective solution for material
+                      handling, requiring low maintenance and operating costs.Screw conveyors can be customized with different screw designs,
+                      lengths, and diameters to meet specific application requirements.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/slat chain conv.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Slat Chain Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A slat chain conveyor, also known as a slat conveyor or
+                      slat band conveyor, is a type of conveyor system that uses flat slats or plates linked together
+                      with chains to transport goods or materials. The use of robust slats and chains ensures the conveyor&#39;s ability to
+                      handle heavy loads and withstand demanding industrial environments.Slat chain conveyors can be designed to follow straight lines, curves, or
+                      inclines, making them adaptable to different floor layouts and production requirements.The flat, solid slats provide a stable surface for
+                      transporting goods or materials, ensuring minimal product damage and smooth conveying. Slat chain conveyors can handle a wide range of products,
+                      including bottles, cans, boxes, components, and more, making them suitable for various
+                      industries and applications. Slats and chains are easily replaceable if damaged or worn, simplifying
+                      maintenance and reducing downtime.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/wire-mesh-conveyors.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Wire Mesh Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A wire mesh conveyor, also known as a wire belt conveyor or wire mesh belt conveyor, is a
+                      type of conveyor system that utilizes a continuous belt made of interconnected metal wires to
+                      transport goods or materials. The metal wires used in the belt provide excellent strength
+                      and durability, allowing the conveyor to handle heavy loads and withstand harsh operating
+                      conditions. Wire mesh belts are suitable for applications involving high or
+                      low temperatures, as they can withstand heat treatment processes or be used in freezers or
+                      cooling areas. The open structure of the wire mesh belt allows for easy
+                      cleaning, as debris can fall through the belt. It also facilitates visual inspection and
+                      maintenance of the conveyor. The textured surface of the wire mesh belt provides good grip and
+                      prevents product slippage during transportation. Wire mesh conveyors are suitable for various products, including
+                      small components, bulk materials, or items that require cooling, drying, or drainage during
+                      the conveying process.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/screw conv1.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Magnetic Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A magnetic conveyor, also known as a magnetic belt conveyor or magnetic slide conveyor, is
+                      a type of conveyor system that uses magnets to transport ferrous materials or objects along a
+                      conveyor path. The magnetic conveyor utilizes a continuous belt or slide surface with embedded magnets or
+                      magnetic strips. These magnets create a magnetic field that attracts and holds ferrous
+                      materials securely to the belt or slide surface. As the belt or slide moves, the magnetic force
+                      propels the materials along the conveyor path.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/double decker 1.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Double Decker Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A double decker conveyor, also known as a two-tier conveyor or dual-level conveyor, is a
+                      type of conveyor system that consists of two separate conveyor levels stacked on top of each
+                      other. It is designed to increase the capacity and efficiency of material handling operations by
+                      utilizing the vertical space and creating multiple conveying levels. Double decker conveyors are commonly used in scenarios where space optimization and
+                      increased throughput are essential. They are often employed in operations involving sorting,
+                      order fulfillment, cross-docking, and multi-level material handling.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/telescopic con2.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Telescopic Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A telescopic conveyor, also known as a telescoping conveyor or extendable conveyor, is a
+                      type of conveyor system that can be extended or contracted in length to adjust to different
+                      loading and unloading requirements. It is commonly used in applications where flexibility
+                      and adaptability are needed.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/telescopic con1.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Printer Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A printer conveyor is a type of conveyor system that is specifically designed for transporting
+                      printed materials, such as paper sheets, documents, or other printed media. It is commonly
+                      used in printing and finishing operations, where printed materials need to be moved from one
+                      location to another for further processing or packaging. Printer conveyors can be combined with other conveyor types or integrated into larger
+                      printing and finishing systems to create a complete material handling solution. They are often
+                      used in conjunction with other equipment, such as printers, collators, folders, or binders, to
+                      streamline the printing process.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/i beam conv.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">I Beam Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An I-beam conveyor, also known as an I-beam overhead conveyor or I-beam monorail
+                      conveyor, is a type of conveyor system that utilizes an I-shaped beam as the track or rail for
+                      carrying and transporting loads. The sturdy I-beam track provides excellent strength and load
+                      bearing capacity, allowing for the transportation of heavy or bulky items. I-beam conveyors can be designed to follow straight lines, curves, or
+                      inclines, enabling flexibility in the layout and configuration of the conveyor system to suit the
+                      available space and operational needs. By suspending the conveyor from the ceiling or overhead
+                      structure, I-beam conveyors utilize the vertical space in the facility, leaving the floor area
+                      unobstructed for other operations or equipment. The simplicity of the I-beam conveyor design makes it relatively easy
+                      to maintain. Trolleys or carriers can be easily replaced, and the track can be inspected and
+                      repaired if needed.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/overhead con.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Overhead Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      An overhead conveyor is a type of conveyor system that is designed to transport goods or
+                      materials above the ground level using an elevated track or rail system. By utilizing the overhead space, an overhead conveyor system allows
+                      for the efficient use of floor space. This is particularly beneficial in facilities where floor
+                      space is limited or needs to be kept clear for other operations. Overhead conveyors provide a continuous flow of goods or materials,
+                      allowing for seamless and efficient transportation along the predetermined path. This can
+                      help streamline production processes and reduce bottlenecks. Overhead conveyors can handle a wide range of products, including various
+                      sizes, shapes, and weights. They are suitable for conveying items such as boxes, bags,
+                      garments, automotive parts, and more. Overhead conveyors can be designed with flexibility in mind, allowing for
+                      customization and adaptability to changing production needs. They can be easily modified or
+                      expanded as the requirements of the facility evolve. Overhead conveyors reduce the need for manual
+                      handling, which can improve ergonomics and reduce the risk of injuries associated with
+                      lifting and carrying heavy items. They also help keep the work area clear of obstructions,
+                      enhancing safety in the facility.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/conveyors/ezgif.com-webp-to-jpg-removebg-preview.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Bucket Conveyor</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      A bucket conveyor, also known as a bucket elevator or bucket lift, is a type of conveyor
+                      system used to vertically elevate or lower materials in bulk. It consists of a series of buckets
+                      or cups attached to a belt or chain that move along a vertical or inclined path. Bucket conveyors can be equipped with additional features such as discharge gates, sensors,
+                      and safety devices to enhance their functionality and ensure safe operation. It is important to
+                      consider factors such as material characteristics, capacity requirements, bucket design, and
+                      safety precautions when selecting and designing a bucket conveyor system. Regular
+                      maintenance and inspections are necessary to ensure optimal performance and longevity of
+                      the equipment.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description description1" id="item3">
+            <h2 class="description-heading heading1">INDUSTRIAL OVEN</h2>
+            <div class="col my-3 card-container">
+              <div class="card">
+                <img src="../IMG/Industrial-Oven.jpg" class="card-img-top" alt="IMG" />
+                <div class="card-body">
+                  <!-- <h5 class="card-title">CURING OVEN</h5> -->
+                  <p class="card-text" style="text-align: justify;">
+                    <b>Fetronix - Your Trusted Partner in Industrial Oven Manufacturing</b> <br>
+                    At Fetronix, we are committed to providing high-quality industrial ovens that are designed to
+                    meet the diverse needs of modern industries. With our cutting-edge technology, precision
+                    engineering, and dedication to customer satisfaction.. Whether you require an oven for heat treatment, drying,
+                    curing, or any other industrial application, we have the perfect solution for you.<br>
+                    <a href="contactus.php" class="contactus-para">Contact us</a> today to discuss your needs and let our team assist you in finding the perfect solution.
+                  </p>
+                  <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;">
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/ovens/batch oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Batch Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix Batch ovens are specialized furnaces utilized for thermal
+                      processing purposes. They find applications in various production and laboratory settings,
+                      serving functions such as curing, drying, sterilizing, aging, and other critical processes.
+
+                      The size of these ovens can be customized based on the specific thermal processing
+                      requirements. Batch ovens are primarily employed for single-batch thermal processing
+                      tasks. Cabinet and bench ovens are smaller in size and suitable for smaller batch
+                      operations, while walk-in/drive-in ovens are larger in size and cater to a wider range of
+                      industrial applications.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/ovens/conv oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Conveyor Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      OVEN-The Fetronix industrial conveyor oven is a type of oven specifically
+                      designed for industrial applications that involve continuous or batch processing of
+                      products on a conveyor belt system. These ovens are commonly used in various industries
+                      such as manufacturing, food processing, automotive, electronics, and more.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/ovens/drying oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Drying Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial drying oven is a specialized type of oven used
+                      for removing moisture or drying materials in industrial settings. These ovens are
+                      commonly used in industries such as manufacturing, food processing, pharmaceuticals,
+                      textiles, ceramics, and many others.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/ovens/curing oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Curing Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial curing oven is a specialized type of oven used
+                      in industrial processes to cure or harden materials through controlled heat and time.
+                      Curing refers to the process of creating a chemical or physical change in a material to
+                      achieve desired properties such as increased strength, durability, or adhesion. Industrial
+                      curing ovens are widely used in industries such as automotive, aerospace, electronics,
+                      composites, coatings, and more. They play a crucial role in curing processes such as
+                      polymerization, vulcanization, drying, baking, and curing of coatings, adhesives, paints,
+                      resins, and other materials.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/ovens/infrared oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Infrared Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial infrared oven is a type of oven that utilizes
+                      infrared radiation to heat and process materials in industrial applications. Infrared
+                      radiation is a form of electromagnetic radiation that transfers heat directly to the surface
+                      of an object without relying on convection or conduction. Industrial infrared ovens are
+                      commonly used in industries such as automotive, electronics, plastics, textiles, food
+                      processing, and more. They offer several advantages over traditional convection ovens,
+                      including faster heating times, energy efficiency, precise temperature control, and targeted
+                      heating.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/ovens/tunnel oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Tunnel Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial tunnel oven is a specific type of oven
+                      commonly used in industrial settings for continuous and automated processing of
+                      products. As the name suggests, it resembles a tunnel-like structure with an entry and exit
+                      point for the products to pass through on a conveyor belt system.Industrial tunnel ovens
+                      are designed to provide consistent and controlled heating across the entire length of the
+                      oven. They are commonly used in industries such as food production, baking, automotive,
+                      electronics, and more.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/ovens/electric oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Industrial Electric Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial electric oven is a type of oven
+                      specifically designed for industrial applications that utilizes electric heating elements to
+                      generate heat for various processes. These ovens are commonly used in industries such as
+                      manufacturing, food processing, pharmaceuticals, ceramics, and more. Industrial electric
+                      ovens offer several advantages over other types of ovens, such as gas or steam ovens.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/ovens/DirectGas FiredOven.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Direct Gas Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix industrial gas oven is a type of oven commonly used
+                      in industrial applications that relies on gas combustion for heat generation. These ovens
+                      utilize natural gas or propane as a fuel source to create the necessary heat for various
+                      industrial processes such as baking, curing, drying, and more. Industrial gas ovens offer
+                      several advantages in terms of performance and efficiency.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/ovens/reflow oven.png" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Reflow Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix reflow oven is a specialized type of oven used in
+                      electronics manufacturing processes, specifically for the soldering of surface-mounted
+                      components onto printed circuit boards (PCBs). Reflow soldering is a technique that
+                      involves heating solder paste, which contains tiny solder balls, to a precise temperature to
+                      form solder joints between the components and the PCB. Reflow ovens are designed to
+                      provide controlled and consistent heating profiles to achieve optimal soldering results.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+              <
+              <div class="col my-3 card-container">
+                <div class="card">
+                  <img src="./Images/ovens/continous oven.jpg" class="card-img-top" alt="IMG" />
+                  <div class="card-body">
+                    <h5 class="card-title">Continuous Oven</h5>
+                    <p class="card-text" style="text-align: justify;">
+                      The Fetronix continuous oven is a type of industrial oven that is
+                      designed for continuous and uninterrupted processing of products or materials. Unlike
+                      batch ovens where products are processed in separate batches, continuous ovens allow for
+                      a continuous flow of materials through the oven, enabling efficient and high-volume
+                      production. Continuous ovens are commonly used in various industries such as food
+                      processing, automotive, electronics, textiles, and more. They offer several advantages,
+                      including increased productivity, reduced downtime, and improved process efficiency.
+                    </p>
+                    <!-- <a href="products.php" class="btn btn-primary">Learn more...</a> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="description description2" id="item4">
+            <h2 class="description-heading heading2">PAINTING / COATING PLANT</h2>
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;">This is the description for Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, quia. Item 3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, ipsa. Accusamus, placeat? Officiis quia dolores dignissimos molestias, ut nulla minus, quam saepe reprehenderit, quos dolore ab cumque tenetur similique? Veritatis commodi, at vero fugit neque quasi harum reprehenderit consequuntur sapiente amet nihil aliquam error odit minima, maxime veniam sunt itaque consectetur optio odio quibusdam sequi provident facilis! Est, velit. incidunt doloribus vel, corrupti asperiores possimus minus consequuntur doloremque sed esse quaerat voluptates reprehenderit? Soluta laboriosam quis placeat eaque tempore et dolorum mollitia laborum in. Eaque quibusdam dolore inventore necessitatibus mollitia voluptate, praesentium vitae! Ratione ipsam consectetur tempore alias odit beatae ex quisquam ullam repudiandae deserunt, quaerat non inventore quod dolorum possimus. Provident nisi ducimus repellendus, exercitationem, unde odio optio, tenetur distinctio consectetur est illum vel sapiente eius soluta. Numquam doloribus dolorem temporibus assumenda amet ducimus, deleniti minima repellendus, nostrum cumque error unde, illum ut sapiente asperiores veniam distinctio doloremque laudantium.</div>
+          </div>
+          <div class="description description1" id="item5">
+            <h2 class="description-heading heading1">PAINT BOOTHS</h2>
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;">This is the description for Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, quia. Item 3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, ipsa. Accusamus, placeat? Officiis quia dolores dignissimos molestias, ut nulla minus, quam saepe reprehenderit, quos dolore ab cumque tenetur similique? Veritatis commodi, at vero fugit neque quasi harum reprehenderit consequuntur sapiente amet nihil aliquam error odit minima, maxime veniam sunt itaque consectetur optio odio quibusdam sequi provident facilis! Est, velit. incidunt doloribus vel, corrupti asperiores possimus minus consequuntur doloremque sed esse quaerat voluptates reprehenderit? Soluta laboriosam quis placeat eaque tempore et dolorum mollitia laborum in. Eaque quibusdam dolore inventore necessitatibus mollitia voluptate, praesentium vitae! Ratione ipsam consectetur tempore alias odit beatae ex quisquam ullam repudiandae deserunt, quaerat non inventore quod dolorum possimus. Provident nisi ducimus repellendus, exercitationem, unde odio optio, tenetur distinctio consectetur est illum vel sapiente eius soluta. Numquam doloribus dolorem temporibus assumenda amet ducimus, deleniti minima repellendus, nostrum cumque error unde, illum ut sapiente asperiores veniam distinctio doloremque laudantium.</div>
+          </div>
+          <div class="description description2" id="item6">
+            <h2 class="description-heading heading2">INDUSTRIAL FABRICATION</h2>
+            <button class="btn btn-primary show-btn">Show Types</button>
+            <button class="btn btn-primary hide-btn" style="display: none;">Hide Types</button>
+            <div class="description-content" style="display: none;">This is the description for Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, quia. Item 3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, ipsa. Accusamus, placeat? Officiis quia dolores dignissimos molestias, ut nulla minus, quam saepe reprehenderit, quos dolore ab cumque tenetur similique? Veritatis commodi, at vero fugit neque quasi harum reprehenderit consequuntur sapiente amet nihil aliquam error odit minima, maxime veniam sunt itaque consectetur optio odio quibusdam sequi provident facilis! Est, velit. incidunt doloribus vel, corrupti asperiores possimus minus consequuntur doloremque sed esse quaerat voluptates reprehenderit? Soluta laboriosam quis placeat eaque tempore et dolorum mollitia laborum in. Eaque quibusdam dolore inventore necessitatibus mollitia voluptate, praesentium vitae! Ratione ipsam consectetur tempore alias odit beatae ex quisquam ullam repudiandae deserunt, quaerat non inventore quod dolorum possimus. Provident nisi ducimus repellendus, exercitationem, unde odio optio, tenetur distinctio consectetur est illum vel sapiente eius soluta. Numquam doloribus dolorem temporibus assumenda amet ducimus, deleniti minima repellendus, nostrum cumque error unde, illum ut sapiente asperiores veniam distinctio doloremque laudantium.</div>
+          </div>
+          <!-- Add more descriptions here -->
         </div>
       </div>
-
-    </div>
-    <div class="rightNavTabsContainer">
-      <a href="#section"><button class="rightNavTabs" id="enrollToday">ENROLL TODAY</button></a>
-      <a href="#section1"><button class="rightNavTabs" id="enrollToday1">ENROLL TODAY</button></a>
-      <img src="https://guitarkaksha.com/assets/hamburger.svg" alt="" class="hamIcon">
-
-
-    </div>
-
-  </div>
-  </div>
-  <div class="hamMenu">
-  <a href="#" class="leftNavTabs" id="home">Home</a>
-  <a href="aboutus.html" class="leftNavTabs" id="aboutUs">About Us</a>
-  <a href="contact.html" class="leftNavTabs" id="contact">Contact</a>
-  <a href="chord.html" class="leftNavTabs" id="chordCharts">CHORD CHARTS</a>
-  <a href="https://xegoz.courses.store/358545" class="leftNavTabs" id="bestseller">Best seller</a>
-
-
-  <a href="recommendations.html" class="leftNavTabs" id="recommendations">Recommendations</a>
-</div>
-  <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <form method="post" class="box">
-          <h1>Login</h1>
-          <p class="text-muted"> Please enter your login and password!</p>
-          <input type="text" name="username" placeholder="Username">
-          <input type="password" name="password" placeholder="Password">
-          <input type="submit" name="submit" value="Submit">
-          <p style="color:white;">*Only Admin can Login</p>
-        </form>
-      </div>
     </div>
   </div>
-</div>
 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Footer -->
+  <?php include 'footer.php' ?>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script>
-  let x = 0,
-    y = 0;
-  const hamMenu = document.querySelector(".hamMenu")
-  const hamIcon = document.querySelector(".hamIcon")
-  if (window.matchMedia("(max-width: 768px)").matches) {
+    $(document).ready(function() {
+      // To show/hide left item columns based on scroll position
+      $(window).scroll(function() {
+        var scrollPosition = $(window).scrollTop();
+        var scrollHeight = $(document).height() - $(window).height();
+        var distanceFromBottom = scrollHeight - scrollPosition;
 
+        if (scrollPosition >= 260 && distanceFromBottom > 480) { // Adjust the values as needed
+          $('.fixed-left-column').css('display', 'block');
+        } else {
+          $('.fixed-left-column').css('display', 'none');
+        }
+      });
 
-    hamIcon.addEventListener("click", () => {
-      switch (y) {
-        case 0:
-          hamMenu.style.opacity = "1";
-          hamMenu.style.pointerEvents = "all";
-          y = 1;
-          break;
+      // To show and hide description of items
+      $('.show-btn').click(function() {
+        var description = $(this).parent('.description');
+        description.find('.description-content').show();
+        $(this).hide();
+        description.find('.hide-btn').show();
+      });
 
-        case 1:
-          hamMenu.style.opacity = "0";
-          hamMenu.style.pointerEvents = "none";
-          y = 0;
-          break;
-
-        default:
-          break;
-      }
-    })
-  }
-</script>
+      $('.hide-btn').click(function() {
+        var description = $(this).parent('.description');
+        description.find('.description-content').hide();
+        $(this).hide();
+        description.find('.show-btn').show();
+      });
+    });
+    //Adding margin on scrolling
+    function scrollToElementWithMarginTop(elementId) {
+      var element = document.getElementById(elementId);
+      var rect = element.getBoundingClientRect();
+      var offsetTop = window.pageYOffset + rect.top - 60 - parseFloat(getComputedStyle(document.documentElement).fontSize); // Adjust the offset as needed
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  </script>
 </body>
 
 </html>
-
-
-
-<!-- $exists = false;
-$passnotmatch = false;
-$showerror = false;
-$showalert = false;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    include "temp/db_connect.php";
-    if ($conn) {
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        $hash = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO `admin`(`username`,`password`) VALUES('$username','$hash')";
-        $result = mysqli_query($conn, $sql);
-        if ($result) $showalert = true;
-        else $showerror = true;
-    }
-} -->
