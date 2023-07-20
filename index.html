@@ -123,6 +123,7 @@
 
     .description-heading {
       margin: 1rem 0;
+      padding: 1rem;
     }
 
     .heading1 {
@@ -237,17 +238,137 @@
       }
     }
 
+        body {
+      font-family: Poppins, sans-serif;
+    }
+
+
+    .logo img {
+      height: 55px;
+    }
+
+    .navbar {
+      box-shadow: 0px -16px 13px 10px black;
+      background-color: #034c7f !important;
+    }
+
+    .nav-item {
+      padding: 10px;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-weight: bold;
+      display: inline-block;
+      padding: 0 0 2px 0 !important;
+      background-image: linear-gradient(#f35053 0 0);
+      background-position: 0 100%;
+      /*OR bottom left*/
+      background-size: 0% 2px;
+      background-repeat: no-repeat;
+      transition:
+        background-size 0.3s,
+        background-position 0s 0.3s;
+      /*change after the size immediately*/
+    }
+
+    .nav-link:hover {
+      background-position: 100% 100%;
+      /*OR bottom right*/
+      background-size: 100% 2px;
+    }
+
+    .btn-search {
+      border: 2px solid #f35053;
+      border-radius: 5px;
+      color: #f35053 !important;
+    }
+
+    .btn-search:hover {
+      background-color: #f35053 !important;
+      color: #000 !important;
+    }
+
+    @media (max-width:766px) {
+      .logo img {
+        height: 45px;
+      }
+    }
+
+    /* ============ desktop view ============ */
+    .dropdown-item:hover {
+      background-color: #a2c5dd;
+    }
+
+    .dropdown:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .dropdown>.dropdown-toggle:active {
+      /*Without this, clicking will make it sticky*/
+      pointer-events: none;
+    }
+
     /* Cards css */
   </style>
 </head>
 
 <body>
-  <?php include 'navbar.php' ?>
+  <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="logo">
+        <img src="../IMG/FETRONIX.jpg" alt="logo" />
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav px-2 me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <!-- <a class="nav-link" href="products.php">Products</a> -->
+            <a class="nav-link  dropdown-toggle" href="products.php" data-bs-toggle="dropdown">Products</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="products.php">SPM</a></li>
+              <li><a class="dropdown-item" href="products.php">Conveyor</a></li>
+              <li><a class="dropdown-item" href="products.php">Curing Oven</a></li>
+              <li><a class="dropdown-item" href="products.php">Painting/Coating Plant</a></li>
+              <li><a class="dropdown-item" href="products.php">Paint Booths</a></li>
+              <li><a class="dropdown-item" href="products.php">Industrial Fabrication</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Blogs</a>
+            </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contactus.php">Contact Us</a>
+          </li>
+        </ul>
+        <!-- <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <button class="btn btn-outline-success btn-search" type="submit">
+            Search
+          </button>
+        </form> -->
+      </div>
+    </div>
+  </nav>
 
   <div id="main">
     <!-- Banner starts -->
     <div class="banner">
-      <img src="banner4.jpg" alt="Banner Image">
+      <img src="./Images/banner4.jpg" alt="Banner Image">
       <!-- <div class="banner-overlay"></div> -->
       <div class="banner-text">
         <!-- <h1>Our Products</h1> -->
