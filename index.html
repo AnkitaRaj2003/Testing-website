@@ -4,394 +4,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Bootstrap file -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <!-- Poppins Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <title>Services</title>
     <style>
         body {
-      font-family: Poppins, sans-serif;
-    }
-
-
-    .logo img {
-      height: 55px;
-    }
-
-    .navbar {
-      box-shadow: 0px -16px 13px 10px black;
-      background-color: #034c7f !important;
-    }
-
-    .nav-item {
-      padding: 10px;
-    }
-
-    .nav-link {
-      color: #fff !important;
-      font-weight: bold;
-      display: inline-block;
-      padding: 0 0 2px 0 !important;
-      background-image: linear-gradient(#f35053 0 0);
-      background-position: 0 100%;
-      /*OR bottom left*/
-      background-size: 0% 2px;
-      background-repeat: no-repeat;
-      transition:
-        background-size 0.3s,
-        background-position 0s 0.3s;
-      /*change after the size immediately*/
-    }
-
-    .nav-link:hover {
-      background-position: 100% 100%;
-      /*OR bottom right*/
-      background-size: 100% 2px;
-    }
-
-    .btn-search {
-      border: 2px solid #f35053;
-      border-radius: 5px;
-      color: #f35053 !important;
-    }
-
-    .btn-search:hover {
-      background-color: #f35053 !important;
-      color: #000 !important;
-    }
-
-    @media (max-width:766px) {
-      .logo img {
-        height: 45px;
-      }
-    }
-
-    /* ============ desktop view ============ */
-    .dropdown-item:hover {
-      background-color: #a2c5dd;
-    }
-
-    .dropdown:hover>.dropdown-menu {
-      display: block;
-    }
-
-    .dropdown>.dropdown-toggle:active {
-      /*Without this, clicking will make it sticky*/
-      pointer-events: none;
-    }
-    /* .navbar .navbar-toggler[aria-expanded="true"] {
-color: #fff!important;
-}
-.navbar .navbar-toggler:focus{
-color: #ff4444;
-} */
-        #main-body {
-            margin: 4rem 0 2rem 0;
-            padding: 2rem;
+            box-sizing: border-box;
+            /* width: 100vw; */
         }
 
-        #main-heading {
+        #main {
+            margin: 4rem 0;
+        }
+
+        /* Banner CSS Starts */
+        .banner {
+            position: relative;
+            width: 100%;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+        }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%);
+        }
+
+        /* Cnotent Dic CSS */
+        #content-main {
+            margin: 2rem auto;
+            width: 80%;
+        }
+
+        .img {
             text-align: center;
         }
 
-        .heading {
-            font-size: 4rem;
-            /* padding: 1rem; */
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid lightgrey;
+        }
+
+        .content2 {
+            flex-direction: row-reverse;
+        }
+
+        .content h3 {
             font-weight: bold;
-            text-align: center;
-            /* font-weight: 300; */
+        }
+
+        .content1 .para {
+            padding-left: 2rem;
+        }
+
+        .content2 .para {
+            padding-right: 2rem;
+        }
+
+        .content-para {
+            text-align: justify;
+        }
+
+        .content2 h3 {
+            /* color: green; */
             display: inline-block;
-            padding-bottom: 5px;
             position: relative;
         }
 
-        .heading:before {
-            content: "";
-            position: absolute;
+        .content2 h3::after {
+            content: '';
+            height: 4px;
             width: 50%;
-            height: 1px;
-            bottom: 0;
-            left: 25%;
-            border-bottom: 4px solid #034c7f;
+            background: #034c7f;
+            position: absolute;
+            left: calc(50% - 50%);
+            bottom: -5px;
         }
 
-        .para {
-            text-align: justify;
+        .content1 h3{
+            /* color: green; */
+            display: inline-block;
+            position: relative;
         }
 
-        .flex-div {
-            display: flex;
-            /* justify-content: center; */
-            align-items: center;
-            gap: 1rem;
-            margin: 1rem 0;
+        .content1 h3::after {
+            content: '';
+            height: 4px;
+            width: 50%;
+            background: #f35053;
+            position: absolute;
+            left: calc(50% - 50%);
+            bottom: -5px;
         }
 
-        .sub-heading h2 {
-            font-size: 4rem;
-            font-weight: bold;
-        }
-
-        #all-products {
-            text-align: center;
-        }
-
-        .values-inner-div {
-            display: flex;
-            align-items: center;
-        }
-
-        #values {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1.5fr;
-            column-gap: 2rem;
-            padding: 2rem 0;
-        }
-
-        .values-para p {
-            text-align: justify;
-        }
-
-        
-        #steps{
-            text-align: center;
-        }
-
-        #steps img{
-            width: 80%;
-        }
-
-        #all-products img{
-            width: 80%;
-        }
-        
-        @media screen and (max-width:1350px){
-            .img img{
-                height: 7rem;
+        @media (max-width:766px) {
+            #main {
+                margin-top: 3.8rem;
             }
-            .sub-heading h2{
-                font-size: 3rem;
-            }
-        }
-        
-        @media screen and (max-width:1350px){
-            #values{
-                display: initial;
-            }
-            #steps img{
-                width: 100%;
-            }
-            #all-products img{
-                width: 100%;
+
+            #content-main {
+                margin: 2rem 1rem;
+                width: auto;
             }
         }
 
-        @media screen and (max-width:400px){
-            #main-body{
-                padding: 1rem;
+        @media (max-width:1000px) {
+            .content {
+                flex-direction: column;
             }
-            #mission{
-/*                 margin-top: 2rem; */
+
+            .para {
+                padding: 1rem 0 !important;
             }
-            .img img{
-                height: 5rem;
+
+            .content h3 {
+                text-align: center;
             }
-            .sub-heading h2{
-                font-size: 2rem;
-            }
-            .heading{
-                font-size: 2.5rem;
+        }
+
+        @media (max-width:550px) {
+            .img img {
+                width: 90%;
             }
         }
     </style>
-    <title>About Us</title>
 </head>
 
 <body>
-     <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
-    <div class="container-fluid">
-      <div class="logo">
-        <img src="../IMG/FETRONIX.jpg" alt="logo" />
-      </div>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav px-2 me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="./index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about_us.php">About Us</a>
-          </li>
-          <li class="nav-item dropdown">
-            <!-- <a class="nav-link" href="products.php">Products</a> -->
-            <a class="nav-link  dropdown-toggle" href="products.php" data-bs-toggle="dropdown">Products</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="products.php">SPM</a></li>
-              <li><a class="dropdown-item" href="products.php">Conveyor</a></li>
-              <li><a class="dropdown-item" href="products.php">Curing Oven</a></li>
-              <li><a class="dropdown-item" href="products.php">Painting/Coating Plant</a></li>
-              <li><a class="dropdown-item" href="products.php">Paint Booths</a></li>
-              <li><a class="dropdown-item" href="products.php">Industrial Fabrication</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Blogs</a>
-            </li> -->
-          <li class="nav-item">
-            <a class="nav-link" href="#">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contactus.php">Contact Us</a>
-          </li>
-        </ul>
-        <!-- <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-          <button class="btn btn-outline-success btn-search" type="submit">
-            Search
-          </button>
-        </form> -->
-      </div>
-    </div>
-  </nav>
-    <div id="main-body">
-        <div id="main-heading">
-            <h1 class="heading">About Us</h1>
+    <?php include 'navbar.php' ?>
+    <div id="main">
+        <div class="banner">
+            <img src="./Images/Services/service-banner.jpg" alt="Banner Image">
+            <!-- <div class="banner-overlay"></div> -->
+            <div class="banner-text">
+                <!-- <h1>Our Products</h1> -->
+            </div>
         </div>
-        <div class="para">
-            <p>
-                Welcome to Fetronix, a leading manufacturer of cutting-edge industrial equipment and automation
-                solutions. Established in 2018, we have rapidly emerged as a trusted name in the industry, catering to
-                a diverse range of clients worldwide. Our commitment to excellence, innovative approach, and
-                unwavering dedication to customer satisfaction set us apart from the competition.
-            </p>
-            <p>
-                <span style="color:red;font-weight:bold;">THOUGHT</span>, the very first thing that comes into the mind before setting up something different, was
-                the base on which FeTronix came into existence in 2018. Innovations come through passion and we
-                are the ones who embed these as our intrinsic character. The passion to deliver the best is our driving
-                force. We innovate to provide a better customer experience with quality and efficacy. We are youth
-                and so we trust and believe in our capability to serve our esteemed customers with full dedication and
-                honesty.
-            </p>
-            <p>
-                We also believe in the concept of <b>“ATMANIRBHAR BHARAT”</b> and thus we promised ourselves that
-                every part of our product will be conceptualized and truly Made In India. With these objectives, we
-                came together to take Automation Ahead by Thinking Precisely, thereby starting our foray into the
-                field of Industrial Automation by incorporating FeTronix.
-            </p>
-            <!-- para div end -->
-        </div>
-
-        <div class="what-we-do-div">
-            <div class="flex-div">
+        <div id="content-main">
+            <!-- Content Starts -->
+            <div class="content content1">
                 <div class="img">
-                    <img src="Images/about us/what we do.png" alt="what we do">
+                    <img src="Images/Services/FAB1.jpg" alt="Industrial Fabrication">
                 </div>
-                <div class="sub-heading">
-                    <h2 style="color:#003F7F;">What We Do</h2>
-                </div>
-            </div>
-            <div class="para">
-                <p><span style="color: red;font-weight:bold;">FeTronix</span> is an Industrial Machine Manufacturing and Automation Company having expertise in the
-                    field of Conveyor Systems, Batch Ovens, Conveyor ovens,
-                    Liquid/ Powdered /Adhesive Coating Plants and Paint Booths, Paint shop accessories, P.T Line and
-                    Washing Lines, Robotics, PLCs and HMIs. We offer customized Industrial Automation experience
-                    with a vast range of Automation. We are also the trouble-shooters who provide a seamless solution to
-                    your previous automation installations. Whether you plan to upgrade, modify or plan to have a
-                    completely new automation requirement, we are there for you always. We conceptualize, construct
-                    and develop automation with in-depth experience and innovate to provide world- class solutions.</p>
-            </div>
-            <div id="all-products">
-                <img src="Images/about us/what_we_do1-removebg-preview.png" alt="">
-            </div>
-        </div>
-        <!-- what we do div end -->
-
-        <div id="values">
-            <div id="mission" class="values-div">
-                <div class="values-inner-div">
-                    <div class="values-img img">
-                        <img src="Images/about us/mission.png" alt="Mission">
-                    </div>
-                    <div class="sub-heading">
-                        <h2 style="color: #1C70CA;">Mission</h2>
-                    </div>
-                </div>
-                <div class="values-para">
-                    <p>
-                        To serve the country and its people through innovation and advancement in the field of Industrial
-                        Automation by delivering standard quality products and services delighting our customers following
-                        the ambition of Atmanirbhar Bharat.
+                <div class="para">
+                    <h3 class="content-heading">Industrial Fabrication</h3>
+                    <p class="content-para">
+                        Fetronix stands as a paragon in industrial
+                        fabrication, excelling with unmatched expertise and precision. Their
+                        commitment to quality and innovation sets them apart, delivering top-
+                        notch solutions for diverse manufacturing needs. With cutting-edge
+                        technology and a highly skilled team, they consistently surpass industry
+                        standards, earning them the reputation as the best in industrial fabrication.
+                        Clients trust Fetronix to bring their visions to life, making them an
+                        invaluable partner in the world of manufacturing.
                     </p>
                 </div>
             </div>
-            <div id="vision" class="values-div">
-                <div class="values-inner-div">
-                    <div class="values-img img">
-                        <img src="Images/about us/vision.png" alt="Vision">
-                    </div>
-                    <div class="sub-heading">
-                        <h2 style="color: #FB8C00;">Vision</h2>
-                    </div>
-                </div>
-                <div class="values-para">
-                    <p>
-                        To make a big difference in Automation Industry by innovating through smart work using trivial things
-                        and imbibe the passion to innovate in everyone through our code of work with an ultimate goal to
-                        achieve excellence.
-                    </p>
-                </div>
-            </div>
-            <div id="core-values" class="values-div">
-                <div class="values-inner-div">
-                    <div class="values-img img">
-                        <img src="Images/about us/core values.png" alt="core values">
-                    </div>
-                    <div class="sub-heading">
-                        <h2 style="color: #B9D460;">Values</h2>
-                    </div>
-                </div>
-                <div class="values-para">
-                    <p>
-                        We are committed to customer satisfaction as they are the ones who keep us going. We understand
-                        and value customer opinion since they allow us to grow and improve continuously with them.Providing our customer best Quality and Reliable product. This is Fetronix foremost criteria set by us
-                        to demonstrate how much we value the trust that we build with our customers, partners, suppliers and
-                        people.
-                    </p>
-                </div>
-            </div>
-            <!-- valued div end -->
-        </div>
-
-        <div id="how-we-do-div">
-            <div class="flex-div">
+            <!-- Content Ends -->
+            <!-- Content Starts -->
+            <div class="content2 content">
                 <div class="img">
-                    <img src="Images/about us/how we do.png" alt="how we do">
+                    <img src="Images/Services/AUTOMATION.jpg" alt="Industrial Automation">
                 </div>
-                <div class="sub-heading">
-                    <h2 style="color:#FFBD59;">How We Do</h2>
+                <div class="para">
+                    <h3 class="content-heading">Industrial Automation</h3>
+                    <p class="content-para">
+                        Fetronix reigns as the premier expert in industrial
+                        automation, revolutionizing processes with their advanced solutions.
+                        Their state-of-the-art automation systems optimize efficiency and
+                        productivity, setting new benchmarks in the industry. From robotics to
+                        smart control systems, Fetronix&#39;s ingenuity continues to redefine the
+                        future of industrial automation. Clients rely on Fetronix for unmatched
+                        reliability and cutting-edge technology in this ever-evolving field.
+                    </p>
                 </div>
             </div>
-            <div class="para">
-                <p>At <span style="color: red;font-weight:bold;">FeTronix</span>, we have an immaculate process of evaluating, analyzing and finally developing the
-                        automation systems that meet your actual requirements. We follow the set key procedures ensuring
-                        minimal disruption while optimizing the specifications to implement state-of-the-art technology for a
-                        seamless transformation.</p>
+            <!-- Content Ends -->
+            <!-- Content Starts -->
+            <div class="content content1">
+                <div class="img">
+                    <img src="Images/Services/DESIGNING TOOL.jpg" alt="Conceptual Design and Drawing">
+                </div>
+                <div class="para">
+                    <h3 class="content-heading">Conceptual Design and Drawing</h3>
+                    <p class="content-para">
+                        Fetronix is unrivaled in mechanical
+                        design and drawing, showcasing an exceptional talent for precision and
+                        creativity. Their team of experts crafts innovative and meticulous designs
+                        that exceed client expectations. With a keen eye for detail and extensive
+                        industry experience, Fetronix consistently delivers top-tier mechanical
+                        solutions for various projects. Clients trust their expertise to bring ideas to
+                        life with unmatched skill and efficiency.
+                    </p>
+                </div>
             </div>
-            <div id="steps">
-                <img src="Images/about us/Light blue creative rocket step by step graph.png" alt="how we do it chart">
+            <!-- Content Ends -->
+            <!-- Content Starts -->
+            <div class="content2 content">
+                <div class="img">
+                    <img src="Images/Services/ROBOTIC SOLUTION.jpg" alt="Robotic Solution">
+                </div>
+                <div class="para">
+                    <h3 class="content-heading">Robotic Solution</h3>
+                    <p class="content-para">
+                        Fetronix stands at the forefront of robotic solutions,
+                        leading the way with their groundbreaking innovations. Their expertise in
+                        robotics spans across diverse industries, delivering cutting-edge
+                        automation systems that redefine efficiency and productivity. With a
+                        focus on tailored solutions and state-of-the-art technology, Fetronix
+                        continues to set new standards in the realm of robotic engineering. Clients
+                        rely on their expertise to elevate their operations and achieve unparalleled
+                        results.
+                    </p>
+                </div>
             </div>
+            <!-- Content Ends -->
+            <!-- Content Starts -->
+            <div class="content content1">
+                <div class="img">
+                    <img src="Images/Services/UPGRADATION.png" alt="Industrial Maintenance and Upgradation:">
+                </div>
+                <div class="para">
+                    <h3 class="content-heading">Industrial Maintenance and Upgradation:</h3>
+                    <p class="content-para">
+                        Fetronix excels as the ultimate
+                        leader in industrial upgrading and maintenance, offering seamless
+                        solutions for enhanced performance. Their skilled team ensures smooth
+                        transitions during upgrades, optimizing processes and equipment to boost
+                        productivity. With a proactive approach to maintenance, Fetronix keeps
+                        operations running at peak efficiency, minimizing downtime and
+                        maximizing profitability. Clients trust Fetronix to provide reliable and
+                        cost-effective solutions, making them the go-to choice for industrial
+                        upgradation and maintenance needs.
+                    </p>
+                </div>
+            </div>
+            <!-- Content Ends -->
+            <!-- Content Starts -->
+            <div class="content2 content">
+                <div class="img">
+                    <img src="Images/Services/R&D.png" alt="Research and Development of Machine">
+                </div>
+                <div class="para">
+                    <h3 class="content-heading">Research and Development of Machine</h3>
+                    <p class="content-para">
+                        Fetronix stands as a trailblazer
+                        in research and development, pioneering groundbreaking innovations in
+                        diverse industries. Their dedicated R&amp;D team harnesses cutting-edge
+                        technologies to drive forward-looking solutions. With a passion for
+                        pushing boundaries and a commitment to excellence, Fetronix continually
+                        shapes the future of technology through their visionary approach to
+                        research and development. Clients rely on Fetronix&#39;s expertise to stay
+                        ahead in an ever-evolving market.
+                    </p>
+                </div>
+            </div>
+            <!-- Content Ends -->
+            <!-- Content Starts -->
+            <div class="content content1">
+                <div class="img">
+                    <img src="Images/Services/THOUGHT PROCESS.png" alt="Thought Process">
+                </div>
+                <div class="para">
+                    <h3 class="content-heading">Thought Process</h3>
+                    <p class="content-para">
+                        Fetronix boasts an unparalleled thought process that
+                        fuels their success in every endeavor. Their team&#39;s sharp intellect and
+                        strategic thinking enable them to solve complex challenges with ease.
+                        Through a blend of creativity and analytical prowess, Fetronix
+                        consistently generates innovative and ingenious solutions. Clients trust in
+                        Fetronix&#39;s exceptional thought process, making them the go-to choice for
+                        visionary and transformative projects.
+                    </p>
+                </div>
+            </div>
+            <!-- Content Ends -->
+            <!-- Content Starts -->
+            <div class="content2 content">
+                <div class="img">
+                    <img src="Images/Services/CONTROL PANEL DESIGN.png" alt="Control Panel Design">
+                </div>
+                <div class="para">
+                    <h3 class="content-heading">Control Panel Design</h3>
+                    <p class="content-para">
+                        Fetronix sets the gold standard in control panel
+                        design, combining functionality and aesthetics seamlessly. Their expert
+                        engineers craft custom solutions that cater to diverse industrial
+                        requirements. With a focus on precision and reliability, Fetronix control
+                        panels optimize operations and enhance safety. Clients rely on their
+                        expertise to deliver top-notch control panel designs for efficient and
+                        seamless automation.
+                    </p>
+                </div>
+            </div>
+            <!-- Content Ends -->
         </div>
-
-        <!-- main-body div end -->
     </div>
     <?php include 'footer.php' ?>
 </body>
