@@ -68,7 +68,7 @@
         .container-box form {
             position: relative;
             margin-top: 16px;
-            min-height: 1100px;
+            min-height: 1200px;
             background-color: #fff;
             overflow: hidden;
         }
@@ -227,15 +227,15 @@
         }
 
         @media (max-width:750px) {
-            .container-box form {
+            /* .container-box form {
                 height: 1500px;
-            }
+            } */
         }
 
         @media (max-width:550px) {
-            .container-box form {
+            /* .container-box form {
                 height: 2700px;
-            }
+            } */
         }
     </style>
 
@@ -255,7 +255,7 @@
 
                         <div class="fields">
                             <div class="input-field">
-                                <label>Full Name</label>
+                                <label>Full Name<span style="color: red;font-size:20px;">*</span></label>
                                 <input type="text" placeholder="Enter your name" required>
                             </div>
 
@@ -266,11 +266,11 @@
 
                             <div class="input-field">
                                 <label>Email</label>
-                                <input type="text" placeholder="Enter your email" required>
+                                <input type="text" placeholder="Enter your email">
                             </div>
 
                             <div class="input-field">
-                                <label>Mobile Number</label>
+                                <label>Mobile Number<span style="color: red;font-size:20px;">*</span></label>
                                 <input type="number" placeholder="Enter mobile number" required>
                             </div>
 
@@ -300,7 +300,7 @@
                             <input type="text" placeholder="Enter ID type" required>
                         </div> -->
                             <div class="input-field">
-                                <label>List Project To Sell</label>
+                                <label>List Project To Sell<span style="color: red;font-size:20px;">*</span></label>
                                 <select required>
                                     <option value="" selected>Select</option>
                                     <option value="land">Land</option>
@@ -312,281 +312,11 @@
                             </div>
 
                             <div class="input-field">
-                                <label for="citySelect">Select or Enter City:</label>
+                                <label for="citySelect">Select or Enter City<span style="color: red;font-size:20px;">*</span></label>
                                 <input type="text" id="citySelect" required list="cities" oninput="generatePincode()">
                                 <datalist id="cities">
                                     <!-- Andra Pradesh -->
                                     <option value="Anantapur" data-pincode="515001"></option>
-                                    <option value="Chittoor" data-pincode="517001"></option>
-                                    <option value="East Godavari" data-pincode="533001"></option>
-                                    <option value="Guntur" data-pincode="522001"></option>
-                                    <option value="Kadapa" data-pincode="516001"></option>
-                                    <option value="Krishna" data-pincode="520001"></option>
-                                    <option value="Kurnool" data-pincode="518001"></option>
-                                    <option value="Prakasam" data-pincode="523001"></option>
-                                    <option value="Nellore" data-pincode="524001"></option>
-                                    <option value="Srikakulam" data-pincode="532001"></option>
-                                    <option value="Visakhapatnam" data-pincode="530001"></option>
-                                    <option value="Vizianagaram" data-pincode="535001"></option>
-                                    <option value="West Godavari" data-pincode="534001"></option>
-                                    <!-- West Bengal -->
-                                    <option value="Alipurduar" data-pincode="736121"></option>
-                                    <option value="Bankura" data-pincode="722101"></option>
-                                    <option value="Birbhum" data-pincode="731204"></option>
-                                    <option value="Cooch Behar" data-pincode="736101"></option>
-                                    <option value="Dakshin Dinajpur" data-pincode="733101"></option>
-                                    <option value="Darjeeling" data-pincode="734101"></option>
-                                    <option value="Hooghly" data-pincode="712101"></option>
-                                    <option value="Howrah" data-pincode="711101"></option>
-                                    <option value="Jalpaiguri" data-pincode="735101"></option>
-                                    <option value="Jhargram" data-pincode="721507"></option>
-                                    <option value="Kalimpong" data-pincode="734301"></option>
-                                    <option value="Kolkata" data-pincode="700001"></option>
-                                    <option value="Malda" data-pincode="732101"></option>
-                                    <option value="Murshidabad" data-pincode="742101"></option>
-                                    <option value="Nadia" data-pincode="741101"></option>
-                                    <option value="North 24 Parganas" data-pincode="700101"></option>
-                                    <option value="Paschim Bardhaman" data-pincode="713101"></option>
-                                    <option value="Paschim Medinipur" data-pincode="721101"></option>
-                                    <option value="Purba Bardhaman" data-pincode="713101"></option>
-                                    <option value="Purba Medinipur" data-pincode="721101"></option>
-                                    <option value="Purulia" data-pincode="723101"></option>
-                                    <option value="South 24 Parganas" data-pincode="700001"></option>
-                                    <option value="Uttar Dinajpur" data-pincode="733101"></option>
-                                    <!-- Uttrakhand -->
-                                    <option value="Almora" data-pincode="263601"></option>
-                                    <option value="Bageshwar" data-pincode="263641"></option>
-                                    <option value="Chamoli" data-pincode="246401"></option>
-                                    <option value="Champawat" data-pincode="262523"></option>
-                                    <option value="Dehradun" data-pincode="248001"></option>
-                                    <option value="Haridwar" data-pincode="249401"></option>
-                                    <option value="Nainital" data-pincode="263001"></option>
-                                    <option value="Pauri Garhwal" data-pincode="246001"></option>
-                                    <option value="Pithoragarh" data-pincode="262501"></option>
-                                    <option value="Rudraprayag" data-pincode="246171"></option>
-                                    <option value="Tehri Garhwal" data-pincode="249001"></option>
-                                    <option value="Udham Singh Nagar" data-pincode="263153"></option>
-                                    <option value="Uttarkashi" data-pincode="249193"></option>
-                                    <!-- Uttar Pradesh -->
-                                    <option value="Agra" data-pincode="282001"></option>
-                                    <option value="Aligarh" data-pincode="202001"></option>
-                                    <option value="Ambedkar Nagar" data-pincode="224122"></option>
-                                    <option value="Amethi" data-pincode="227405"></option>
-                                    <option value="Amroha" data-pincode="244221"></option>
-                                    <option value="Auraiya" data-pincode="206122"></option>
-                                    <option value="Azamgarh" data-pincode="276001"></option>
-                                    <option value="Baghpat" data-pincode="250609"></option>
-                                    <option value="Bahraich" data-pincode="271801"></option>
-                                    <option value="Ballia" data-pincode="277001"></option>
-                                    <option value="Balrampur" data-pincode="271201"></option>
-                                    <option value="Banda" data-pincode="210001"></option>
-                                    <option value="Barabanki" data-pincode="225001"></option>
-                                    <option value="Bareilly" data-pincode="243001"></option>
-                                    <option value="Basti" data-pincode="272001"></option>
-                                    <option value="Bhadohi" data-pincode="221401"></option>
-                                    <option value="Bijnor" data-pincode="246701"></option>
-                                    <option value="Budaun" data-pincode="243601"></option>
-                                    <option value="Bulandshahr" data-pincode="203001"></option>
-                                    <option value="Chandauli" data-pincode="232104"></option>
-                                    <option value="Chitrakoot" data-pincode="210204"></option>
-                                    <option value="Deoria" data-pincode="274001"></option>
-                                    <option value="Etah" data-pincode="207001"></option>
-                                    <option value="Etawah" data-pincode="206001"></option>
-                                    <option value="Faizabad" data-pincode="224001"></option>
-                                    <option value="Farrukhabad" data-pincode="209625"></option>
-                                    <option value="Fatehpur" data-pincode="212601"></option>
-                                    <option value="Firozabad" data-pincode="283203"></option>
-                                    <option value="Gautam Buddha Nagar" data-pincode="201301"></option>
-                                    <option value="Ghaziabad" data-pincode="201001"></option>
-                                    <option value="Ghazipur" data-pincode="233001"></option>
-                                    <option value="Gonda" data-pincode="271001"></option>
-                                    <option value="Gorakhpur" data-pincode="273001"></option>
-                                    <option value="Hamirpur" data-pincode="210301"></option>
-                                    <option value="Hapur" data-pincode="245101"></option>
-                                    <option value="Hardoi" data-pincode="241001"></option>
-                                    <option value="Hathras" data-pincode="204101"></option>
-                                    <option value="Jalaun" data-pincode="285123"></option>
-                                    <option value="Jaunpur" data-pincode="222002"></option>
-                                    <option value="Jhansi" data-pincode="284001"></option>
-                                    <option value="Kannauj" data-pincode="209725"></option>
-                                    <option value="Kanpur Dehat" data-pincode="209301"></option>
-                                    <option value="Kanpur Nagar" data-pincode="208001"></option>
-                                    <option value="Kasganj" data-pincode="207123"></option>
-                                    <option value="Kaushambi" data-pincode="212206"></option>
-                                    <option value="Kushinagar" data-pincode="274304"></option>
-                                    <option value="Lakhimpur Kheri" data-pincode="262701"></option>
-                                    <option value="Lalitpur" data-pincode="284403"></option>
-                                    <option value="Lucknow" data-pincode="226001"></option>
-                                    <option value="Maharajganj" data-pincode="273303"></option>
-                                    <option value="Mahoba" data-pincode="210001"></option>
-                                    <option value="Mainpuri" data-pincode="205001"></option>
-                                    <option value="Mathura" data-pincode="281001"></option>
-                                    <option value="Mau" data-pincode="275101"></option>
-                                    <option value="Meerut" data-pincode="250001"></option>
-                                    <option value="Mirzapur" data-pincode="231001"></option>
-                                    <option value="Moradabad" data-pincode="244001"></option>
-                                    <option value="Muzaffarnagar" data-pincode="251001"></option>
-                                    <option value="Pilibhit" data-pincode="262001"></option>
-                                    <option value="Pratapgarh" data-pincode="230001"></option>
-                                    <option value="Prayagraj" data-pincode="211001"></option>
-                                    <option value="Raebareli" data-pincode="229001"></option>
-                                    <option value="Rampur" data-pincode="244901"></option>
-                                    <option value="Saharanpur" data-pincode="247001"></option>
-                                    <option value="Sambhal" data-pincode="244302"></option>
-                                    <option value="Sant Kabir Nagar" data-pincode="272162"></option>
-                                    <option value="Shahjahanpur" data-pincode="242001"></option>
-                                    <option value="Shamli" data-pincode="247776"></option>
-                                    <option value="Shrawasti" data-pincode="271865"></option>
-                                    <option value="Siddharthnagar" data-pincode="272208"></option>
-                                    <option value="Sitapur" data-pincode="261001"></option>
-                                    <option value="Sonbhadra" data-pincode="231216"></option>
-                                    <option value="Sultanpur" data-pincode="228001"></option>
-                                    <option value="Unnao" data-pincode="209821"></option>
-                                    <option value="Varanasi" data-pincode="221001"></option>
-                                    <!-- Tripura -->
-                                    <option value="Dhalai" data-pincode="799277"></option>
-                                    <option value="Gomati" data-pincode="799101"></option>
-                                    <option value="Khowai" data-pincode="799202"></option>
-                                    <option value="North Tripura" data-pincode="799290"></option>
-                                    <option value="Sepahijala" data-pincode="799103"></option>
-                                    <option value="South Tripura" data-pincode="799103"></option>
-                                    <option value="Unakoti" data-pincode="799153"></option>
-                                    <option value="West Tripura" data-pincode="799001"></option>
-
-                                    <!-- Telangana -->
-                                    <option value="Adilabad" data-pincode="504001"></option>
-                                    <option value="Bhadradri Kothagudem" data-pincode="507101"></option>
-                                    <option value="Hyderabad" data-pincode="500001"></option>
-                                    <option value="Jagtial" data-pincode="505327"></option>
-                                    <option value="Jangaon" data-pincode="506167"></option>
-                                    <option value="Jayashankar Bhupalapally" data-pincode="506002"></option>
-                                    <option value="Jogulamba Gadwal" data-pincode="509125"></option>
-                                    <option value="Kamareddy" data-pincode="503111"></option>
-                                    <option value="Karimnagar" data-pincode="505001"></option>
-                                    <option value="Khammam" data-pincode="507002"></option>
-                                    <option value="Komaram Bheem" data-pincode="504203"></option>
-                                    <option value="Mahabubabad" data-pincode="506101"></option>
-                                    <option value="Mahabubnagar" data-pincode="509001"></option>
-                                    <option value="Mancherial" data-pincode="504208"></option>
-                                    <option value="Medak" data-pincode="502110"></option>
-                                    <option value="Medchal Malkajgiri" data-pincode="501401"></option>
-                                    <option value="Nagarkurnool" data-pincode="509209"></option>
-                                    <option value="Nalgonda" data-pincode="508001"></option>
-                                    <option value="Nirmal" data-pincode="504106"></option>
-                                    <option value="Nizamabad" data-pincode="503001"></option>
-                                    <option value="Peddapalli" data-pincode="505172"></option>
-                                    <option value="Rajanna Sircilla" data-pincode="505301"></option>
-                                    <option value="Rangareddy" data-pincode="501301"></option>
-                                    <option value="Sangareddy" data-pincode="502001"></option>
-                                    <option value="Siddipet" data-pincode="502103"></option>
-                                    <option value="Suryapet" data-pincode="508213"></option>
-                                    <option value="Vikarabad" data-pincode="501101"></option>
-                                    <option value="Wanaparthy" data-pincode="509103"></option>
-                                    <option value="Warangal Rural" data-pincode="506367"></option>
-                                    <option value="Warangal Urban" data-pincode="506002"></option>
-                                    <option value="Yadadri Bhuvanagiri" data-pincode="508116"></option>
-                                    <!-- Tamil Nadu -->
-                                    <option value="Ariyalur" data-pincode="621704"></option>
-                                    <option value="Chengalpattu" data-pincode="603001"></option>
-                                    <option value="Chennai" data-pincode="600001"></option>
-                                    <option value="Coimbatore" data-pincode="641001"></option>
-                                    <option value="Cuddalore" data-pincode="607001"></option>
-                                    <option value="Dharmapuri" data-pincode="636701"></option>
-                                    <option value="Dindigul" data-pincode="624001"></option>
-                                    <option value="Erode" data-pincode="638001"></option>
-                                    <option value="Kallakurichi" data-pincode="606202"></option>
-                                    <option value="Kanchipuram" data-pincode="631501"></option>
-                                    <option value="Kanyakumari" data-pincode="629702"></option>
-                                    <option value="Karur" data-pincode="639001"></option>
-                                    <option value="Krishnagiri" data-pincode="635001"></option>
-                                    <option value="Madurai" data-pincode="625001"></option>
-                                    <option value="Nagapattinam" data-pincode="611001"></option>
-                                    <option value="Namakkal" data-pincode="637001"></option>
-                                    <option value="Nilgiris" data-pincode="643001"></option>
-                                    <option value="Perambalur" data-pincode="621212"></option>
-                                    <option value="Pudukkottai" data-pincode="622001"></option>
-                                    <option value="Ramanathapuram" data-pincode="623503"></option>
-                                    <option value="Ranipet" data-pincode="632401"></option>
-                                    <option value="Salem" data-pincode="636001"></option>
-                                    <option value="Sivaganga" data-pincode="630561"></option>
-                                    <option value="Tenkasi" data-pincode="627811"></option>
-                                    <option value="Thanjavur" data-pincode="613001"></option>
-                                    <option value="Theni" data-pincode="625531"></option>
-                                    <option value="Thoothukudi" data-pincode="628001"></option>
-                                    <option value="Tiruchirappalli" data-pincode="620001"></option>
-                                    <option value="Tirunelveli" data-pincode="627002"></option>
-                                    <option value="Tirupathur" data-pincode="635601"></option>
-                                    <option value="Tiruppur" data-pincode="641601"></option>
-                                    <option value="Tiruvallur" data-pincode="602001"></option>
-                                    <option value="Tiruvannamalai" data-pincode="606601"></option>
-                                    <option value="Tiruvarur" data-pincode="610001"></option>
-                                    <option value="Vellore" data-pincode="632001"></option>
-                                    <option value="Viluppuram" data-pincode="605601"></option>
-                                    <option value="Virudhunagar" data-pincode="626001"></option>
-                                    <!-- Rajasthan -->
-                                    <option value="Ajmer" data-pincode="305001"></option>
-                                    <option value="Alwar" data-pincode="301001"></option>
-                                    <option value="Banswara" data-pincode="327001"></option>
-                                    <option value="Baran" data-pincode="325205"></option>
-                                    <option value="Barmer" data-pincode="344001"></option>
-                                    <option value="Bharatpur" data-pincode="321001"></option>
-                                    <option value="Bhilwara" data-pincode="311001"></option>
-                                    <option value="Bikaner" data-pincode="334001"></option>
-                                    <option value="Bundi" data-pincode="323001"></option>
-                                    <option value="Chittorgarh" data-pincode="312001"></option>
-                                    <option value="Churu" data-pincode="331001"></option>
-                                    <option value="Dausa" data-pincode="303303"></option>
-                                    <option value="Dholpur" data-pincode="328001"></option>
-                                    <option value="Dungarpur" data-pincode="314001"></option>
-                                    <option value="Hanumangarh" data-pincode="335512"></option>
-                                    <option value="Jaipur" data-pincode="302001"></option>
-                                    <option value="Jaisalmer" data-pincode="345001"></option>
-                                    <option value="Jalore" data-pincode="343001"></option>
-                                    <option value="Jhalawar" data-pincode="326001"></option>
-                                    <option value="Jhunjhunu" data-pincode="333001"></option>
-                                    <option value="Jodhpur" data-pincode="342001"></option>
-                                    <option value="Karauli" data-pincode="322241"></option>
-                                    <option value="Kota" data-pincode="324005"></option>
-                                    <option value="Nagaur" data-pincode="341001"></option>
-                                    <option value="Pali" data-pincode="306401"></option>
-                                    <option value="Pratapgarh" data-pincode="312605"></option>
-                                    <option value="Rajsamand" data-pincode="313324"></option>
-                                    <option value="Sawai Madhopur" data-pincode="322001"></option>
-                                    <option value="Sikar" data-pincode="332001"></option>
-                                    <option value="Sirohi" data-pincode="307001"></option>
-                                    <option value="Sri Ganganagar" data-pincode="335001"></option>
-                                    <option value="Tonk" data-pincode="304001"></option>
-                                    <option value="Udaipur" data-pincode="313001"></option>
-                                    <option value="Barmer" data-pincode="344001"></option>
-                                    <!-- Punjab -->
-                                    <option value="Amritsar" data-pincode="143001"></option>
-                                    <option value="Barnala" data-pincode="148101"></option>
-                                    <option value="Bathinda" data-pincode="151001"></option>
-                                    <option value="Faridkot" data-pincode="151203"></option>
-                                    <option value="Fatehgarh Sahib" data-pincode="140406"></option>
-                                    <option value="Fazilka" data-pincode="152123"></option>
-                                    <option value="Ferozepur" data-pincode="152002"></option>
-                                    <option value="Gurdaspur" data-pincode="143521"></option>
-                                    <option value="Hoshiarpur" data-pincode="146001"></option>
-                                    <option value="Jalandhar" data-pincode="144001"></option>
-                                    <option value="Kapurthala" data-pincode="144601"></option>
-                                    <option value="Ludhiana" data-pincode="141001"></option>
-                                    <option value="Mansa" data-pincode="151505"></option>
-                                    <option value="Moga" data-pincode="142001"></option>
-                                    <option value="Muktsar" data-pincode="152026"></option>
-                                    <option value="Nawanshahr" data-pincode="144514"></option>
-                                    <option value="Pathankot" data-pincode="145001"></option>
-                                    <option value="Patiala" data-pincode="147001"></option>
-                                    <option value="Rupnagar" data-pincode="140001"></option>
-                                    <option value="Sahibzada Ajit Singh Nagar" data-pincode="160055"></option>
-                                    <option value="Sangrur" data-pincode="148001"></option>
-                                    <option value="Tarn Taran" data-pincode="143401"></option>
-                                    <option value="Fatehgarh Sahib" data-pincode="140407"></option>
-                                    <!-- Puducherry -->
-                                    <option value="Karaikal" data-pincode="609602"></option>
-                                    <option value="Mahe" data-pincode="673310"></option>
-                                    <option value="Puducherry" data-pincode=" 605001"></option>
-                                    <option value="Yanam" data-pincode="533464"></option>
                                 </datalist>
                             </div>
                             <div class="input-field">
@@ -599,50 +329,233 @@
                         </div> -->
 
                             <div class="input-field">
-                                <label>Block</label>
-                                <input type="text" placeholder="Enter of Block" required>
+                                <label>Block<span style="color: red;font-size:20px;">*</span></label>
+                                <select name="block" required id="block">
+                                    <option value="">Select</option>
+                                    <option value="Bilha">Bilha</option>
+                                    <option value="Korba">Korba</option>
+                                    <option value="Raigarh">Raigarh</option>
+                                    <option value="Durg">Durg</option>
+                                    <option value="Rajnandgoan">Rajnandgoan</option>
+                                    <option value="Dharsinwa">Dharsinwa</option>
+                                    <option value="Akaltara">Akaltara</option>
+                                    <option value="Bhatapara">Bhatapara</option>
+                                    <option value="Katghora">Katghora</option>
+                                    <option value="Patharia">Patharia</option>
+                                    <option value="Gharghoda">Gharghoda</option>
+                                    <option value="Patan">Patan</option>
+                                    <option value="Kawardha">Kawardha</option>
+                                    <option value="Dongargarh">Dongargarh</option>
+                                    <option value="Palari">Palari</option>
+                                    <option value="Dhamtari">Dhamtari</option>
+                                    <option value="Mahasamund">Mahasamund</option>
+                                    <option value="Abhanpur">Abhanpur</option>
+                                    <option value="Takhatpur">Takhatpur</option>
+                                    <option value="Lormi">Lormi</option>
+                                    <option value="Gunderdehi">Gunderdehi</option>
+                                    <option value="Bermetara">Bermetara</option>
+                                    <option value="Bodla">Bodla</option>
+                                    <option value="Bilaigarh">Bilaigarh</option>
+                                    <option value="Nagari">Nagari</option>
+                                    <option value="Chhurra">Chhurra</option>
+                                    <option value="Basna">Basna</option>
+                                    <option value="Kanker">Kanker</option>
+                                    <option value="Kota">Kota</option>
+                                    <option value="Baloda">Baloda</option>
+                                    <option value="Dharamjaigarh">Dharamjaigarh</option>
+                                    <option value="Chuikhadan">Chuikhadan</option>
+                                    <option value="Jagdalpur">Jagdalpur</option>
+                                    <option value="Ambikapur">Ambikapur</option>
+                                    <option value="Surajpur">Surajpur</option>
+                                    <option value="Bakawand">Bakawand</option>
+                                    <option value="Bijapur">Bijapur</option>
+                                    <option value="Dantewada">Dantewada</option>
+                                    <option value="Antagarh">Antagarh</option>
+                                    <option value="Keshkal">Keshkal</option>
+                                    <option value="Deobhog">Deobhog</option>
+                                    <option value="Narayanpur">Narayanpur</option>
+                                    <option value="Konta">Konta</option>
+                                    <option value="Marwahi">Marwahi</option>
+                                    <option value="Mahula">Mahula</option>
+                                    <option value="Balrampur">Balrampur</option>
+                                    <option value="Jashpur">Jashpur</option>
+                                    <option value="Manendragarh">Manendragarh</option>
+                                    <option value="Lundra">Lundra</option>
+                                    <option value="Pratappur">Pratappur</option>
+                                    <option value="Pali">Pali</option>
+                                    <option value="Kharsia">Kharsia</option>
+                                    <option value="Dhamda">Dhamda</option>
+                                    <option value="Tilda">Tilda</option>
+                                    <option value="Bamhnideeh(Champa)">Bamhnideeh(Champa)</option>
+                                    <option value="Simga">Simga</option>
+                                    <option value="Kartala">Kartala</option>
+                                    <option value="Mungeli">Mungeli</option>
+                                    <option value="Tamnar">Tamnar</option>
+                                    <option value="Pandariya">Pandariya</option>
+                                    <option value="Dongargaon">Dongargaon</option>
+                                    <option value="Kurud">Kurud</option>
+                                    <option value="Saraipali">Saraipali</option>
+                                    <option value="Arang">Arang</option>
+                                    <option value="Masturi">Masturi</option>
+                                    <option value="Gurur">Gurur</option>
+                                    <option value="Saja">Saja</option>
+                                    <option value="Sahaspur-Lohara">Sahaspur-Lohara</option>
+                                    <option value="Kasdoi">Kasdoi</option>
+                                    <option value="Gariyaband">Gariyaband</option>
+                                    <option value="Pithora">Pithora</option>
+                                    <option value="Charama">Charama</option>
+                                    <option value="PendraRoad">Pendra Road(Gaurella-1)</option>
+                                    <option value="Navagarh">Navagarh</option>
+                                    <option value="Lailunga">Lailunga</option>
+                                    <option value="Bastanar">Bastanar</option>
+                                    <option value="Bhairamgarh">Bhairamgarh</option>
+                                    <option value="Geedam">Geedam</option>
+                                    <option value="Bhanupratappur">Bhanupratappur</option>
+                                    <option value="Kondagaon">Kondagaon</option>
+                                    <option value="Mainpur">Mainpur</option>
+                                    <option value="Orchaca(Abujmad)">Orchaca(Abujmad)</option>
+                                    <option value="Chhindgarh">Chhindgarh</option>
+                                    <option value="Kusmi">Kusmi</option>
+                                    <option value="Kunkuri">Kunkuri</option>
+                                    <option value="Baikunthpur">Baikunthpur</option>
+                                    <option value="Sitapur">Sitapur</option>
+                                    <option value="Premnagar">Premnagar</option>
+                                    <option value="BalodaBazar">Baloda Bazar</option>
+                                    <option value="Poundi-Uproda">Poundi-Uproda</option>
+                                    <option value="Pussore">Pussore</option>
+                                    <option value="Khairagarh">Khairagarh</option>
+                                    <option value="Magarlod">Magarlod</option>
+                                    <option value="Bagbahra">Bagbahra</option>
+                                    <option value="Balod">Balod</option>
+                                    <option value="Berla">Berla</option>
+                                    <option value="Fingeshwar">Fingeshwar</option>
+                                    <option value="Pendra">Pendra</option>
+                                    <option value="Sakti">Sakti</option>
+                                    <option value="Sarangarh">Sarangarh</option>
+                                    <option value="Darbha">Darbha</option>
+                                    <option value="Bhopalpatnam">Bhopalpatnam</option>
+                                    <option value="Katekalyan">Katekalyan</option>
+                                    <option value="Durgukondal">Durgukondal</option>
+                                    <option value="Baderajpur">Baderajpur</option>
+                                    <option value="Sukma">Sukma</option>
+                                    <option value="AmbagarhChowki">Ambagarh Chowki</option>
+                                    <option value="Rajpur">Rajpur</option>
+                                    <option value="Patthalgaon">Patthalgaon</option>
+                                    <option value="Bharatpur">Bharatpur</option>
+                                    <option value="Batoli">Batoli</option>
+                                    <option value="Bhaiyanthan">Bhaiyanthan</option>
+                                    <option value="Dondilohara">Dondilohara</option>
+                                    <option value="Nawagarh">Nawagarh</option>
+                                    <option value="Jaijaipur">Jaijaipur</option>
+                                    <option value="Baramkela">Baramkela</option>
+                                    <option value="Lohandiguda">Lohandiguda</option>
+                                    <option value="Usoor">Usoor</option>
+                                    <option value="Kuwakonda">Kuwakonda</option>
+                                    <option value="Narharpur">Narharpur</option>
+                                    <option value="Makdi">Makdi</option>
+                                    <option value="Manpur">Manpur</option>
+                                    <option value="Ramchandrapur">Ramchandrapur</option>
+                                    <option value="Bagicha">Bagicha</option>
+                                    <option value="Khadgawan">Khadgawan</option>
+                                    <option value="Lakhanpur">Lakhanpur</option>
+                                    <option value="Odagi">Odagi</option>
+                                    <option value="Dondi">Dondi</option>
+                                    <option value="Malkharoda">Malkharoda</option>
+                                    <option value="Bastar">Bastar</option>
+                                    <option value="Koylibeda">Koylibeda</option>
+                                    <option value="Pharasgaon">Pharasgaon</option>
+                                    <option value="Shankargarh">Shankargarh</option>
+                                    <option value="Duldula">Duldula</option>
+                                    <option value="Sonhat">Sonhat</option>
+                                    <option value="Mainpat">Mainpat</option>
+                                    <option value="Ramanujnagar">Ramanujnagar</option>
+                                    <option value="Dabhra">Dabhra</option>
+                                    <option value="Tokapal">Tokapal</option>
+                                    <option value="Wadrafnagar">Wadrafnagar</option>
+                                    <option value="Manora">Manora</option>
+                                    <option value="Udaipur">Udaipur</option>
+                                    <option value="Kansabel">Kansabel</option>
+                                    <option value="Parnagrh">Parnagrh</option>
+                                    <option value="Pharsabahar">Pharsabahar</option>
+                                </select>
                             </div>
 
                             <div class="input-field">
                                 <label>City</label>
-                                <input type="text" placeholder="Enter City" required>
+                                <input type="text" name="city" placeholder="Enter City">
                             </div>
 
                             <div class="input-field">
-                                <label>District</label>
-                                <input type="text" placeholder="Enter District" required>
+                                <label>District<span style="color: red;font-size:20px;">*</span></label>
+                                <select name="district" id="district">
+                                    <option value="">Select</option>
+                                    <option value="Balod">Balod</option>
+                                    <option value="BalodaBazar">Baloda Bazar</option>
+                                    <option value="Balrampur">Balrampur</option>
+                                    <option value="Bemetara">Bemetara</option>
+                                    <option value="Bijapur">Bijapur</option>
+                                    <option value="Bilaspur">Bilaspur</option>
+                                    <option value="Dantewada">Dantewada</option>
+                                    <option value="Dhamtari">Dhamtari</option>
+                                    <option value="Durg">Durg</option>
+                                    <option value="Gariyaband">Gariyaband</option>
+                                    <option value="Janjgir-Champa">Janjgir-Champa</option>
+                                    <option value="Jashpur">Jashpur</option>
+                                    <option value="Kanker">Kanker</option>
+                                    <option value="Kawardha">Kawardha</option>
+                                    <option value="Korba">Korba</option>
+                                    <option value="Koriya">Koriya</option>
+                                    <option value="Mahasamund">Mahasamund</option>
+                                    <option value="Mungeli">Mungeli</option>
+                                    <option value="Narayanpur">Narayanpur</option>
+                                    <option value="Raigarh">Raigarh</option>
+                                    <option value="Raipur">Raipur</option>
+                                    <option value="Rajnandgaon">Rajnandgaon</option>
+                                    <option value="Sarguja">Sarguja</option>
+                                    <option value="Sukma">Sukma</option>
+                                    <option value="Surajpur">Surajpur</option>
+                                </select>
                             </div>
 
                             <div class="input-field">
                                 <label>State</label>
-                                <input type="text" placeholder="Enter State" required>
+                                <input type="text" value="Chattishgarh" readonly>
                             </div>
                             <div class="input-field">
-                                <label>Google location of land</label>
+                                <label>Google location of land<span style="color: red;font-size:20px;">*</span></label>
                                 <input type="text" placeholder="Enter Google Location Link" required>
                             </div>
                             <div class="input-field">
-                                <label>Price (in sq ft/acre)</label>
+                                <label>Price<span style="color: red;font-size:20px;">*</span></label>
                                 <input type="text" placeholder="Enter Price" required>
                             </div>
                             <div class="input-field">
-                                <label>Size (in sq ft/acre)</label>
+                                <label>Size<span style="color: red;font-size:20px;">*</span></label>
                                 <input type="text" placeholder="Enter Size" required>
                             </div>
                             <div class="input-field">
-                                <label>Land Size</label>
+                                <label for="unit">Unit<span style="color: red;font-size:20px;">*</span></label>
+                                <select name="unit" required id="unit">
+                                    <option value="">Select</option>
+                                    <option value="sqft">Sq ft</option>
+                                    <option value="acre">Acre</option>
+                                    <option value="dismil">Dismil</option>
+                                </select>
+                            </div>
+                            <div class="input-field">
+                                <label>Land Size<span style="color: red;font-size:20px;">*</span></label>
                                 <input type="text" placeholder="Enter Land Size" required>
                             </div>
                             <div class="input-field">
-                                <label>Front of Land</label>
+                                <label>Front of Land<span style="color: red;font-size:20px;">*</span></label>
                                 <input type="number" placeholder="Enter Front of Land" required>
                             </div>
                             <div class="input-field">
                                 <label>Depth of Land</label>
-                                <input type="number" placeholder="Enter Front of Land" required>
+                                <input type="number" placeholder="Enter Front of Land">
                             </div>
                             <div class="input-field">
-                                <label>Road</label>
+                                <label>Road<span style="color: red;font-size:20px;">*</span></label>
                                 <select required>
                                     <option value="" selected>Select</option>
                                     <option value="on_damar_road">On Damar Road</option>
@@ -652,7 +565,7 @@
                             </div>
                             <div class="input-field">
                                 <label>Nearest to National Highway</label>
-                                <select required>
+                                <select>
                                     <option value="" selected>Select</option>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
@@ -660,11 +573,11 @@
                             </div>
                             <div class="input-field">
                                 <label>National Highway Distanve (in Km)</label>
-                                <input type="text" required placeholder="Enter Distance(in Km)">
+                                <input type="text" placeholder="Enter Distance(in Km)">
                             </div>
                             <div class="input-field">
                                 <label>Land Type</label>
-                                <select required>
+                                <select>
                                     <option value="" selected>Select</option>
                                     <option value="csidc">CSIDC Land</option>
                                     <option value="agriculture">Agriculture</option>
@@ -674,7 +587,7 @@
                                 </select>
                             </div>
                             <div class="input-field">
-                                <label>Nearest to National Highway</label>
+                                <label>Nearest to National Highway<span style="color: red;font-size:20px;">*</span></label>
                                 <select required>
                                     <option value="" selected>Select</option>
                                     <option value="yes">Yes Diverted</option>
@@ -692,32 +605,32 @@
                                 </select>
                             </div>
                             <div class="input-field">
-                                <label>Description (Max 250words)</label>
-                                <textarea name="des" id="des" cols="30" rows="10" placeholder="Enter Description"></textarea>
+                                <label>Description (Max 250words)<span style="color: red;font-size:20px;">*</span></label>
+                                <textarea name="des" id="des" cols="30" rows="10" placeholder="Enter Description" required></textarea>
                             </div>
                             <div class="input-field">
+                                <label>Status<span style="color: red;font-size:20px;">*</span></label>
+                                <input type="text" placeholder="Enter Status" required>
+                            </div>
+                            <!-- <div class="input-field">
                                 <label>Status</label>
                                 <input type="text" placeholder="Enter Status">
-                            </div>
-                            <div class="input-field">
-                                <label>Status</label>
-                                <input type="text" placeholder="Enter Status">
-                            </div>
+                            </div> -->
                             <div class="input-field">
                                 <label>B1</label>
-                                <input type="text">
+                                <input type="file" name="B1" id="B1">
                             </div>
                             <div class="input-field">
                                 <label>Map</label>
-                                <input type="text">
+                                <input type="file" name="map" id="map">
                             </div>
                             <div class="input-field">
                                 <label>Naksha Kharsa</label>
-                                <input type="text">
+                                <input type="file" name="naksha" id="naksha">
                             </div>
                             <div class="input-field">
-                                <label>Photo 1.</label>
-                                <input type="file" name="photo1">
+                                <label>Photo 1<span style="color: red;font-size:20px;">*</span></label>
+                                <input type="file" required name="photo1">
                             </div>
                             <div class="input-field">
                                 <label>Photo 2.</label>
